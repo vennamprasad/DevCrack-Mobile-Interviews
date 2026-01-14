@@ -19,7 +19,9 @@ Deep dives into modern Android development.
 - **Architecture**: Clean, MVI/MVVM, Modularization.
 - **Data**: Room, SQLite, Serialization.
 - **Media**: ExoPlayer Mastery (architecture, DRM, caching).
-- **Tools**: Gradle, R8, Dagger/Hilt.
+- **Performance**: Memory, App Startup, Battery, Profiling.
+- **Tools**: Gradle Mastery, R8, Dagger/Hilt.
+- **System Design**: Offline-first patterns, Image Loading Design.
 
 ### 🍎 [iOS](./iOS)
 A structured 12-chapter guide for iOS mastery.

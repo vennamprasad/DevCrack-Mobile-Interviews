@@ -1,4 +1,19 @@
-## Message Queues
+# 📨 Message Queues
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Decouple services and handle asynchronous tasks efficiently.
+
+![Message Queues](https://img.shields.io/badge/Architecture-Queues-orange?style=for-the-badge&logo=apachekafka&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Async Processing](#1-asynchronous-processing)
+- [2. Push Notifications](#2-push-notifications-via-queue)
+- [3. Retry Mechanism](#3-retry-mechanism)
+- [4. Event-Driven Patterns](#4-event-driven-architecture)
+
+---
 
 ### Q8. What are message queues and how do they work with mobile apps?
 
@@ -214,4 +229,3 @@ suspend fun uploadVideo(video: Video): Result<Video> {
 ```
 
 ---
-

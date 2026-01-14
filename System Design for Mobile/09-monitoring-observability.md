@@ -1,4 +1,19 @@
-## Monitoring & Observability
+# 📊 Monitoring & Observability
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Track health, performance, and user behavior.
+
+![Monitoring](https://img.shields.io/badge/DevOps-Monitoring-orange?style=for-the-badge&logo=prometheus&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Three Pillars (Metrics, Logs, Traces)](#three-pillars-of-observability)
+- [2. Metrics Collection](#1-metrics-collection)
+- [3. Crash Reporting](#2-crash-reporting)
+- [4. KPI Targets](#monitoring-dashboard-metrics)
+
+---
 
 ### Q10. How do you monitor and observe system performance?
 
@@ -87,4 +102,3 @@ class CrashReportingInitializer @Inject constructor(
 | **Memory Usage** | < 70% | > 85% |
 
 ---
-

@@ -1,5 +1,18 @@
-# Part 2: Mobile-Specific Design
-## Mobile Architecture Patterns
+# 🏗️ Mobile Architecture Patterns
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Structure your app for scalability and testability.
+
+![Architecture](https://img.shields.io/badge/Pattern-Architecture-purple?style=for-the-badge&logo=kotlin&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Common Patterns (MVVM, MVI, Clean)](#popular-patterns)
+- [2. MVVM + Clean Implementation](#mvvm--clean-architecture-recommended)
+- [3. Offline-First Design](#offline-first-design)
+
+---
 
 ### Q11. What are the common mobile architecture patterns?
 
@@ -144,4 +157,3 @@ class OfflineFirstRepository @Inject constructor(
 ```
 
 ---
-

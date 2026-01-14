@@ -1,4 +1,18 @@
-## CDN & Static Content
+# 🌎 CDN & Static Content
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Improve performance by serving content from the edge.
+
+![CDN](https://img.shields.io/badge/Performance-CDN-blueviolet?style=for-the-badge&logo=cloudflare&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Architecture & Benefits](#cdn-architecture)
+- [2. Image Delivery Strategy](#1-image-delivery-via-cdn)
+- [3. Progressive Loading](#2-progressive-image-loading)
+
+---
 
 ### Q9. What is a CDN and how does it improve mobile app performance?
 
@@ -124,4 +138,3 @@ fun ProgressiveImage(imageUrl: String) {
 ```
 
 ---
-

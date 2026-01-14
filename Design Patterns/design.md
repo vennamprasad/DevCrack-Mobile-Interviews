@@ -1,20 +1,19 @@
-# Design Patterns Interview Questions for Android Development
+# 🎨 Design Patterns for Mobile
+> **Targeted for Senior Android Developers**
+> **Note:** Creational, Structural, Behavioral patterns with Kotlin examples.
 
-A comprehensive guide covering design patterns commonly used in Android development with practical examples and interview questions.
-
----
-
-## **Table of Contents**
-1. [Creational Patterns](#creational-patterns)
-2. [Structural Patterns](#structural-patterns)
-3. [Behavioral Patterns](#behavioral-patterns)
-4. [Architectural Patterns](#architectural-patterns)
-5. [Android-Specific Patterns](#android-specific-patterns)
-6. [Best Practices](#best-practices)
+![Design Patterns](https://img.shields.io/badge/Architecture-Design_Patterns-orange?style=for-the-badge&logo=kotlin&logoColor=white)
 
 ---
 
-## **What are Design Patterns?**
+## 📖 Table of Contents
+- [1. Creational Patterns](#creational-patterns)
+- [2. Structural Patterns](#structural-patterns)
+- [3. Behavioral Patterns](#behavioral-patterns)
+- [4. Architectural Patterns](#architectural-patterns)
+- [5. Android Specifics](#android-specific-patterns)
+
+---
 
 Design patterns are reusable solutions to commonly occurring problems in software design. They represent best practices evolved over time by experienced developers.
 

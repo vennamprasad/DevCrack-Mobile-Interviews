@@ -1,266 +1,122 @@
-# Koin Interview Questions (Basic & Advanced)
+# ⚡ Koin Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Koin is a "Service Locator" DSL for Kotlin, though often referred to as DI. It is very popular in **KMP** (Kotlin Multiplatform).
 
-## Basic Questions
-
-### 1. What is Koin?
-**Answer:**  
-Koin is a lightweight dependency injection framework for Kotlin developers, primarily used in Android and Kotlin applications.
+![Koin](https://img.shields.io/badge/Koin-Framework-orange?style=for-the-badge&logo=kotlin&logoColor=white)
+![KMP](https://img.shields.io/badge/Kotlin-Multiplatform-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 
 ---
 
-### 2. How do you define a module in Koin?
-**Answer:**  
-A module is defined using the `module { }` DSL block.
+## 📖 Table of Contents
+- [1. Koin Basics & DSL](#-1-what-is-koin)
+- [2. Definitions (Single vs Factory)](#-3-what-is-the-difference-between-single-and-factory-in-koin)
+- [3. Android Integration](#-4-how-do-you-start-koin-in-an-android-application)
+- [4. Advanced Scopes](#-11-how-do-you-scope-dependencies-in-koin)
+- [5. Testing & Verification](#-10-how-do-you-test-code-using-koin)
+- [6. Koin vs Hilt](#-koin-vs-hilt)
+
+---
+
+## ✅ Overview
+
+**Koin** is a lightweight, pragmatic, and Kotlin-first dependency injection framework. It uses a DSL (Domain Specific Language) rather than annotations/code-generation (like Dagger).
+
+**Key Features:**
+*   **No Code Generation:** Faster build times (uses reflection/inline functions).
+*   **Kotlin DSL:** Clean and concise configuration.
+*   **Multiplatform:** Native support for KMP (Android, iOS, Desktop).
+
+---
+
+## 🧩 Interview Questions (Q&A)
+
+### 1. What are the key Koin DSL keywords?
+*   **`module { }`**: Creates a Koin module (container for definitions).
+*   **`single { }`**: Creates a Singleton (created once, same instance returned).
+*   **`factory { }`**: Creates a new instance every time it is injected.
+*   **`viewModel { }`**: Special definition for Android ViewModels (handles lifecycle).
+*   **`get()`**: Resolves a dependency inside a definition.
+
+### 2. How do you set up Koin in Android?
+In the `Application` class:
+
 ```kotlin
-val appModule = module {
-    single { Repository() }
-    factory { ViewModel(get()) }
+startKoin {
+    androidContext(this@MyApp)
+    androidLogger()
+    modules(appModule, networkModule)
 }
 ```
 
----
+### 3. How do you inject in an Activity/Fragment?
+Using Kotlin delegates:
 
-### 3. What is the difference between `single` and `factory` in Koin?
-**Answer:**  
-- `single`: Provides a singleton instance.
-- `factory`: Provides a new instance every time.
-
----
-
-### 4. How do you start Koin in an Android application?
-**Answer:**  
-Initialize Koin in the `Application` class:
-```kotlin
-class MyApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        startKoin {
-            androidContext(this@MyApp)
-            modules(appModule)
-        }
-    }
-}
-```
-
----
-
-### 5. How do you inject dependencies in an Android Activity using Koin?
-**Answer:**  
-Use `by inject()` or `by viewModel()`:
 ```kotlin
 class MainActivity : AppCompatActivity() {
-    val repo: Repository by inject()
-    val viewModel: MainViewModel by viewModel()
+    // Lazy injection
+    private val viewModel: MainViewModel by viewModel()
+    private val repository: Repository by inject()
 }
 ```
 
----
+### 4. What is the difference between `single` vs `factory`?
+*   **`single`**: The instance is cached. Subsequent calls return the same object. (Like `@Singleton`).
+*   **`factory`**: No cache. A new object is created for every injection request.
 
-### 6. What is `get()` in Koin?
-**Answer:**  
-`get()` retrieves an instance of a dependency from the Koin container.
+### 5. How to pass runtime parameters?
+Use `parametersOf`.
 
----
-
-### 7. How do you pass parameters to a dependency in Koin?
-**Answer:**  
-Use `parametersOf()`:
 ```kotlin
-factory { (id: Int) -> UserRepository(id) }
-val repo: UserRepository by inject { parametersOf(42) }
+// Module
+factory { (id: String) -> UserPresenter(id) }
+
+// Usage
+val presenter: UserPresenter by inject { parametersOf("user_123") }
 ```
 
----
+### 6. Scopes in Koin
+Scopes allow dependencies to live for a specific duration (e.g., typically tied to an Activity or a custom flow).
 
-### 8. Can Koin be used outside Android?
-**Answer:**  
-Yes, Koin can be used in any Kotlin project, including JVM, JS, and Native.
-
----
-
-### 9. How do you declare a ViewModel in Koin?
-**Answer:**  
-Use the `viewModel` DSL:
 ```kotlin
-val appModule = module {
-    viewModel { MainViewModel(get()) }
-}
-```
-
----
-
-### 10. How do you test code using Koin?
-**Answer:**  
-Use `startKoin` with test modules and `declareMock` for mocking dependencies.
-
----
-
-## Advanced Questions
-
-### 11. How do you scope dependencies in Koin?
-**Answer:**  
-Use `scope` DSL for scoping:
-```kotlin
-val appModule = module {
+val myScope = module {
     scope<MyActivity> {
-        scoped { ScopedRepository() }
+        scoped { SessionManager() } // Lives as long as MyActivity scope exists
+    }
+}
+```
+
+### 7. How does Koin handle Lazy Injection?
+By default, Koin injections via `by inject()` are **lazy**. The dependency is not resolved (created) until the property is first accessed.
+
+### 8. Koin vs Hilt (Pros/Cons)
+*   **Koin:**
+    *   ➕ No code gen (Fast build).
+    *   ➕ Easy KMP support.
+    *   ➕ Simple DSL.
+    *   ➖ Runtime crashes if dependency missing (though `verify()` checks help).
+    *   ➖ Slightly slower runtime performance (reflection) compared to Dagger.
+*   **Hilt:**
+    *   ➕ Compile-time safety (Build fails if dependency missing).
+    *   ➕ Standard for Android.
+    *   ➖ Slow build times (KAPT/KSP).
+    *   ➖ Steep learning curve (Components/Modules annotations).
+
+### 9. Testing with Koin
+Koin provides `koin-test` library.
+
+```kotlin
+class MyTest : KoinTest {
+    @Test
+    fun testRepo() {
+        startKoin { modules(testModule) }
+        
+        val repo: Repository by inject()
+        assertNotNull(repo)
+        
+        stopKoin()
     }
 }
 ```
 
 ---
-
-### 12. What is the difference between `scoped` and `single`?
-**Answer:**  
-- `scoped`: Instance lives as long as the scope.
-- `single`: Singleton for the whole Koin container.
-
----
-
-### 13. How do you inject dependencies in a Fragment?
-**Answer:**  
-Same as Activity:
-```kotlin
-class MyFragment : Fragment() {
-    val repo: Repository by inject()
-}
-```
-
----
-
-### 14. How do you override a dependency in Koin?
-**Answer:**  
-Use `override = true`:
-```kotlin
-single(override = true) { MockRepository() }
-```
-
----
-
-### 15. How do you load multiple modules in Koin?
-**Answer:**  
-Pass a list to `modules()`:
-```kotlin
-startKoin {
-    modules(listOf(appModule, networkModule, viewModelModule))
-}
-```
-
----
-
-### 16. How do you handle dependency cycles in Koin?
-**Answer:**  
-Koin detects cycles and throws an exception. Refactor your dependencies to avoid cycles.
-
----
-
-### 17. How do you inject dependencies in a custom class (not Activity/Fragment)?
-**Answer:**  
-Use `GlobalContext.get().get<Dependency>()` or inject via constructor.
-
----
-
-### 18. How do you stop Koin?
-**Answer:**  
-Call `stopKoin()`.
-
----
-
-### 19. How do you use Koin with coroutines?
-**Answer:**  
-Inject coroutine scopes or dispatchers as dependencies:
-```kotlin
-single { Dispatchers.IO }
-```
-
----
-
-### 20. How do you use Koin with Retrofit?
-**Answer:**  
-Declare Retrofit as a singleton:
-```kotlin
-single {
-    Retrofit.Builder()
-        .baseUrl("https://api.example.com")
-        .build()
-}
-```
-
----
-
-### 21. How do you use Koin with Room database?
-**Answer:**  
-Declare Room database and DAO as singletons:
-```kotlin
-single {
-    Room.databaseBuilder(get(), AppDatabase::class.java, "db").build()
-}
-single { get<AppDatabase>().userDao() }
-```
-
----
-
-### 22. How do you inject dependencies in a Service?
-**Answer:**  
-Use `by inject()` in the Service class.
-
----
-
-### 23. How do you declare a dependency with constructor parameters?
-**Answer:**  
-Use factory with parameters:
-```kotlin
-factory { (param: String) -> MyClass(param) }
-```
-
----
-
-### 24. How do you use Koin with multi-module projects?
-**Answer:**  
-Define modules in each submodule and load them in the main application.
-
----
-
-### 25. How do you mock dependencies for unit testing?
-**Answer:**  
-Use `declareMock` or override modules with test implementations.
-
----
-
-### 26. How do you check if a dependency is loaded in Koin?
-**Answer:**  
-Use `isLoaded()` on the module or check with `getOrNull()`.
-
----
-
-### 27. How do you use Koin with Kotlin Multiplatform?
-**Answer:**  
-Use Koin's multiplatform support and share modules across platforms.
-
----
-
-### 28. How do you inject a dependency lazily?
-**Answer:**  
-Use `by inject()` for lazy injection.
-
----
-
-### 29. How do you handle dependency injection in background workers?
-**Answer:**  
-Inject dependencies in `Worker` using `by inject()`.
-
----
-
-### 30. How do you debug Koin dependency graph?
-**Answer:**  
-Enable Koin logging:
-```kotlin
-startKoin {
-    printLogger()
-    modules(appModule)
-}
-```
-
----
-
-*Feel free to expand or customize these questions for your interview needs!*

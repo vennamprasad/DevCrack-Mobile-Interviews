@@ -1,4 +1,10 @@
-# MVI Architecture
+# 🔄 MVI Architecture Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+
+![MVI](https://img.shields.io/badge/Architecture-MVI-blue?style=for-the-badge)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-4285F4?style=for-the-badge&logo=android&logoColor=white)
+
+---
 
 ## ✅ What is MVI?
 
@@ -22,12 +28,12 @@ View renders the ViewState
 
 ## 🧩 Components of MVI
 
-| Component      | Responsibility                                                                 |
-|----------------|----------------------------------------------------------------------------------|
-| **Intent**      | User actions (e.g., button click, text input).                                 |
-| **Model**       | Processes intents into new **states** via business logic and data layer.       |
-| **ViewState**   | Immutable state representing the entire UI.                                    |
-| **View**        | Observes state and renders the UI.                                             |
+| Component     | Responsibility                                                            |
+|---------------|---------------------------------------------------------------------------|
+| **Intent**    | User actions (e.g., button click, text input).                            |
+| **Model**     | Processes intents into new **states** via business logic and data layer.  |
+| **ViewState** | Immutable state representing the entire UI.                               |
+| **View**      | Observes state and renders the UI.                                        |
 
 ---
 

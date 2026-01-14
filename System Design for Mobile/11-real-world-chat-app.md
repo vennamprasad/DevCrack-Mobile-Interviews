@@ -1,6 +1,19 @@
-# Part 3: Real-World Examples
+# 💬 Design a Chat Application
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Real-time messaging with offline support and media sharing.
 
-## Design a Chat Application
+![Chat App](https://img.shields.io/badge/Real_World-Chat_App-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Architecture](#high-level-architecture)
+- [2. WebSocket Integration](#2-websocket-manager)
+- [3. Offline-First Repository](#3-message-repository-offline-first)
+- [4. Media Upload Strategy](#upload-media-images-videos)
+
+---
 
 ### Q16. How would you design a mobile chat application like WhatsApp or Telegram?
 
@@ -310,7 +323,7 @@ fun ChatScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp)
-        ) {
+            ) {
             TextField(
                 value = messageText,
                 onValueChange = { messageText = it },
@@ -425,4 +438,3 @@ fun MessageItem(message: Message) {
 5. **Sync**: Background sync for failed messages
 
 ---
-

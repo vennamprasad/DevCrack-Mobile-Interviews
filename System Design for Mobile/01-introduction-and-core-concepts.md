@@ -1,10 +1,13 @@
-# System Design for Mobile Engineers
+# 🏗️ System Design for Mobile Engineers
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** A comprehensive guide to building scalable mobile systems.
 
-A comprehensive guide to system design for mid to senior-level Android engineers, covering fundamentals, architecture patterns, and real-world examples.
+![System Design](https://img.shields.io/badge/Skill-System_Design-blue?style=for-the-badge&logo=android&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
 
 ---
 
-## **Table of Contents**
+## 📖 Table of Contents
 
 ### Part 1: Fundamentals
 1. [Introduction to System Design](#introduction-to-system-design)
@@ -71,7 +74,7 @@ class UserRepository @Inject constructor(
     private val database: UserDao,
     private val cacheManager: CacheManager
 ) {
-    // Understanding: API � Load Balancer � Server � Database
+    // Understanding: API → Load Balancer → Server → Database
     suspend fun getUser(userId: String): Result<User> {
         // 1. Check local cache first (fastest)
         cacheManager.get(userId)?.let { return Result.Success(it) }
@@ -99,9 +102,9 @@ class UserRepository @Inject constructor(
 ```kotlin
 // Understanding: How data flows through the system
 /*
-User Action � ViewModel � Repository � API/Database
-     �
-  UI Update � StateFlow � Result � Response
+User Action → ViewModel → Repository → API/Database
+     ↓
+  UI Update ← StateFlow ← Result ← Response
 */
 
 @HiltViewModel
@@ -116,7 +119,7 @@ class FeedViewModel @Inject constructor(
         viewModelScope.launch {
             _feedState.value = FeedState.Loading
 
-            // Repository handles: Cache � Database � API
+            // Repository handles: Cache → Database → API
             when (val result = feedRepository.getFeed(refresh)) {
                 is Result.Success -> _feedState.value = FeedState.Success(result.data)
                 is Result.Error -> _feedState.value = FeedState.Error(result.error)
@@ -196,11 +199,11 @@ Horizontal Scaling (Scale Out)
 ```kotlin
 // Design for horizontal scaling: Stateless API calls
 interface ApiService {
-    //  Good: Stateless - can hit any server
+    //   Good: Stateless - can hit any server
     @GET("users/{id}")
     suspend fun getUser(@Path("id") id: String): User
 
-    //  Good: Each request is independent
+    //   Good: Each request is independent
     @POST("posts")
     suspend fun createPost(
         @Header("Authorization") token: String,  // Auth in request
@@ -212,7 +215,7 @@ interface ApiService {
     // suspend fun getCart(): Cart
 }
 
-//  Better: Client-side state management
+//   Better: Client-side state management
 class ShoppingCartManager @Inject constructor(
     private val database: CartDao
 ) {
@@ -472,4 +475,3 @@ class SecureStorage @Inject constructor(
 ```
 
 ---
-

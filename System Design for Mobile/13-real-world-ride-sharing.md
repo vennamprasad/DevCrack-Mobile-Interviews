@@ -1,4 +1,18 @@
-## Design a Ride-Sharing App
+# 🚗 Design a Ride-Sharing App
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Real-time driver tracking, matching, and payment processing.
+
+![Ride Sharing](https://img.shields.io/badge/Real_World-Ride_Sharing-black?style=for-the-badge&logo=uber&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Architecture](#architecture)
+- [2. Request Ride Flow](#2-ride-repository)
+- [3. Real-time Tracking](#4-ride-request-ui)
+
+---
 
 ### Q18. How would you design a ride-sharing app like Uber?
 
@@ -190,4 +204,3 @@ fun RideRequestItem(request: RideRequest) {
 5. **Payment Integration**: Secure payment processing
 
 ---
-

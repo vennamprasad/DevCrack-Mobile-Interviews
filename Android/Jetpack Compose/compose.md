@@ -1,49 +1,89 @@
-# Jetpack Compose Interview Questions & Answers
+# 🚀 Jetpack Compose Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
 
-A comprehensive guide covering basic to advanced Jetpack Compose concepts with clear explanations and code examples.
+![Compose](https://img.shields.io/badge/Jetpack-Compose-4285F4?style=for-the-badge&logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Declarative UI](https://img.shields.io/badge/UI-Declarative-green?style=for-the-badge)
 
 ---
 
-## **Basics**
+## 📖 Table of Contents
+- [1. Basics & Benefits](#-basics)
+- [2. State Management](#-state-management)
+- [3. Modifiers & Layouts](#-layout--ui)
+- [4. Side Effects](#-side-effects)
+- [5. Navigation](#-navigation)
+- [6. Theming & Design System](#-theming--material-design)
+- [7. Animations](#-animations)
+- [8. Interoperability & Migration](#-interoperability--migration)
+- [9. Testing](#-testing)
+- [10. Performance Optimization](#-performance-optimization)
 
-### 1. What is Jetpack Compose?
+---
 
-**Answer:**
-Jetpack Compose is Android's modern declarative UI toolkit that simplifies and accelerates UI development. Instead of imperative XML layouts, you describe your UI using Kotlin functions.
+## ✅ Overview
 
-**Key Benefits:**
-- Less boilerplate code
-- Built-in Material Design components
-- Reactive programming model
-- Better performance through smart recomposition
-- Easy integration with existing Views
+**Jetpack Compose** is Android's modern toolkit for building native UI. It simplifies and accelerates UI development on Android with less code, powerful tools, and intuitive Kotlin APIs.
+
+### **Why Compose?**
+*   **Declarative:** You describe your UI state, and Compose takes care of updating it.
+*   **Compatible:** It interoperates with your existing View-based app.
+*   **Kotlin-First:** Built with the benefits of Kotlin (Coroutines, Type Safety).
+
+### **Sample Component**
 
 ```kotlin
 @Composable
 fun WelcomeScreen() {
-    Text(text = "Hello Compose!")
+    var show by remember { mutableStateOf(true) }
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        if (show) {
+            Text(text = "Hello Compose!", style = MaterialTheme.typography.h5)
+        }
+        Button(onClick = { show = !show }) {
+            Text("Toggle")
+        }
+    }
 }
 ```
+
+---
+
+## 🧩 Interview Questions (Q&A)
+
+### 1. What is Jetpack Compose?
+
+**Answer:**
+Jetpack Compose is Android's modern declarative UI toolkit that simplifies and accelerates UI development. Instead of imperative XML layouts (finding views, setting properties), you describe your UI using Kotlin functions that transform data into UI hierarchy.
+
+**Key Benefits:**
+- **Less Code:** No XML, no boilerplates (Adapters, ViewHolders).
+- **Intuitive:** Single language (Kotlin) for Logic and UI.
+- **Accelerated Development:** Live Preview and Interactive Mode in Android Studio.
+- **Powerful:** Built-in support for Material Design, Dark Theme, and Animations.
 
 ---
 
 ### 2. What is a @Composable function?
 
 **Answer:**
-A function annotated with `@Composable` that describes a piece of UI. These functions can:
-- Emit UI elements
-- Call other composable functions
-- Be managed by the Compose runtime for recomposition
+A function annotated with `@Composable` that describes a piece of UI. It tells the Compose compiler that this function is intended to convert data into a UI tree.
+
+*   **Idempotent:** Should produce the same result for the same inputs.
+*   **Side-effect free:** Should not modify global state or perform I/O directly (use Side Effect APIs instead).
+*   **Restartable:** Can be re-executed by the runtime when state changes.
 
 ```kotlin
 @Composable
 fun Greeting(name: String) {
     Text(
         text = "Hello, $name!",
-        style = MaterialTheme.typography.h5
+        style = MaterialTheme.typography.body1
     )
 }
 ```
+
+---
 
 **Important Rules:**
 - Must be called from another composable or composition context

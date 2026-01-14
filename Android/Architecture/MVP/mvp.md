@@ -1,4 +1,10 @@
-# MVP Architecture
+# 🏛️ MVP Architecture Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+
+![MVP](https://img.shields.io/badge/Architecture-MVP-blue?style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+
+---
 
 ## ✅ What is MVP?
 
@@ -24,11 +30,11 @@ Presenter updates the View
 
 ## 🧩 Components of MVP
 
-| Component   | Responsibility                                                                 |
-|-------------|----------------------------------------------------------------------------------|
-| **Model**    | Handles business logic, data operations, API calls, and database interactions. |
-| **View**     | Interface representing the UI (Activity/Fragment or custom View).               |
-| **Presenter**| Acts as a middleman. Fetches data from the Model and updates the View.         |
+| Component     | Responsibility                                                                  |
+|---------------|---------------------------------------------------------------------------------|
+| **Model**     | Handles business logic, data operations, API calls, and database interactions.  |
+| **View**      | Interface representing the UI (Activity/Fragment or custom View).               |
+| **Presenter** | Acts as a middleman. Fetches data from the Model and updates the View.          |
 
 ---
 

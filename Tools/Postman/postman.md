@@ -1,73 +1,66 @@
-### Q: What is Postman and why is it used?
+# 🚀 Postman API Testing
+> **Targeted for Mobile Developers**
+> **Note:** Collections, Environments, and Automated Tests.
 
-**A:**  
-Postman is a popular API development and testing tool. It allows developers to send HTTP requests to APIs, inspect responses, automate testing, and organize requests into collections for collaboration and documentation.
-
----
-
-### Q: How do you test an API using Postman?
-
-**A:**  
-To test an API in Postman, you create a new request by specifying the HTTP method and endpoint URL. You can add headers, parameters, and body data as needed. Click "Send" to execute the request and review the response, including status code, body, and headers.
+![Postman](https://img.shields.io/badge/Tool-Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ---
 
-### Q: What are Postman Collections and why are they useful?
-
-**A:**  
-Postman Collections are groups of saved API requests. They help organize requests for different APIs or workflows, enable sharing with teammates, and allow for automation and documentation of API testing.
-
----
-
-### Q: How does Postman support automated testing?
-
-**A:**  
-Postman allows you to write scripts (in JavaScript) in the "Tests" tab to automatically validate API responses. You can use the Collection Runner or Newman (Postman’s CLI) to run tests automatically, which is useful for regression testing and CI/CD integration.
+## 📖 Table of Contents
+- [1. Basics](#basics)
+- [2. Collections & Environments](#collections--environments)
+- [3. Scripting & Tests](#scripting--tests)
+- [4. Mock Servers](#mock-servers)
 
 ---
 
-### Q: What is an environment in Postman?
+### Q1. What are Environments?
 
-**A:**  
-An environment in Postman is a set of key-value pairs used as variables. Environments let you switch between different setups (like development, staging, production) by changing variables such as base URLs, tokens, or credentials.
+**Answer:**
+Environments allow you to store key-value pairs (variables) to switch contexts easily.
+**Example:**
+- Variable: `{{base_url}}`
+- **Dev Env**: `localhost:8080`
+- **Prod Env**: `api.example.com`
+Allows using the *same* request collection against different backends without editing URLs manually.
 
----
+### Q2. How to chain requests (Auth -> Data)?
 
-### Q: How do you use variables in Postman requests?
+**Answer:**
+Use the **Tests** tab to capture data from Response A and set it as an environment variable for Request B.
+**Request A (Login):**
+```javascript
+// Tests Tab
+var jsonData = pm.response.json();
+pm.environment.set("jwt_token", jsonData.token);
+```
+**Request B (Get Profile):**
+Authorization: Bearer `{{jwt_token}}`
 
-**A:**  
-Variables are referenced using double curly braces, like `{{variable_name}}`. You define them in environments, collections, or globally. Postman replaces the variable with its value when sending the request.
+### Q3. Automated Testing Validation?
 
----
+**Answer:**
+In the **Tests** tab:
+```javascript
+// Check Status Code
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
 
-### Q: What is Newman and how does it relate to Postman?
+// Check Response Time
+pm.test("Response time is less than 500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
 
-**A:**  
-Newman is a command-line tool that lets you run Postman Collections from the terminal. It is often used to automate API testing in CI/CD pipelines.
+// Check JSON Body
+pm.test("User is valid", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.name).to.eql("John Doe");
+});
+```
 
----
+### Q4. What is Newman?
 
-### Q: How can Postman be integrated with CI/CD pipelines?
-
-**A:**  
-You can export your Postman Collections and run them using Newman in CI/CD environments (like Jenkins, GitHub Actions, Bitrise, etc.), enabling automated API testing as part of your build and deployment process.
-
----
-
-### Q: What are some alternatives to Postman?
-
-**A:**  
-- Insomnia  
-- Paw (macOS)  
-- curl (command-line)  
-- HTTPie  
-- RESTer (browser extension)
-
----
-
-### Q: How do you handle authentication in Postman?
-
-**A:**
-Postman supports various authentication methods, including Basic Auth, OAuth 1.0/2.0, API keys, and Bearer tokens. You can configure authentication in the "Authorization" tab of a request or set it globally for a collection or environment.
-
----
+**Answer:**
+**Newman** is the CLI runner for Postman. It allows running Postman Collections in a CI/CD pipeline (e.g., Jenkins, GitHub Actions) to automatically verify APIs before building the app.
+`newman run MyCollection.json -e MyEnvironment.json`

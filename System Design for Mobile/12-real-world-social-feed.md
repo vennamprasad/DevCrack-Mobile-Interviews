@@ -1,4 +1,19 @@
-## Design a Social Media Feed
+# 📱 Design a Social Media Feed
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Infinite scrolling feed with caching and optimistic updates.
+
+![Social Feed](https://img.shields.io/badge/Real_World-Social_Feed-E4405F?style=for-the-badge&logo=instagram&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Data Model](#1-post-entity)
+- [2. Paging Implementation](#2-paging-source)
+- [3. Repository Pattern](#3-feed-repository)
+- [4. Feed UI](#5-feed-ui)
+
+---
 
 ### Q17. How would you design a social media feed like Instagram or Twitter?
 
@@ -327,4 +342,3 @@ fun PostItem(
 5. **Image Loading**: Coil with caching
 
 ---
-

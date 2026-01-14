@@ -1,224 +1,125 @@
-# SQLite Interview Questions (Basic & Advanced)
+# 🗃️ SQLite Interview Questions
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Raw SQLite is rarely used in modern Android; Room is preferred. However, understanding SQL internals is critical.
 
-## Basic Questions
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Database](https://img.shields.io/badge/Database-SQL-blue?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Basics & Key Concepts](#-basic-questions)
+- [2. Advanced Operations](#-advanced-questions)
+- [3. Transactions & Concurrency](#-12-what-is-a-transaction-in-sqlite)
+- [4. Performance & Optimization](#-17-how-do-you-optimize-performance-in-sqlite)
+
+---
+
+## 🟢 Basic Questions
 
 ### 1. What is SQLite?
-**Answer:**  
-SQLite is a lightweight, serverless, self-contained SQL database engine. It is embedded into applications and does not require a separate server process.
+SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. It makes it easier to store data in a structured manner.
+
+### 2. What are the storage classes in SQLite?
+SQLite uses a dynamic typing system with five storage classes:
+- **NULL**: The value is a NULL value.
+- **INTEGER**: A signed integer.
+- **REAL**: A floating point value.
+- **TEXT**: A text string.
+- **BLOB**: A blob of data, stored exactly as it was input.
+
+### 3. How do you access a database in Android using SQLite?
+Android provides the `SQLiteOpenHelper` class to manage database creation and version management. You extend this class and override `onCreate()` and `onUpgrade()`.
+
+### 4. What is the role of SQLiteOpenHelper?
+`SQLiteOpenHelper` is a helper class to manage database creation and version management. It provides `getReadableDatabase()` and `getWritableDatabase()` methods to access the database.
+
+### 5. How do you insert data into an SQLite database?
+Use the `insert()` method of the `SQLiteDatabase` class, passing the table name and a `ContentValues` object containing the data.
+
+### 6. How do you query data from an SQLite database?
+Use the `query()` or `rawQuery()` methods of the `SQLiteDatabase` class. `query()` provides a structured interface, while `rawQuery()` accepts a raw SQL query string.
+
+### 7. What is a Cursor in Android SQLite?
+A `Cursor` is an interface that provides random read-write access to the result set returned by a database query. It points to a single row of the result set at a time.
+
+### 8. How do you update data in an SQLite database?
+Use the `update()` method of the `SQLiteDatabase` class, specifying the table name, `ContentValues` with new data, and a `WHERE` clause to identify the rows to update.
+
+### 9. How do you delete data from an SQLite database?
+Use the `delete()` method of the `SQLiteDatabase` class, specifying the table and a `WHERE` clause to identify the rows to delete.
+
+### 10. What is a Content Provider in relation to SQLite?
+A Content Provider abstracts the underlying data storage (often SQLite) and provides a mechanism to share data between applications securely.
 
 ---
 
-### 2. How do you create a table in SQLite?
-**Answer:**  
-```sql
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    email TEXT
-);
-```
+## 🟠 Advanced Questions
 
----
-
-### 3. How do you insert data into a table?
-**Answer:**  
-```sql
-INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
-```
-
----
-
-### 4. How do you query data from a table?
-**Answer:**  
-```sql
-SELECT * FROM users;
-```
-
----
-
-### 5. What data types does SQLite support?
-**Answer:**  
-SQLite supports: `NULL`, `INTEGER`, `REAL`, `TEXT`, and `BLOB`.
-
----
-
-### 6. How do you update data in SQLite?
-**Answer:**  
-```sql
-UPDATE users SET email = 'new@example.com' WHERE id = 1;
-```
-
----
-
-### 7. How do you delete data from a table?
-**Answer:**  
-```sql
-DELETE FROM users WHERE id = 1;
-```
-
----
-
-### 8. How do you add a new column to an existing table?
-**Answer:**  
-```sql
-ALTER TABLE users ADD COLUMN age INTEGER;
-```
-
----
-
-### 9. What is a primary key in SQLite?
-**Answer:**  
-A primary key uniquely identifies each row in a table. In SQLite, it is often an `INTEGER PRIMARY KEY`.
-
----
-
-### 10. How do you prevent SQL injection in SQLite?
-**Answer:**  
-Use parameterized queries or prepared statements.
-
----
-
-## Advanced Questions
-
-### 11. How do you create an index in SQLite?
-**Answer:**  
-```sql
-CREATE INDEX idx_users_email ON users(email);
-```
-
----
+### 11. How do you handle database upgrades in SQLiteOpenHelper?
+Override `onUpgrade()` method. Typically, you alter tables or drop and recreate them, then migrate data if necessary.
 
 ### 12. What is a transaction in SQLite?
-**Answer:**  
-A transaction is a sequence of operations performed as a single logical unit of work.  
-```sql
-BEGIN TRANSACTION;
--- SQL statements
-COMMIT;
-```
+A transaction is a sequence of operations performed as a single logical unit of work. In Android, use `beginTransaction()`, `setTransactionSuccessful()`, and `endTransaction()`.
 
----
+### 13. Why should you use transactions in SQLite?
+Transactions ensure data integrity (ACID properties) and can significantly improve performance when performing multiple insert or update operations.
 
-### 13. How do you perform a JOIN in SQLite?
-**Answer:**  
-```sql
-SELECT users.name, orders.amount
-FROM users
-JOIN orders ON users.id = orders.user_id;
-```
+### 14. What is database normalization?
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity. It involves dividing large tables into smaller, related tables.
 
----
+### 15. How do you prevent SQL injection in Android SQLite?
+Use parameterized queries (e.g., `?` placeholders) with strict argument binding via `selectionArgs` in `query()` or `execSQL()` methods.
 
-### 14. How do you use triggers in SQLite?
-**Answer:**  
-```sql
-CREATE TRIGGER update_timestamp
-AFTER UPDATE ON users
-BEGIN
-    UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
-END;
-```
-
----
-
-### 15. How do you handle foreign keys in SQLite?
-**Answer:**  
-Enable foreign keys:  
-```sql
-PRAGMA foreign_keys = ON;
-```
-Define foreign key:  
-```sql
-CREATE TABLE orders (
-    id INTEGER PRIMARY KEY,
-    user_id INTEGER,
-    FOREIGN KEY(user_id) REFERENCES users(id)
-);
-```
-
----
-
-### 16. How do you backup an SQLite database?
-**Answer:**  
-Copy the database file (`.db` or `.sqlite`) to a backup location.
-
----
+### 16. What is the difference between `execSQL()` and `rawQuery()`?
+- `execSQL()`: Used for SQL statements that do not return data (e.g., INSERT, UPDATE, DELETE, CREATE TABLE).
+- `rawQuery()`: Used for SQL statements that return data (e.g., SELECT).
 
 ### 17. How do you optimize performance in SQLite?
-**Answer:**  
-- Use indexes
-- Avoid unnecessary columns
-- Use transactions for batch inserts
+- Use transactions for batch operations.
+- Index columns used in WHERE clauses and joins.
+- Query only necessary columns (avoid `SELECT *`).
+- Use `VACUUM` to reclaim unused space.
 
----
+### 18. What is Write-Ahead Logging (WAL) in SQLite?
+WAL is a journaling mode that allows simultaneous readers and writers, improving concurrency and performance compared to the default rollback journal.
 
-### 18. How do you check the SQLite version?
-**Answer:**  
-```sql
-SELECT sqlite_version();
-```
-
----
-
-### 19. How do you store binary data in SQLite?
-**Answer:**  
-Use the `BLOB` data type.
-
----
+### 19. How do you enable Foreign Key constraints in SQLite?
+Foreign Key constraints are disabled by default. Enable them by executing `PRAGMA foreign_keys = ON;` or calling `setForeignKeyConstraintsEnabled(true)` on the database instance.
 
 ### 20. How do you handle concurrency in SQLite?
-**Answer:**  
-SQLite uses locks to handle concurrency. For high concurrency, consider WAL (Write-Ahead Logging) mode:  
+SQLite uses locks to handle concurrency. For high concurrency, consider WAL (Write-Ahead Logging) mode:
 ```sql
 PRAGMA journal_mode = WAL;
 ```
 
----
-
 ### 21. How do you drop a table in SQLite?
-**Answer:**  
 ```sql
 DROP TABLE users;
 ```
 
----
-
 ### 22. How do you export data from SQLite to CSV?
-**Answer:**  
-Using the SQLite CLI:  
-```
+Using the SQLite CLI:
+```sql
 .mode csv
 .output users.csv
 SELECT * FROM users;
 ```
 
----
-
-### 23. How do you use prepared statements in SQLite (with Python)?
-**Answer:**  
-```python
-import sqlite3
-conn = sqlite3.connect('example.db')
-cursor = conn.cursor()
-cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", ('Bob', 'bob@example.com'))
-conn.commit()
+### 23. Explain Prepared Statements in SQLite.
+Prepared statements compil SQL ahead of time, improving performance and security against injection.
+```sql
+INSERT INTO users (name, email) VALUES (?, ?)
 ```
 
----
-
 ### 24. How do you handle NULL values in SQLite?
-**Answer:**  
-Use `IS NULL` or `IS NOT NULL` in queries:  
+Use `IS NULL` or `IS NOT NULL` in queries:
 ```sql
 SELECT * FROM users WHERE email IS NULL;
 ```
 
----
-
 ### 25. How do you rename a table in SQLite?
-**Answer:**  
 ```sql
 ALTER TABLE users RENAME TO customers;
 ```
-
----

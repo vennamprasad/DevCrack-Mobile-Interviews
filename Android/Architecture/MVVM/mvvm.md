@@ -1,4 +1,10 @@
-# MVVM Architecture
+# 🏗️ MVVM Architecture Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+
+![MVVM](https://img.shields.io/badge/Architecture-MVVM-blue?style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+
+---
 
 ## ✅ What is MVVM?
 

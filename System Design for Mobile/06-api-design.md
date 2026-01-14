@@ -1,4 +1,20 @@
-## API Design
+# 🔌 API Design
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Learn how to design robust, scalable, and mobile-friendly APIs.
+
+![API Design](https://img.shields.io/badge/Skill-API_Design-blue?style=for-the-badge&logo=openapi-initiative&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. RESTful Principles & Endpoints](#1-api-endpoint-design)
+- [2. Request/Response Design](#2-requestresponse-design)
+- [3. Versioning Strategies](#3-api-versioning)
+- [4. Efficient Data Transfer](#4-efficient-data-transfer)
+- [5. Error Handling & Security](#5-error-handling)
+
+---
 
 ### Q7. How do you design RESTful APIs for mobile applications?
 
@@ -456,4 +472,3 @@ class TokenManager @Inject constructor(
 | **Error codes** | Standard HTTP status codes | Consistent error handling |
 
 ---
-

@@ -1,9 +1,11 @@
-# API Interview Questions for Mobile Development
+# 🔌 Mobile API Implementation & Networking
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Retrofit, OkHttp, Authentication scenarios, and Error Handling.
 
-A comprehensive guide covering API concepts, REST, GraphQL, authentication, and networking for mobile developers.
+![API](https://img.shields.io/badge/Android-Networking-green?style=for-the-badge&logo=android&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
 
 ---
-
 ## **Table of Contents**
 1. [API Fundamentals](#api-fundamentals)
 2. [REST APIs](#rest-apis)

@@ -1,4 +1,10 @@
-# 🧼 Clean Architecture in Android
+# 🧼 Clean Architecture Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+
+![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-blue?style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+
+---
 
 ## 📘 Overview
 
@@ -21,13 +27,13 @@ flowchart TD
 
 ## 🧩 Layers Explained
 
-| Layer         | Responsibility |
-|---------------|----------------|
-| **UI**        | Displays data and observes `ViewModel` or `Presenter`. |
-| **Presentation** | Handles user actions, communicates with UseCases. ViewModel lives here. |
-| **Domain**    | Contains business rules. UseCases are defined here. Framework-independent. |
-| **Data**      | Implements repository interfaces defined in Domain. Talks to network or local DB. |
-| **Framework** | Includes actual implementations like Room, Retrofit, Firebase, etc. |
+| Layer            | Responsibility                                                             |
+|------------------|----------------------------------------------------------------------------|
+| **UI**           | Displays data and observes `ViewModel` or `Presenter`.                     |
+| **Presentation** | Handles user actions, communicates with UseCases. ViewModel lives here.    |
+| **Domain**       | Contains business rules. UseCases are defined here. Framework-independent. |
+| **Data**         | Implements repository interfaces defined in Domain. Talks to network or local DB. |
+| **Framework**    | Includes actual implementations like Room, Retrofit, Firebase, etc.        |
 
 ---
 

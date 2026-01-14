@@ -1,205 +1,119 @@
-# Dagger Dependency Injection Interview Questions (Basic & Advanced)
+# 🗡️ Dagger Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Dagger 2 is the industry standard for DI in Android, though Hilt (built on top of Dagger) is now recommended for new projects.
+
+![Dagger](https://img.shields.io/badge/Google-Dagger_2-orange?style=for-the-badge&logo=google&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![DI](https://img.shields.io/badge/Pattern-Dependency_Injection-blue?style=for-the-badge)
 
 ---
 
-## Basic Questions
-
-### 1. What is Dependency Injection?
-**Answer:**  
-Dependency Injection (DI) is a design pattern that allows an object to receive its dependencies from an external source rather than creating them itself.
-
----
-
-### 2. What is Dagger?
-**Answer:**  
-Dagger is a compile-time dependency injection framework for Java and Android, developed by Google.
+## 📖 Table of Contents
+- [1. Core Concepts](#-1-what-is-dependency-injection)
+- [2. Components & Modules](#-3-what-are-the-main-components-of-dagger)
+- [3. Scopes & Qualifiers](#-10-how-do-you-scope-dependencies-in-dagger)
+- [4. Advanced Dagger](#-advanced-questions)
+- [5. Common Annotations](#-3-what-are-the-main-components-of-dagger)
 
 ---
 
-### 3. What are the main components of Dagger?
-**Answer:**  
-- `@Module`
-- `@Provides`
-- `@Component`
-- `@Inject`
+## ✅ Overview
+
+**Dagger** is a fully static, compile-time dependency injection framework for both Java and Android. It uses annotation processing to generate code that bootstraps dependency injection.
+
+**Key Benefits:**
+*   **Compile-time safety:** No runtime reflection errors.
+*   **Performance:** Code is generated at build time, avoiding reflection overhead.
+*   **Scalability:** Works well in large codebases.
 
 ---
 
-### 4. How do you define a Dagger module?
-**Answer:**  
-A module is a class annotated with `@Module` that provides dependencies using `@Provides` methods.
+## 🧩 Interview Questions (Q&A)
 
-```java
+### 1. What is Dependency Injection (DI)?
+DI is a design pattern where a class allows an external entity to "inject" its dependencies rather than creating them itself. This promotes loose coupling and easier testing.
+
+### 2. Dagger Components Breakdown
+*   **`@Module`**: Classes that define methods (annotated with `@Provides`) to provide dependencies (e.g., Retrofit instance).
+*   **`@Component`**: Interfaces that bridge Modules and Injection Targets (Activities/Fragments). They tell Dagger which dependencies to provide to whom.
+*   **`@Provides`**: Methods inside Modules that create and return dependencies.
+*   **`@Inject`**:
+    *   **Constructor Injection:** Requesting Dagger to create the class instance.
+    *   **Field Injection:** Requesting Dagger to populate a field (used in Android classes like Activity).
+
+### 3. How do you define a Module?
+
+```kotlin
 @Module
-class NetworkModule {
+object NetworkModule {
     @Provides
-    fun provideApiService(): ApiService = ApiServiceImpl()
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
 }
 ```
 
----
+### 4. What is the difference between `@Provides` vs `@Binds`?
+*   **`@Provides`**: Used when you need to run code to create an instance (e.g., using a Builder, external library classes).
+*   **`@Binds`**: Used to bind an implementation to an interface. It is more efficient as Dagger doesn't generate a separate factory class (it just casts the type). **Must be in an abstract class/interface.**
 
-### 5. What is a Dagger component?
-**Answer:**  
-A component is an interface annotated with `@Component` that connects modules and injection targets.
-
-```java
-@Component(modules = [NetworkModule::class])
-interface AppComponent {
-    fun inject(activity: MainActivity)
-}
-```
-
----
-
-### 6. How do you inject dependencies using Dagger?
-**Answer:**  
-Use the `@Inject` annotation on fields or constructors.
-
-```java
-class MainActivity : AppCompatActivity() {
-    @Inject lateinit var apiService: ApiService
-}
-```
-
----
-
-### 7. What is constructor injection in Dagger?
-**Answer:**  
-Dependencies are provided via the class constructor annotated with `@Inject`.
-
-```java
-class UserRepository @Inject constructor(private val apiService: ApiService)
-```
-
----
-
-### 8. What is field injection?
-**Answer:**  
-Dependencies are injected directly into fields annotated with `@Inject`.
-
----
-
-### 9. What is method injection?
-**Answer:**  
-Dependencies are injected via methods annotated with `@Inject`.
-
----
-
-### 10. How do you scope dependencies in Dagger?
-**Answer:**  
-Use custom scope annotations (e.g., `@Singleton`) to control the lifecycle of dependencies.
-
-```java
-@Singleton
-@Component(modules = [NetworkModule::class])
-interface AppComponent
-```
-
----
-
-## Advanced Questions
-
-### 11. What is subcomponent in Dagger?
-**Answer:**  
-A subcomponent inherits and extends the object graph of a parent component, useful for nested scopes.
-
----
-
-### 12. How do you use qualifiers in Dagger?
-**Answer:**  
-Qualifiers (`@Named`, custom annotations) distinguish between different objects of the same type.
-
-```java
-@Provides
-@Named("prod")
-fun provideProdApiService(): ApiService = ProdApiService()
-```
-
----
-
-### 13. What is the difference between `@Singleton` and custom scopes?
-**Answer:**  
-`@Singleton` provides a single instance for the entire component, while custom scopes can define lifecycles for specific use cases (e.g., per activity).
-
----
-
-### 14. How does Dagger differ from other DI frameworks like Guice or Spring?
-**Answer:**  
-Dagger generates code at compile-time, resulting in better performance and no reflection overhead.
-
----
-
-### 15. How do you inject dependencies into Android components (Activity, Fragment)?
-**Answer:**  
-Call the component's `inject()` method in the lifecycle method (e.g., `onCreate`).
-
----
-
-### 16. What is `@Binds` annotation?
-**Answer:**  
-`@Binds` is used to bind an implementation to an interface, replacing `@Provides` for abstract methods.
-
-```java
+```kotlin
 @Module
 abstract class RepositoryModule {
     @Binds
-    abstract fun bindUserRepository(repo: UserRepositoryImpl): UserRepository
+    abstract fun bindRepo(repoImpl: UserRepositoryImpl): UserRepository
 }
 ```
 
----
+### 5. What are Subcomponents?
+A **Subcomponent** is a child component that inherits bindings from its parent but has a distinct lifecycle (scope). For example, a `UserComponent` might only live while a user is logged in, whereas the `AppComponent` lives forever.
 
-### 17. What is multibinding in Dagger?
-**Answer:**  
-Multibinding allows you to inject collections (e.g., `Set`, `Map`) of objects using `@IntoSet` or `@IntoMap`.
+### 6. Explain Scopes (`@Singleton`, Custom Scopes)
+Scopes ensure a single instance of a dependency exists within a specific component's lifecycle.
+*   **`@Singleton`**: Default scope typically used for `AppComponent`.
+*   **`@ActivityScope`**: Custom scope for dependencies that should live as long as the Activity.
 
----
+```kotlin
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ActivityScope
+```
 
-### 18. How do you handle circular dependencies in Dagger?
-**Answer:**  
-Refactor code to avoid circular dependencies or use `@Inject` on constructors carefully.
+### 7. What involves Constructor Injection vs Field Injection?
+*   **Constructor Injection:** Preferred. Dagger knows how to create the object.
+    ```kotlin
+    class ViewModel @Inject constructor(private val repo: Repo)
+    ```
+*   **Field Injection:** Required for Android Framework classes (Activity, Fragment, Service) because the OS instantiates them, not Dagger.
+    ```kotlin
+    class MainActivity : AppCompatActivity() {
+        @Inject lateinit var viewModel: MainViewModel
+    }
+    ```
 
----
+### 8. How to handle Multiple Implementations (`@Named`)?
+Use **Qualifiers**.
+```kotlin
+@Provides
+@Named("Auth")
+fun provideAuthRetrofit(): Retrofit = ...
 
-### 19. What is assisted injection?
-**Answer:**  
-Assisted injection allows you to inject dependencies that require runtime parameters using `@AssistedInject`.
+@Provides
+@Named("Public")
+fun providePublicRetrofit(): Retrofit = ...
 
----
+// Usage
+@Inject constructor(@Named("Auth") private val retrofit: Retrofit)
+```
 
-### 20. How do you test Dagger components?
-**Answer:**  
-Use test-specific modules and components to provide mock dependencies.
+### 9. What is Multibinding?
+Allows binding multiple objects into a collection (Set or Map) that can be injected. Useful for plugin architectures or ViewModel factories (mapping ViewModel Class to Provider).
+*   `@IntoSet`, `@IntoMap`, `@StringKey`.
 
----
-
-### 21. What is the role of `@Component.Factory` and `@Component.Builder`?
-**Answer:**  
-They allow passing parameters to components at creation time.
-
----
-
-### 22. How does Dagger handle dependency graph validation?
-**Answer:**  
-Dagger validates the dependency graph at compile-time, reporting errors for missing or conflicting dependencies.
-
----
-
-### 23. How do you use Dagger with ViewModels in Android?
-**Answer:**  
-Inject dependencies into ViewModels using constructor injection and provide them via Dagger modules.
-
----
-
-### 24. What is the difference between `@Provides` and `@Inject`?
-**Answer:**  
-`@Provides` is used in modules to provide dependencies, while `@Inject` is used on constructors or fields to request dependencies.
-
----
-
-### 25. How do you migrate from Dagger 2 to Hilt?
-**Answer:**  
-Replace Dagger components and modules with Hilt annotations (`@HiltAndroidApp`, `@AndroidEntryPoint`, etc.) and refactor code accordingly.
+### 10. Circular Dependencies
+Occurs when A needs B, and B needs A.
+*   **Solution 1:** Refactor design (usually indicates bad architecture).
+*   **Solution 2:** Use `Lazy<T>` or `Provider<T>` to break the instantiation cycle.
 
 ---

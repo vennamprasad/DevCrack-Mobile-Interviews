@@ -1,7 +1,24 @@
-# Prime Number Check
+# 💻 Kotlin Coding Challenges
+> **Targeted for Interview Practice**
+> **Note:** Common algorithmic problems solved in idiomatic Kotlin.
+
+![Kotlin](https://img.shields.io/badge/Language-Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Algorithms](https://img.shields.io/badge/Focus-Algorithms-orange?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Prime Check](#-1-prime-number-check)
+- [2. Two Sum](#-sum-of-digits-in-given-array-should-be-equal-to-given-number)
+- [3. String Reversal](#-reverse-a-string-without-using-built-in-functions)
+- [4. Palindrome Check](#-check-if-a-string-is-a-palindrome-without-using-built-in-functions)
+- [5. Factorial (Recursion)](#-5-factorial)
+
+---
+
+### Prime Number Check
 
 ```kotlin
-
 fun isPrime(n: Int): Boolean {
     if (n <= 1) return false
     for (i in 2..Math.sqrt(n.toDouble()).toInt()) {
@@ -18,7 +35,9 @@ fun main() {
 // Output: 29 is prime: true
 ```
 
-## sum of Digits in given  array  should be equal to given number
+---
+
+### Sum of Digits in given array should be equal to given number
 
 ```kotlin
 fun hasArrayTwoCandidates(arr: IntArray, target: Int): Boolean {
@@ -42,7 +61,9 @@ fun main() {
 // Output: Array has two elements with sum 16: true
 ```
 
-## Reverse a String without using built-in functions
+---
+
+### Reverse a String without using built-in functions
 
 ```kotlin
 fun reverseString(str: String): String {
@@ -62,13 +83,13 @@ fun main() {
 
 // Output: Original: Hello, World!
 // Reversed: !dlroW ,olleH
-
 ```
 
-## Check if a String is a Palindrome without using built-in functions
+---
+
+### Check if a String is a Palindrome without using built-in functions
 
 ```kotlin
-
 fun isPalindrome(str: String): Boolean {
     val cleanedStr = str.replace(Regex("[^A-Za-z0-9]"), "").lowercase()
     for (i in 0 until cleanedStr.length / 2) {
@@ -84,4 +105,19 @@ fun main() {
     println("$testString is a palindrome: ${isPalindrome(testString)}")
 }
 // Output: amma is a palindrome: true
+```
+
+---
+
+### Factorial (Recursion)
+
+```kotlin
+tailrec fun factorial(n: Int, accumulator: Long = 1): Long {
+    return if (n <= 1) accumulator
+    else factorial(n - 1, n * accumulator)
+}
+
+fun main() {
+    println(factorial(5)) // 120
+}
 ```

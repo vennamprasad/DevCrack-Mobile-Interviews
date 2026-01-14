@@ -1,77 +1,53 @@
-### Q: What is Charles Proxy and why is it used in mobile app development?
+# 🕵️ Charles Proxy Debugging
+> **Targeted for Mobile Developers**
+> **Note:** Inspecting, throttling, and mocking network traffic.
 
-**A:**  
-Charles Proxy is a web debugging proxy application that allows developers to view all the HTTP and HTTPS traffic between their computer (or mobile device) and the Internet. It is commonly used in mobile app development for debugging API calls, inspecting network requests and responses, simulating different network conditions, and modifying requests or responses for testing purposes.
-
----
-
-### Q: How do you configure a mobile device to use Charles Proxy?
-
-**A:**  
-To configure a mobile device to use Charles Proxy:
-1. Connect the device to the same Wi-Fi network as your computer running Charles.
-2. Find your computer’s IP address and set it as the HTTP proxy in your device’s Wi-Fi settings, using port 8888 (default).
-3. If inspecting HTTPS traffic, install the Charles SSL certificate on the device.
-4. Start capturing traffic in Charles and verify that requests from the device appear in Charles.
+![Charles](https://img.shields.io/badge/Tool-Charles_Proxy-6a329f?style=for-the-badge)
 
 ---
 
-### Q: How does Charles Proxy help debug HTTPS traffic?
-
-**A:**  
-Charles Proxy enables HTTPS traffic debugging by using SSL Proxying. After installing Charles’s SSL certificate on the device and trusting it, Charles can decrypt and display the contents of secure requests and responses, allowing developers to inspect headers, payloads, and debug issues with secure APIs.
-
----
-
-### Q: What are some common use cases for Charles Proxy in mobile development?
-
-**A:**  
-- Debugging network calls and APIs.
-- Analyzing and replaying requests.
-- Simulating network throttling (slow/fast connections).
-- Editing requests/responses to test error scenarios.
-- Mocking API responses.
-- Capturing logs for bug reporting.
+## 📖 Table of Contents
+- [1. Setup & SSL Proxying](#setup--ssl-proxying)
+- [2. Breakpoints & Mocking](#breakpoints--mocking)
+- [3. Network Throttling](#network-throttling)
+- [4. Alternatives](#alternatives)
 
 ---
 
-### Q: How do you set up SSL Proxying in Charles Proxy?
+### Q1. What is Charles Proxy?
 
-**A:**  
-1. Go to Proxy > SSL Proxying Settings in Charles.
-2. Enable SSL Proxying.
-3. Add the host(s) and port(s) you want to proxy (e.g., *:443 for all HTTPS traffic).
-4. Install and trust the Charles Root Certificate on your device.
-5. Charles will now decrypt and display SSL traffic for those hosts.
+**Answer:**
+Charles is a web debugging proxy that sits between your mobile device and the internet. It enables you to:
+- **Inspect** HTTP/HTTPS traffic (headers, JSON bodies).
+- **Edit** requests/responses on the fly.
+- **Throttle** network speeds (simulate 3G, Edge).
+- **Mock** API errors or data.
 
----
+### Q2. How to setup SSL Proxying?
 
-### Q: How can you mock API responses using Charles Proxy?
+**Answer:**
+By default, HTTPS traffic is encrypted. To read it:
+1.  **PC/Mac**: Help > SSL Proxying > Install Charles Root Certificate.
+2.  **Mobile**:
+    - Set PC's IP as Proxy in Wifi Settings (Port 8888).
+    - Browse to `chls.pro/ssl`.
+    - Download and install the certificate.
+    - **iOS**: Enable "Full Trust" for the root certificate in Settings.
+    - **Android (Nougat+)**: Add a `network_security_config.xml` to your app allowing user certificates in debug builds.
 
-**A:**  
-You can mock API responses using the Map Local or Map Remote features:
-- **Map Local:** Redirects a request to a local file, allowing you to serve custom responses.
-- **Map Remote:** Redirects a request to a different remote server.
-Set up the mapping in Charles’s Tools menu, then trigger the relevant request from your app to see the mocked response.
+### Q3. How to Mock a 500 Error?
 
----
+**Answer:**
+Use the **Rewrite** or **Breakpoints** feature:
+- **Breakpoint**: Right-click a request endpoint -> Enable Breakpoints. When the request triggers, Charles pauses execution. You can edit the Response code to `500` and Body to `{"error": "Crash"}` then Execute.
+- **Map Local**: Map a remote URL (e.g., `/api/user`) to a local JSON file on your computer.
 
-### Q: What are some alternatives to Charles Proxy?
+### Q4. Simulating Slow Network?
 
-**A:**  
-- Fiddler
-- mitmproxy
-- Proxyman (macOS)
-- Wireshark (for packet-level analysis)
-
----
-
-### Q: What are the security considerations when using Charles Proxy?
-
-**A:**  
-- Only install the Charles SSL certificate on test devices, not on production devices.
-- Be cautious when proxying sensitive information.
-- Remove the Charles certificate after testing to avoid security risks.
-- Never intercept traffic for apps that handle confidential data unless you have permission.
-
----
+**Answer:**
+**Proxy > Throttle Settings**.
+Allows simulating:
+- 3G / 4G speeds.
+- High Latency.
+- Packet Loss.
+Crucial for testing loading states, timeouts, and retry logic.

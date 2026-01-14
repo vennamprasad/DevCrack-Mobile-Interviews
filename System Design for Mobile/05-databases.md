@@ -1,4 +1,18 @@
-## Databases
+# 🗄️ Databases
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Choosing the right storage solution.
+
+![Database](https://img.shields.io/badge/Component-Database-blue?style=for-the-badge&logo=postgresql&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. SQL vs NoSQL vs Key-Value](#database-types-overview-clean)
+- [2. Room Implementation](#1-relational-database-sql---mobile-sqliteroom)
+- [3. Firestore Implementation](#2-nosql-document-database---mobile-firestore)
+
+---
 
 ### Q6. What are different types of databases and when to use each?
 
@@ -123,10 +137,10 @@ interface OrderDao {
 ```
 
 **Pros:**
--  ACID compliance (Atomicity, Consistency, Isolation, Durability)
--  Complex queries with JOINs
--  Data integrity with foreign keys
--  Well-understood, mature technology
+-   ACID compliance (Atomicity, Consistency, Isolation, Durability)
+-   Complex queries with JOINs
+-   Data integrity with foreign keys
+-   Well-understood, mature technology
 
 **Cons:**
 - L Schema changes require migrations
@@ -279,10 +293,10 @@ class UserRepository @Inject constructor(
 ```
 
 **Pros:**
--  Flexible schema (add fields without migration)
--  Easy to scale horizontally
--  Good for hierarchical data
--  Real-time updates built-in
+-   Flexible schema (add fields without migration)
+-   Easy to scale horizontally
+-   Good for hierarchical data
+-   Real-time updates built-in
 
 **Cons:**
 - L Limited JOIN capabilities
@@ -328,11 +342,7 @@ class UserPreferences @Inject constructor(
         .map { preferences ->
             preferences[THEME_KEY] ?: "system"
         }
-
-    // Complex object (serialize to JSON)
-    suspend fun saveUserSession(session: UserSession) {
-        val json = Json.encodeToString(session)
-        context.dataStore.edit { preferences ->
+    context.dataStore.edit { preferences ->
             preferences[stringPreferencesKey("user_session")] = json
         }
     }
@@ -349,10 +359,10 @@ Redis use cases on backend:
 ```
 
 **Pros:**
--  Extremely fast (in-memory)
--  Simple API
--  Perfect for caching
--  Atomic operations
+-   Extremely fast (in-memory)
+-   Simple API
+-   Perfect for caching
+-   Atomic operations
 
 **Cons:**
 - L No complex queries
@@ -432,10 +442,10 @@ data class ConnectionPath(
 ```
 
 **Pros:**
--  Excellent for relationship queries
--  Fast traversal of connections
--  Natural representation of networks
--  Pattern matching
+-   Excellent for relationship queries
+-   Fast traversal of connections
+-   Natural representation of networks
+-   Pattern matching
 
 **Cons:**
 - L Specialized use case
@@ -455,13 +465,13 @@ data class ConnectionPath(
 
 | Requirement | SQL | NoSQL Document | Key-Value | Graph |
 |-------------|-----|----------------|-----------|-------|
-| **Complex queries** |  Best | � Limited | L No | � For relationships |
-| **Flexible schema** | L No |  Yes |  Yes | � Somewhat |
-| **Scalability** | � Vertical |  Horizontal |  Horizontal | � Depends |
-| **ACID compliance** |  Yes | � Limited | L No |  Yes |
-| **Relationships** |  Joins | L Embed/Ref | L No |  Native |
-| **Speed** | � Good |  Fast |  Fastest | � For graphs |
-| **Cost** | =� Low | =� Medium | =� High (memory) | =� High |
+| **Complex queries** |   Best |   Limited | L No |   For relationships |
+| **Flexible schema** | L No |   Yes |   Yes |   Somewhat |
+| **Scalability** |   Vertical |   Horizontal |   Horizontal |   Depends |
+| **ACID compliance** |   Yes |   Limited | L No |   Yes |
+| **Relationships** |   Joins | L Embed/Ref | L No |   Native |
+| **Speed** |   Good |   Fast |   Fastest |   For graphs |
+| **Cost** | = Low | = Medium | = High (memory) | = High |
 
 **Mobile App Database Strategy:**
 
@@ -503,4 +513,3 @@ class DataManager @Inject constructor(
 ```
 
 ---
-

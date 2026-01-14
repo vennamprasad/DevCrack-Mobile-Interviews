@@ -1,162 +1,78 @@
-# Jetpack Android Interview Questions (Basic & Advanced)
+# 🚀 Jetpack Architecture Components
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** A suite of libraries to help developers follow best practices and reduce boilerplate code.
 
-## Basic Questions
-
-### 1. What is Android Jetpack?
-**Answer:**  
-Android Jetpack is a suite of libraries, tools, and guidance to help developers write high-quality apps easier. It includes components for architecture, UI, behavior, and foundation.
-
----
-
-### 2. Name some Jetpack components.
-**Answer:**  
-- Navigation
-- LiveData
-- ViewModel
-- Room
-- WorkManager
-- DataBinding
-- Paging
-- Lifecycle
+![Jetpack](https://img.shields.io/badge/Android-Jetpack-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-Clean-blue?style=for-the-badge)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 
 ---
 
-### 3. What is LiveData?
-**Answer:**  
-LiveData is an observable data holder class. It respects the lifecycle of app components, such as activities and fragments.
-
-**Example:**
-```kotlin
-val users: LiveData<List<User>> = userRepository.getUsers()
-```
+## 📖 Table of Contents
+- [1. Core Components (ViewModel, LiveData)](#-core-components)
+- [2. Navigation & Lifecycle](#-navigation--lifecycle)
+- [3. Data & Paging](#-data--paging)
+- [4. WorkManager](#-background-work)
+- [5. Architecture & Best Practices](#-architecture)
 
 ---
 
-### 4. What is ViewModel?
-**Answer:**  
-ViewModel stores and manages UI-related data in a lifecycle conscious way. It survives configuration changes.
+## ✅ Overview
 
-**Example:**
-```kotlin
-class MyViewModel : ViewModel() {
-    val user = MutableLiveData<User>()
-}
-```
+**Android Jetpack** is a set of components, tools, and guidance to make great Android apps. It unbundles libraries from the Android OS, allowing for more frequent updates.
 
----
-
-### 5. What is Room?
-**Answer:**  
-Room is a persistence library that provides an abstraction layer over SQLite to allow fluent database access.
-
-**Example:**
-```kotlin
-@Entity
-data class User(val uid: Int, val name: String)
-
-@Dao
-interface UserDao {
-    @Query("SELECT * FROM user")
-    fun getAll(): List<User>
-}
-```
+**Main Categories:**
+1.  **Architecture:** ViewModel, LiveData, Room, WorkManager, Navigation.
+2.  **UI:** Compose, Fragment, Layout, Palette.
+3.  **Behavior:** Permissions, Notifications, Sharing, Slices.
+4.  **Foundation:** AppCompat, Android KTX, Multidex, Test.
 
 ---
 
-### 6. What is DataBinding?
-**Answer:**  
-DataBinding binds UI components in layouts to data sources in your app using a declarative format.
+## 🧩 Interview Questions (Q&A)
 
----
+### 1. ViewModel vs SavedInstanceState?
+*   **ViewModel:** Handles configuration changes (screen rotation). Cleared when the Activity is finished or Fragment is detached permanently. Designed for large data.
+*   **SavedInstanceState:** Handles System-initiated process death. Designed for small data (serialized). Used via `SavedStateHandle` in ViewModel.
 
-### 7. What is Navigation Component?
-**Answer:**  
-Navigation Component helps manage app navigation, including fragment transactions, deep linking, and navigation graphs.
+### 2. LiveData Characteristics
+*   **Lifecycle-Aware:** Only updates active observers (STARTED or RESUMED).
+*   **No Memory Leaks:** Observers are automatically removed when lifecycle is DESTROYED.
+*   **Data Holder:** Holds data that can be observed.
 
----
+### 3. LiveData vs StateFlow (Flow)?
+*   **LiveData:** Java-friendly, tied to Android Lifecycle, value is nullable (optional). Runs on Main Thread by default.
+*   **StateFlow:** Pure Kotlin (Flow), requires a Coroutine Scope (`lifecycleScope`), always has an initial value, distinct until changed by default. preferred for clean architecture (Domain layer shouldn't know Android classes).
 
-### 8. What is Lifecycle-aware component?
-**Answer:**  
-Lifecycle-aware components perform actions in response to lifecycle changes of activities and fragments.
+### 4. WorkManager Use Cases?
+Used for **deferrable** and **guaranteed** background work.
+*   **Immediate:** Sending a message locally.
+*   **Long Running:** Uploading a large video.
+*   **Deferrable:** Syncing logs to server once a day.
+**Not** for immediate UI work (use Coroutines) or exact timing (use AlarmManager).
 
----
+### 5. Navigation Component Benefits?
+*   **Visual Graph:** See all flows in one place.
+*   **Safe Args:** Type-safe argument passing (Removes Bundle key errors).
+*   **Deep Linking:** Centralized handling of deep links.
+*   **Fragment Transactions:** Handles `FragmentTransaction` boilerplate automatically options.
 
-### 9. What is WorkManager?
-**Answer:**  
-WorkManager is a library for managing deferrable, guaranteed background work.
+### 6. Paging 3 Library?
+Helps load data in pages.
+*   **PagingSource:** Defines how to retrieve a chunk of data (API/DB).
+*   **RemoteMediator:** coordinates loading from DB (cache) and Network (source of truth).
+*   **PagingData:** Container for paginated data.
 
-**Example:**
-```kotlin
-val workRequest = OneTimeWorkRequestBuilder<MyWorker>().build()
-WorkManager.getInstance(context).enqueue(workRequest)
-```
+### 7. What is lifecycle-aware?
+A component (like `LocationManager`) that automatically adjusts its behavior based on the lifecycle state of its parent (Activity/Fragment).
+*   `@OnLifecycleEvent(ON_START)` -> Start listening.
+*   `@OnLifecycleEvent(ON_STOP)` -> Stop listening.
 
----
-
-### 10. What is Paging?
-**Answer:**  
-Paging helps load and display large data sets efficiently by loading data in chunks.
-
----
-
-### 11. What is the difference between LiveData and StateFlow?
-**Answer:**  
-LiveData is lifecycle-aware and used in Jetpack; StateFlow is a Kotlin Flow for state management, not lifecycle-aware.
-
----
-
-### 12. How does ViewModel survive configuration changes?
-**Answer:**  
-ViewModel is tied to the lifecycle of the activity/fragment and is not destroyed on configuration changes.
-
----
-
-### 13. What is the use of SavedStateHandle in ViewModel?
-**Answer:**  
-SavedStateHandle allows ViewModel to save and restore UI state during process death.
-
----
-
-### 14. How do you observe LiveData in a Fragment?
-**Answer:**
-```kotlin
-viewModel.user.observe(viewLifecycleOwner) { user ->
-    // Update UI
-}
-```
-
----
-
-### 15. What is the role of Repository in Jetpack architecture?
-**Answer:**  
-Repository abstracts the data sources and provides a clean API for data access.
-
----
-
-### 16. What is the difference between @Insert and @Update in Room?
-**Answer:**  
-@Insert adds new records; @Update modifies existing records.
-
----
-
-### 17. How do you handle database migrations in Room?
-**Answer:**  
-By providing a Migration object to Room's database builder.
-
----
-
-### 18. What is the use of Navigation Graph?
-**Answer:**  
-Navigation Graph visually represents all navigation paths in the app.
-
----
-
-### 19. How do you pass data between fragments using Navigation Component?
-**Answer:**
-```kotlin
-val action = FirstFragmentDirections.actionToSecondFragment(data)
-findNavController().navigate(action)
-```
+### 8. Room Database Optimization?
+*   **@Transaction:** Ensures multiple operations happen atomically.
+*   **Indexes:** Speed up queries on specific columns.
+*   **TypeConverters:** Store complex objects (Date, List) as primitives.
+*   **Pre-populated DB:** Ship app with existing data.
 
 ---
 

@@ -1,35 +1,58 @@
-# 🙌 Contributing to Mobile Dev Interview Prep
+# 🙌 Contributing to DevCrack
 
-Thank you for considering contributing to this open-source interview question bank for mobile developers! Your contributions will help many developers prepare for interviews and stay up-to-date with modern mobile technologies.
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [devcrack.com](https://github.com/vennamprasad/DevCrack-Mobile-Interviews) and will help thousands of mobile engineers prepare for their next big role.
 
----
-
-## 📌 How You Can Contribute
-
-1. **Add New Interview Questions/Answers**
-   - Choose the appropriate platform folder (`android`, `ios`, `flutter`, `kmm`, etc.).
-   - Create or edit a Markdown file and use the standard format below.
-   - Add clear, concise questions with relevant and well-explained answers.
-
-2. **Improve Existing Content**
-   - Fix typos, improve clarity, add examples or links to documentation/blogs.
-
-3. **Share Real Interview Experiences**
-   - Share anonymized questions you've been asked in interviews (especially company-specific ones).
-
-4. **Suggest Enhancements**
-   - Help improve structure, naming conventions, or tooling for contributors.
+Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
 ---
 
-## 🧾 Content Format (Markdown)
+## 📂 Repository Structure
 
-Please use the following format when adding content:
+We have recently restructured the repository to be "Senior/Staff" focused. Please place your questions in the correct directory:
+
+- **`Android/`**:
+    - `Kotlin` (Coroutines, Flow, Internals)
+    - `Jetpack Compose` (State, Rendering, Performance)
+    - `Architecture` (Clean, MVI, MVVM)
+- **`iOS/`**:
+    - `02_Swift` (ARC, Memory, Generics)
+    - `04_SwiftUI` (Identity, Layouts)
+    - `12_System_Design` (Mobile Scalability)
+- **`System Design for Mobile/`**: Large scale architecture (Chat, Feed, Video).
+- **`Leadership/`**: Management, Culture, and Behavioral questions.
+- **`Algorithms/`**: Mobile-specific data structures (LRU, QuadTree, Trie).
+
+---
+
+## 📝 How to Submit a New Question
+
+1.  **Fork the repository** and create your branch from `main`.
+2.  **Choose the right file**. E.g., if adding a question about `Flow`, go to `Android/Kotlin/flow.md`.
+3.  **Follow the Format**:
 
 ```markdown
-### Q: What is a State Hoisting in Jetpack Compose?
+### Q: [Question Title]?
 
-**A:**  
-State hoisting is a pattern in Jetpack Compose where the state is moved to a composable's caller instead of being held internally. This improves reusability and testability of the composable.
+**Answer:**
+[Concise answer here].
 
-📌 **Keywords:** Jetpack Compose, State, Hoisting
+**Key Points:**
+- Point 1
+- Point 2
+
+```
+
+4.  **Add a "Real-World Scenario"** (Optional but Preferred):
+    *   "How would this cause a memory leak in production?"
+    *   "When would you use X over Y in a high-traffic app?"
+
+---
+
+## 🐛 Found a Bug or Typo?
+
+If you find an error, please create a Pull Request with the fix. Alternatively, submit an [Issue](https://github.com/vennamprasad/DevCrack-Mobile-Interviews/issues) using the "Correction" template.
+
+## 🚀 Pro Tips for Merging
+- **Keep it concise**: Interviewers want clear, punchy answers.
+- **Visuals help**: If you can add a MermaidJS diagram or an image, do it!
+- **Be respectful**: Comments and reviews should be constructive.

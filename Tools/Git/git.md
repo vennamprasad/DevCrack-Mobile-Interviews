@@ -1,121 +1,93 @@
-### Q: What is Git and why is it used in software development?
+# 🐙 Advanced Git Interview Guide
+> **Targeted for Senior/Staff Engineers**
+> **Focus:** Internals, Debugging, Hooks, and Large Repo Management.
 
-**A:**  
-Git is a distributed version control system that helps developers track changes in their codebase, collaborate with others, and manage project history. It allows multiple developers to work on the same project simultaneously and provides tools for branching, merging, and resolving conflicts.
-
----
-
-### Q: What is the difference between Git and GitHub?
-
-**A:**  
-Git is a version control tool used locally to manage code history, while GitHub is a web-based platform that hosts Git repositories and provides collaboration features such as pull requests, issue tracking, and code reviews.
+![Git](https://img.shields.io/badge/Tool-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 ---
 
-### Q: Explain the difference between git fetch and git pull
-
-**A:**  
-git fetch downloads changes from a remote repository but does not merge them into your local branch. git pull does both: it fetches changes from the remote and immediately merges them into your current branch.
-
----
-
-### Q: What is a branch in Git and why are branches useful?
-
-**A:**  
-A branch in Git is a separate line of development. Branches allow developers to work on new features, bug fixes, or experiments in isolation without affecting the main codebase. Once work is complete, branches can be merged back into the main branch.
+## 📖 Table of Contents
+- [1. Debugging History (`bisect`, `blame`, `reflog`)](#1-debugging-history)
+- [2. Advanced Workflows (`rebase`, `cherry-pick`, `rerere`)](#2-advanced-workflows)
+- [3. Git Internals (The `.git` directory)](#3-git-internals)
+- [4. Scaling Git (Submodules vs Monorepo)](#4-scaling-git)
 
 ---
 
-### Q: How do you resolve a merge conflict in Git?
+## 1. Debugging History
 
-**A:**  
-When Git cannot automatically merge changes from different branches, a merge conflict occurs. To resolve it, open the conflicting file(s), look for conflict markers (<<<<<<<, =======, >>>>>>>), manually edit and choose the correct code, then add and commit the resolved files.
+### Q1. A bug was introduced sometime in the last 500 commits. How do you find it efficiently?
+**Answer:**
+Use `git bisect`. It uses binary search to find the bad commit.
+1.  `git bisect start`
+2.  `git bisect bad` (Current commit is broken)
+3.  `git bisect good <commit-hash>` (A known good commit from last week)
+4.  Git checks out the middle commit: You test it.
+5.  If good -> `git bisect good`. If bad -> `git bisect bad`.
+6.  Repeat until the offender is found. `O(Log N)`.
 
----
-
-### Q: What is the purpose of .gitignore?
-
-**A:**  
-.gitignore is a file that tells Git which files or directories to ignore in a project. This is useful for excluding build artifacts, dependencies, sensitive data, or files that should not be tracked by version control.
-
----
-
-### Q: How can you revert a commit that has already been pushed to a remote repository?
-
-**A:**  
-You can use git revert <commit_hash> to create a new commit that undoes the changes from a previous commit. This is safer than git reset for public branches, as it preserves history.
-
----
-
-### Q: What is a pull request and how is it used?
-
-**A:**  
-A pull request (PR) is a feature on platforms like GitHub that allows developers to propose changes from one branch to another (commonly from a feature branch to main). PRs enable code review, discussion, and approval before merging changes.
+### Q2. You accidentally hard-reset a branch and lost a commit. Is it gone forever?
+**Answer:**
+**No.** Use `git reflog`.
+- `git reflog` shows the local log of *all* HEAD movements (even those not in the history tree, e.g., after a reset).
+- Find the hash of the lost commit (e.g., `HEAD@{5}`).
+- `git reset --hard <that-hash>` or `git checkout -b recovery-branch <that-hash>`.
+- *Note:* Reflog is local only and expires (default 90 days).
 
 ---
 
-### Q: What is the difference between git merge and git rebase?
+## 2. Advanced Workflows
 
-**A:**  
-git merge combines changes from one branch into another, preserving the history of both branches. git rebase moves or combines commits from one branch onto another, resulting in a linear history but rewriting commit hashes.
+### Q3. `git merge` vs `git rebase` - Deep Dive.
+**Answer:**
+- **Merge:** True history. Preserves context. Good for `main`.
+- **Rebase:** Clean history. "What if I had written my code on top of the latest main?". Good for `feature` branches before merging.
+- **Interactive Rebase (`git rebase -i`):** The Swiss Army Knife.
+    - **Squash:** Combine 10 "wip" commits into 1 clean commit.
+    - **Edit:** Change a commit message or split a commit from the past.
+    - **Drop:** Remove a commit entirely.
 
----
-
-### Q: How do you undo the last commit in Git?
-
-**A:**  
-
-- To undo the last commit but keep the changes locally: git reset --soft HEAD~1
-- To undo the last commit and discard changes: git reset --hard HEAD~1
-
----
-
-### Q: How do you clone a repository from GitHub?
-
-**A:**  
-Use the command: git clone <repository_url>
+### Q4. What is `git rerere`?
+**Answer:**
+"**Re**use **Re**corded **Re**solutions".
+- If you fix a complicated merge conflict, Git records how you solved it.
+- If you unmerge (reset) and merge again (or rebase), Git auto-applies the fix.
+- **Enable:** `git config --global rerere.enabled true`.
 
 ---
 
-### Q: What is a detached HEAD state in Git?
+## 3. Git Internals
 
-**A:**  
-A detached HEAD occurs when you checkout a commit that is not a branch tip. Any changes made in this state are not associated with a branch and may be lost unless a new branch is created.
+### Q5. How does Git store data? (The Object Model)
+**Answer:**
+Git is a content-addressable filesystem. Everything is an **Object** stored in `.git/objects`.
+1.  **Blob:** The file content (compressed).
+2.  **Tree:** A directory listing (maps filenames to Blobs or other Trees).
+3.  **Commit:** A wrapper pointing to a Tree (snapshot) + Metadata (Author, Date, message) + Parent Commit(s).
+4.  **Tag:** A named pointer to a Commit.
 
----
-
-### Q: How can you see the commit history in Git?
-
-**A:**  
-You can view the commit history using the command: git log. This displays a list of commits with their hashes, authors, dates, and commit messages. You can also use options like `--oneline` for a more concise view or `--graph` to visualize the branch structure
----
-
-### Q: What is the purpose of the git stash command?
-
-**A:**  
-The git stash command temporarily saves changes in your working directory that are not ready to be committed. It allows you to switch branches or pull changes without committing your current work. You can later apply the stashed changes using git stash apply or git stash pop.
-
-### Q: How do you create a new branch in Git?
-
-**A:**
-You can create a new branch using the command: git branch <branch_name>. To switch to the new branch, use git checkout <branch_name> or combine both actions with git checkout -b <branch_name>
----
-
-### Q: What is the purpose of the git tag command?
-
-**A:**  
-The git tag command is used to create, list, delete, or verify tags in Git. Tags are references to specific commits and are often used to mark release points (v1.0, v2.0, etc.) in the project history. Unlike branches, tags do not change and are meant to be permanent markers.
-
-### Q: How do you view the differences between commits in Git?
+### Q6. What happens when you `git add`?
+**Answer:**
+Git hashes the file content (SHA-1), creates a **Blob** object, and adds it to the Index (Staging Area).
 
 ---
 
-**A:**
-You can view the differences between commits using the command: git diff <commit1> <commit2>. This shows the changes made between the two specified commits. If you want to see changes in your working directory compared to the last commit, use git diff HEAD.
+## 4. Scaling Git
 
+### Q7. Submodules vs Monorepo?
+**Answer:**
+- **Submodules:**
+    - **Pros:** Separate repos, independent versioning.
+    - **Cons:** "Diamond Dependency" hell. Hard to refactor across modules. Updates are manual pointers.
+- **Monorepo:**
+    - **Pros:** Atomic commits across projects. Easy refactoring. One CI pipeline.
+    - **Cons:** Repo size (Clone time). `git status` slowness.
+    - **Mitigation:** Use **VFS for Git** (Virtual File System) or `sparse-checkout` to only download the folders you need.
 
-### Q: What is the purpose of the git remote command?
-
-**A:**
-
-The git remote command is used to manage remote repositories. It allows you to add, remove, and view remote connections. Common commands include git remote add <name> <url> to add a new remote, and git remote -v to list all remotes with their URLs.
+### Q8. Optimizing Large Repos (`git-lfs`)
+**Answer:**
+Don't store binaries (IPAs, APKs, PSDs) in Git.
+Use **Git LFS** (Large File Storage).
+- Git stores a text pointer (metadata).
+- LFS server stores the actual binary.
+- Binaries are downloaded lazily only when needed.

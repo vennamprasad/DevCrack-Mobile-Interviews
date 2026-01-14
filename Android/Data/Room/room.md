@@ -1,6 +1,22 @@
-# Room Database Interview Questions
+# 🗄️ Room Database Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** A robust persistence library over SQLite.
 
-## Basic Questions
+![Room](https://img.shields.io/badge/Android-Room-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Jetpack](https://img.shields.io/badge/Jetpack-Architecture-orange?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Basics & Key Concepts](#-1-what-is-room-in-android)
+- [2. Components (Entity, DAO)](#-2-what-are-the-main-components-of-room)
+- [3. Advanced Operations](#-6-how-does-room-handle-database-migrations)
+- [4. Security & Optimization](#-12-how-can-you-secure-data-stored-in-room)
+
+---
+
+## 🟢 Basic Questions
 
 ### 1. What is Room in Android?
 Room is a persistence library that provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
@@ -34,7 +50,9 @@ abstract class AppDatabase : RoomDatabase() {
 }
 ```
 
-## Advanced Questions
+---
+
+## 🟠 Advanced Questions
 
 ### 6. How does Room handle database migrations?
 Room uses the `Migration` class to define migration paths between versions. You register migrations when building the database.
@@ -70,7 +88,7 @@ object DatabaseModule {
 ```
 
 ### 12. How can you secure data stored in Room?
-- Use SQLCipher to encrypt the SQLite database.
+- Use **SQLCipher** to encrypt the SQLite database.
 - Restrict access to the database file using proper file permissions.
 - Avoid storing sensitive data in plain text.
 - Use ProGuard or R8 to obfuscate code and prevent reverse engineering.
@@ -119,6 +137,7 @@ Room.databaseBuilder(context, AppDatabase::class.java, "secure-db")
 - Write custom migration logic to transform and preserve data.
 - Backup data before applying migrations in critical applications.
 - Use temporary tables if needed during migration steps.
+
 ### 21. Can you show basic migration logic in Room with an example?
 To migrate a Room database from one version to another, implement a `Migration` object specifying the start and end versions and the SQL statements needed to update the schema.
 

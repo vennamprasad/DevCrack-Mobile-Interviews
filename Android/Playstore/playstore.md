@@ -1,4 +1,19 @@
-# Play Store Related Interview Questions (with Console Focus)
+# 🛒 Play Store & Console Interview Guide
+> **Targeted for Senior Android Developer / Release Engineer Roles**
+> **Note:** Understanding the release process, policies, and Vitals is crucial for maintaining a healthy app.
+
+![Play Store](https://img.shields.io/badge/Google-Play_Store-414141?style=for-the-badge&logo=googleplay&logoColor=white)
+![Console](https://img.shields.io/badge/Console-Dashboard-blue?style=for-the-badge)
+![Release](https://img.shields.io/badge/Phase-Release-green?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. General Play Store Questions](#general-play-store-questions)
+- [2. Console-Specific Questions](#console-specific-questions)
+- [3. Advanced/Scenario-Based](#advancedscenario-based)
+
+---
 
 ## General Play Store Questions
 

@@ -1,4 +1,19 @@
-## Caching Strategies
+# ⚡ Caching Strategies
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Mastering multi-level caching for performance.
+
+![Caching](https://img.shields.io/badge/Strategy-Caching-green?style=for-the-badge&logo=redis&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Cache Levels (L1-L5)](#cache-levels-simplified)
+- [2. Implementation (Memory, Disk, DB)](#1-memory-cache-implementation)
+- [3. Strategies (Cache-Aside, Write-Through)](#cache-strategies)
+- [4. Invalidation & Monitoring](#cache-invalidation-strategies)
+
+---
 
 ### Q5. What are different caching strategies and when to use each?
 
@@ -171,7 +186,7 @@ Flow:
 1. App requests data
 2. Check cache first
 3. If found (cache hit): return cached data
-4. If not found (cache miss): fetch from API � cache it � return
+4. If not found (cache miss): fetch from API → cache it → return
 
 Best for: Read-heavy workloads
 */
@@ -466,6 +481,3 @@ class CacheMetrics @Inject constructor(
 | **Database** | Structured data | Hours/days | Time or event-based |
 | **CDN** | Static content | Months | Version-based |
 | **API Cache** | Dynamic data | Minutes | Event-based |
-
----
-

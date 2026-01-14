@@ -1,358 +1,93 @@
-# Gradle Interview Questions (Basic & Advanced)
+# 🐘 Gradle Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Mastering Gradle is key for build speed optimization and CI/CD pipelines.
 
-## Basic Questions
-
-### 1. What is Gradle?
-**Answer:**  
-Gradle is an open-source build automation tool that supports multi-language development, primarily used for Java, Android, and Kotlin projects.
-
----
-
-### 2. What are the advantages of using Gradle over other build tools?
-**Answer:**  
-Gradle offers incremental builds, build caching, flexible DSL (Groovy/Kotlin), and better performance compared to tools like Maven and Ant.
+![Gradle](https://img.shields.io/badge/Build_Tool-Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![Groovy](https://img.shields.io/badge/Language-Groovy-4298B8?style=for-the-badge&logo=apachegroovy&logoColor=white)
+![Kotlin](https://img.shields.io/badge/DSL-Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 
 ---
 
-### 3. What is a build.gradle file?
-**Answer:**  
-It's the main configuration file for Gradle projects, written in Groovy or Kotlin DSL, specifying dependencies, plugins, and build logic.
+## 📖 Table of Contents
+- [1. Basics & Benefits](#-1-what-is-gradle)
+- [2. Dependencies & Plugins](#-4-how-do-you-define-dependencies-in-gradle)
+- [3. Build Types & Flavors](#-14-how-do-you-define-build-variants-in-android-using-gradle)
+- [4. Performance Optimization](#-22-what-is-build-caching-in-gradle)
+- [5. Custom Tasks & Logic](#-6-how-do-you-create-a-custom-gradle-task)
+- [6. Advanced Concepts](#-advanced-questions)
 
 ---
 
-### 4. How do you define dependencies in Gradle?
-**Answer:**  
+## ✅ Overview
+
+**Gradle** is the official build tool for Android. It is a powerful, flexible build automation tool that uses a Domain Specific Language (DSL) (Groovy or Kotlin) to describe builds.
+
+**Key Features:**
+*   **Incremental Builds:** Recompiles only what changed.
+*   **Build Cache:** Reuses outputs from previous builds.
+*   **Parallel Execution:** Runs independent tasks simultaneously.
+
+---
+
+## 🧩 Interview Questions (Q&A)
+
+### 1. What is the Gradle Wrapper (`gradlew`)?
+It is a script that invokes a declared version of Gradle, downloading it beforehand if necessary. It ensures **consistency**: every developer (and CI server) builds with the exact same Gradle version.
+
+### 2. `implementation` vs `api`?
+*   **`implementation`**: Dependency is internal. Changing it does *not* force recompilation of consumers. **Faster builds.**
+*   **`api`**: Dependency is transitive. It is exposed to consumers. Changing it forces recompilation of all modules depending on this module.
+
+### 3. Build Types vs Product Flavors?
+*   **Build Types**: Technical variations (Debug, Release, Staging). Different signing keys, ProGuard rules, debug flags.
+*   **Product Flavors**: Functional/Brand variations (Free, Paid, WhiteLabel). Different app IDs, resources, logic.
+*   **Build Variant** = Flavor + Build Type (e.g., `FreeDebug`).
+
+### 4. What is `settings.gradle`?
+The file executed during the **Initialization Phase**. It defines which modules (subprojects) are included in the build (`include ':app', ':data'`).
+
+### 5. Gradle Build Phases lifecycle?
+1.  **Initialization**: Determines which projects participate in the build.
+2.  **Configuration**: Executes build scripts (`build.gradle`), creates the task graph. **(Heavy logic here slows down sync!)**
+3.  **Execution**: Executes the selected tasks.
+
+### 6. Optimizing Build Speed?
+1.  **Enable Daemon**: Keeps Gradle JVM running.
+2.  **Parallel Execution**: `org.gradle.parallel=true`.
+3.  **Configuration on Demand**: Configure only relevant modules.
+4.  **Avoid Dynamic Versions**: (`1.0.+` forces network checks).
+5.  **Offline Mode**: For faster iteration when no new deps needed.
+
+### 7. What is `buildSrc`?
+A special directory in the project root containing build logic (plugins, constants, dependency versions). It is compiled and added to the classpath of all build scripts. It allows better IDE support (autocomplete) for Kotlin DSL compared to `ext` blocks.
+
+### 8. Custom Task Example
+
 ```groovy
-dependencies {
-    implementation 'com.google.guava:guava:31.0.1-jre'
-}
-```
-
----
-
-### 5. What is a Gradle task?
-**Answer:**  
-A task is a single unit of work, such as compiling code or running tests, defined in the build script.
-
----
-
-### 6. How do you create a custom Gradle task?
-**Answer:**  
-```groovy
-task hello {
+task copyDocs(type: Copy) {
+    from 'src/main/doc'
+    into 'build/target/doc'
     doLast {
-        println 'Hello, Gradle!'
+        println "Docs copied!"
     }
 }
 ```
 
----
-
-### 7. What is the difference between implementation and api configurations?
-**Answer:**  
-`implementation` hides dependencies from consumers, while `api` exposes them to modules that depend on your module.
-
----
-
-### 8. How do you run a Gradle build?
-**Answer:**  
-Use the command:  
-```bash
-gradle build
-```
-
----
-
-### 9. What is the settings.gradle file used for?
-**Answer:**  
-It configures project structure, especially for multi-module projects.
-
----
-
-### 10. How do you add a plugin in Gradle?
-**Answer:**  
-```groovy
-plugins {
-    id 'java'
-}
-```
-
----
-
-## Intermediate Questions
-
-### 11. What is the difference between build.gradle (project) and build.gradle (module)?
-**Answer:**  
-Project-level build.gradle configures global settings; module-level build.gradle configures specific module dependencies and tasks.
-
----
-
-### 12. How do you exclude a transitive dependency?
-**Answer:**  
-```groovy
-implementation('group:artifact:version') {
-    exclude group: 'excluded-group', module: 'excluded-module'
-}
-```
-
----
-
-### 13. What is Gradle Wrapper and why is it useful?
-**Answer:**  
-Gradle Wrapper (`gradlew`) ensures consistent Gradle version across environments, simplifying setup.
-
----
-
-### 14. How do you define build variants in Android using Gradle?
-**Answer:**  
-```groovy
-android {
-    buildTypes {
-        release { ... }
-        debug { ... }
-    }
-}
-```
-
----
-
-### 15. How do you pass parameters to Gradle tasks?
-**Answer:**  
-```bash
-gradle myTask -PmyParam=value
-```
-Access in script:  
-```groovy
-println project.property('myParam')
-```
-
----
-
-### 16. What is a multi-project build in Gradle?
-**Answer:**  
-A build containing multiple subprojects/modules, managed via `settings.gradle`.
-
----
-
-### 17. How do you share code between modules in Gradle?
-**Answer:**  
-Create a common module and add it as a dependency in other modules.
-
----
-
-### 18. How do you configure repositories in Gradle?
-**Answer:**  
-```groovy
-repositories {
-    mavenCentral()
-    google()
-}
-```
-
----
-
-### 19. How do you use Gradle properties?
-**Answer:**  
-Define in `gradle.properties` and access via `project.property('name')`.
-
----
-
-### 20. How do you run a specific Gradle task?
-**Answer:**  
-```bash
-gradle <taskName>
-```
-
----
-
-## Advanced Questions
-
-### 21. How do you write a custom plugin in Gradle?
-**Answer:**  
-Create a class implementing `Plugin<Project>` and apply it in build.gradle.
-
-```groovy
-class MyPlugin implements Plugin<Project> {
-    void apply(Project project) {
-        project.task('customTask') {
-            doLast {
-                println 'Custom plugin task'
-            }
-        }
-    }
-}
-```
-
----
-
-### 22. What is build caching in Gradle?
-**Answer:**  
-Build caching stores outputs of tasks to avoid redundant work, improving build speed.
-
----
-
-### 23. How do you enable parallel execution in Gradle?
-**Answer:**  
-Add to `gradle.properties`:  
-```
-org.gradle.parallel=true
-```
-
----
-
-### 24. How do you profile a Gradle build?
-**Answer:**  
-Run:  
-```bash
-gradle build --profile
-```
-
----
-
-### 25. How do you use annotation processors in Gradle?
-**Answer:**  
-```groovy
-dependencies {
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.x'
-}
-```
-
----
-
-### 26. How do you publish artifacts to a Maven repository using Gradle?
-**Answer:**  
-Use the `maven-publish` plugin and configure `publishing` block.
-
----
-
-### 27. How do you configure test tasks in Gradle?
-**Answer:**  
-```groovy
-test {
-    useJUnitPlatform()
-    testLogging {
-        events "passed", "failed"
-    }
-}
-```
-
----
-
-### 28. How do you use conditional logic in build.gradle?
-**Answer:**  
-```groovy
-if (project.hasProperty('release')) {
-    // release-specific config
-}
-```
-
----
-
-### 29. How do you integrate Gradle with CI/CD pipelines?
-**Answer:**  
-Use Gradle commands in CI scripts (Jenkins, GitHub Actions, etc.) for build, test, and deploy steps.
-
----
-
-### 30. How do you debug Gradle build scripts?
-**Answer:**  
-Use `--debug` or `--stacktrace` flags:  
-```bash
-gradle build --debug
-```
-
----
-
-### 31. How do you use composite builds in Gradle?
-**Answer:**  
-Include builds using `includeBuild` in `settings.gradle` for dependency substitution.
-
----
-
-### 32. How do you configure source sets in Gradle?
-**Answer:**  
-```groovy
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java', 'src/shared/java']
-        }
-    }
-}
-```
-
----
-
-### 33. How do you manage versioning in Gradle?
-**Answer:**  
-Set version in build.gradle:  
-```groovy
-version = '1.0.0'
-```
-
----
-
-### 34. How do you use environment variables in Gradle?
-**Answer:**  
-Access via `System.getenv('VAR_NAME')` in build scripts.
-
----
-
-### 35. How do you use dependency constraints in Gradle?
-**Answer:**  
-```groovy
-dependencies {
-    constraints {
-        implementation('org.example:lib:1.2.3')
-    }
-}
-```
-
----
-
-### 36. How do you configure custom outputs for tasks?
-**Answer:**  
-```groovy
-task customOutput {
-    outputs.file("$buildDir/custom.txt")
-    doLast {
-        file("$buildDir/custom.txt").text = "Hello"
-    }
-}
-```
-
----
-
-### 37. How do you use Gradle for non-Java projects?
-**Answer:**  
-Apply appropriate plugins (e.g., `cpp`, `python`) and configure tasks for the language.
-
----
-
-### 38. How do you resolve dependency conflicts in Gradle?
-**Answer:**  
-Use `resolutionStrategy` in `configurations` block.
-
+### 9. Dependency Resolution Strategy
+How to handle version conflicts (e.g., Lib A needs Gson 2.8, Lib B needs Gson 2.9).
 ```groovy
 configurations.all {
     resolutionStrategy {
-        force 'group:artifact:version'
+        force 'com.google.code.gson:gson:2.9.0'
+        // or failOnVersionConflict()
     }
 }
 ```
 
----
-
-### 39. How do you generate JAR/AAR files using Gradle?
-**Answer:**  
-Run `gradle jar` for Java or `gradle assembleRelease` for Android.
-
----
-
-### 40. How do you use buildSrc for organizing build logic?
-**Answer:**  
-Create a `buildSrc` directory with custom plugins/tasks for reuse across the project.
+### 10. ProGuard / R8
+R8 is the new code shrinker (replacing ProGuard). It performs:
+1.  **Shrinking**: Removes unused code/resources.
+2.  **Obfuscation**: Renames classes/fields to short names (security).
+3.  **Optimization**: Inlines functions, removes unused interfaces.
 
 ---
-
-*Feel free to ask for more details or code samples on any question!*

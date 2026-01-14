@@ -1,219 +1,90 @@
-### Q: What is JUnit and why is it used?
+# 🧪 JUnit Testing Framework
+> **Targeted for Android Developers**
+> **Note:** Unit testing standards, assertions, and annotations.
 
-**A:**  
-JUnit is a widely used testing framework for Java applications. It provides annotations and assertions to help developers write and run repeatable tests, ensuring code quality and facilitating test-driven development (TDD).
-
----
-
-### Q: How do you create a simple test case in JUnit?
-
-**A:**  
-To create a test case in JUnit, you need to:
-1. Add the JUnit dependency to your project.
-2. Create a test class annotated with `@RunWith(JUnit4.class)`.
-3. Write test methods annotated with `@Test`.
-
-Example:
-```java
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-
-public class MyTests {
-    @Test
-    public void testAddition() {
-        assertEquals(2, 1 + 1);
-    }
-}
-```
+![JUnit](https://img.shields.io/badge/Testing-JUnit_4/5-red?style=for-the-badge&logo=junit5&logoColor=white)
 
 ---
 
-### Q: What are some common JUnit annotations?
-
-**A:**  
-- `@Test`: Marks a method as a test method.
-- `@Before`: Runs before each test method.
-- `@After`: Runs after each test method.
-- `@BeforeClass`: Runs once before any test methods in the class.
-- `@AfterClass`: Runs once after all test methods in the class.
+## 📖 Table of Contents
+- [1. Basics](#basics)
+- [2. Annotations (JUnit 4 vs 5)](#annotations)
+- [3. Assertions](#assertions)
+- [4. Parameterized Tests](#parameterized-tests)
 
 ---
 
-### Q: How do you assert values in JUnit tests?
+### Q1. What is JUnit?
 
-**A:**  
-JUnit provides various assertion methods in the `Assert` class to check expected values against actual values. Common assertions include:
-- `assertEquals(expected, actual)`: Checks if two values are equal.
-- `assertTrue(condition)`: Checks if a condition is true.
-- `assertFalse(condition)`: Checks if a condition is false.
-- `assertNull(object)`: Checks if an object is null.
-- `assertNotNull(object)`: Checks if an object is not null.
+**Answer:**
+JUnit is the standard unit testing framework for Java/Kotlin.
+- **JUnit 4**: Legacy, still widely used in Android.
+- **JUnit 5 (Jupiter)**: Modern, modular, better kotlin support.
 
----
+### Q2. JUnit 4 vs JUnit 5?
 
-### Q: How do you handle exceptions in JUnit tests?
+**Answer:**
+| Feature | JUnit 4 | JUnit 5 |
+| :--- | :--- | :--- |
+| **Test Method** | `@Test` | `@Test` (from different package) |
+| **Lifecycle** | `@Before`, `@After` | `@BeforeEach`, `@AfterEach` |
+| **Static Lifecycle** | `@BeforeClass`, `@AfterClass` | `@BeforeAll`, `@AfterAll` |
+| **Assertions** | `org.junit.Assert` | `org.junit.jupiter.api.Assertions` |
+| **Ignore** | `@Ignore` | `@Disabled` |
+| **Tagging** | `@Category` | `@Tag` |
 
-**A:**  
-You can use the `@Test(expected = Exception.class)` annotation to specify that a test method is expected to throw a particular exception. Alternatively, you can use a try-catch block within the test method and fail the test if the exception is not thrown.
+### Q3. How do you test for Exceptions?
 
-Example:
+**Answer:**
+
+**JUnit 4:**
 ```java
 @Test(expected = IllegalArgumentException.class)
-public void testInvalidArgument() {
+public void testException() {
     throw new IllegalArgumentException();
 }
 ```
 
----
-
-### Q: Can you run JUnit tests from the command line?
-
-**A:**  
-Yes, you can run JUnit tests from the command line using build tools like Maven or Gradle. For example, with Maven, you can use the command `mvn test` to run all tests in the project.
-
----
-
-### Q: How can you organize JUnit tests in a project?
-
-**A:**  
-JUnit tests are typically organized in a separate directory (e.g., `src/test/java`) within the project structure. You can create packages that mirror the main application structure to keep tests organized and maintainable.
-
----
-
-### Q: What is the purpose of test suites in JUnit?
-
-**A:**  
-Test suites allow you to group multiple test classes and run them together. You can create a test suite by using the `@Suite` annotation and specifying the test classes to include.
-
-Example:
-```java
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-
-@RunWith(Suite.class)
-@Suite.SuiteClasses({TestClass1.class, TestClass2.class})
-public class AllTests {
-}
-```
-
----
-
-### Q: How do you use parameterized tests in JUnit?
-
-**A:**  
-Parameterized tests allow you to run the same test with different input values. You can use the `@RunWith(Parameterized.class)` annotation and provide a method that returns a collection of test data.
-
-Example:
-```java
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
-@RunWith(Parameterized.class)
-public class ParameterizedTest {
-    private int input;
-    private int expected;
-
-    public ParameterizedTest(int input, int expected) {
-        this.input = input;
-        this.expected = expected;
-    }
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][] {
-            { 1, 2 },
-            { 2, 3 },
-            { 3, 4 }
-        });
-    }
-
-    @Test
-    public void testAddition() {
-        assertEquals(expected, input + 1);
+**JUnit 5 (Recommended):**
+```kotlin
+@Test
+fun testException() {
+    assertThrows<IllegalArgumentException> {
+        calculator.divide(10, 0)
     }
 }
 ```
 
----
+### Q4. Parameterized Tests Example?
 
-### Q: What are some best practices for writing JUnit tests?
-
-**A:**  
-- Write clear and descriptive test names.
-- Keep tests independent and isolated.
-- Use setup and teardown methods to manage test state.
-- Test both positive and negative scenarios.
-- Use assertions effectively to validate behavior.
-- Regularly run tests and integrate them into the build process.
-
----
-### Q: How do you run JUnit tests in an IDE like IntelliJ or Eclipse?
-
-**A:**
-You can run JUnit tests directly from the IDE by right-clicking on the test class or method and selecting "Run" or "Debug." Most IDEs provide built-in support for JUnit, allowing you to view test results, coverage, and debug tests easily.
-
-
-### Q: How do you handle test dependencies in JUnit?
-
-**A:**
-You can manage test dependencies using build tools like Maven or Gradle. For Maven, you add dependencies in the `pom.xml` file under the `<dependencies>` section. For Gradle, you add dependencies in the `build.gradle` file under the `dependencies` block.
-
-### Q: What is the difference between JUnit 4 and JUnit 5?
-**A:**
-JUnit 5 is a major update to the JUnit framework, introducing a new architecture and several enhancements. Key differences include:
-- JUnit 5 has a modular architecture with three main components:
-  - JUnit Platform: The foundation for launching testing frameworks.
-  - JUnit Jupiter: The new programming model and extension model for writing tests.
-  - JUnit Vintage: Provides backward compatibility for running JUnit 3 and JUnit 4 tests.
-- JUnit 5 uses new annotations like `@BeforeEach`, `@AfterEach`, `@BeforeAll`, and `@AfterAll` instead of the older `@Before`, `@After`, `@BeforeClass`, and `@AfterClass`.
-- JUnit 5 supports more powerful assertions and conditions, such as `assertThrows` for exception testing.
-- JUnit 5 allows for more flexible test discovery and execution through the use of tags and dynamic tests.
-- JUnit 5 has improved support for parameterized tests and provides a more powerful extension model.
-
-### Q: How do you mock dependencies in JUnit tests?
-**A:**
-
-You can use mocking frameworks like Mockito or EasyMock to create mock objects for dependencies in your JUnit tests. This allows you to isolate the unit under test and control the behavior of its dependencies.
-Example using Mockito:
-```java
-import static org.mockito.Mockito.*;    
-import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-
-public class MyServiceTest {
-
-    @Mock
-    private MyDependency myDependency;
-
-    @InjectMocks
-    private MyService myService;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
-    @Test
-    public void testServiceMethod() {
-        when(myDependency.getData()).thenReturn("Mocked Data");
-        String result = myService.processData();
-        assertEquals("Processed Mocked Data", result);
-    }
+**Answer:**
+Allows running the same test with different inputs.
+```kotlin
+@ParameterizedTest
+@ValueSource(ints = [1, 3, 5, -3, 15])
+fun isOdd_ShouldReturnTrueForOddNumbers(number: Int) {
+    assertTrue(Numbers.isOdd(number))
 }
 ```
 
-### Q: How do you run JUnit tests in a continuous integration (CI) environment?
-**A:**
-You can run JUnit tests in a CI environment by configuring your CI tool (like Jenkins, Travis CI, or GitHub Actions) to execute the tests as part of the build process. Typically, you would include a command to run the tests in your build script (e.g., `mvn test` for Maven or `gradle test` for Gradle). The CI tool will then execute the tests, report the results, and fail the build if any tests fail. You can also configure the CI tool to generate test reports and code coverage reports for better visibility into test results.
+### Q5. What is the Arrange-Act-Assert (AAA) pattern?
 
-### Q: How do you handle flaky tests in JUnit?
+**Answer:**
+A common pattern for structuring tests:
+1.  **Arrange**: Set up the object to be tested (create instance, mocks).
+2.  **Act**: Call the method under test.
+3.  **Assert**: Verify the result matches expectations.
 
-**A:**
-Flaky tests are tests that produce inconsistent results, passing sometimes and failing at other times. To handle flaky tests in JUnit:
-- **Identify Flaky Tests**: Run tests multiple times to identify which tests are flaky.
-- **Isolate Dependencies**: Ensure that tests do not depend on external systems or shared state that can lead to inconsistent results.
-- **Use Retry Logic**: Implement retry logic for flaky tests, allowing them to be retried a certain number of times before failing.
-- **Review Test Logic**: Analyze the test logic to identify potential issues, such as timing issues or resource contention.
+```kotlin
+@Test
+fun testAddition() {
+    // Arrange
+    val calculator = Calculator()
+    
+    // Act
+    val result = calculator.add(2, 2)
+    
+    // Assert
+    assertEquals(4, result)
+}
+```

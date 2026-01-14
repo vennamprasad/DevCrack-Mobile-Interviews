@@ -1,4 +1,20 @@
-## Design a Video Streaming App
+# 🎬 Design a Video Streaming App
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Adaptive video streaming, offline downloading, and player management.
+
+![Video Streaming](https://img.shields.io/badge/Real_World-Video_Streaming-E50914?style=for-the-badge&logo=netflix&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Senior-red?style=for-the-badge)
+
+---
+
+## 📖 Table of Contents
+- [1. Streaming Architecture](#architecture)
+- [2. File Structure & Entity](#1-video-entity)
+- [3. Player Management (ExoPlayer)](#2-video-player-manager)
+- [4. Downloading Logic](#6-video-download-manager)
+- [5. Optimization Strategies](#performance-optimizations)
+
+---
 
 ### Q19. How would you design a video streaming app like YouTube or Netflix?
 
@@ -550,4 +566,3 @@ class AdaptiveQualitySelector @Inject constructor(
 ```
 
 ---
-

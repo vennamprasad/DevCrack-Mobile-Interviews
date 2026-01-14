@@ -1,223 +1,122 @@
-# Hilt Interview Questions (Basic & Advanced)
+# 🗡️ Hilt Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** Hilt is Google's recommended DI solution for Android, built on top of Dagger.
 
-## Basic Questions
-
-### 1. What is Hilt?
-**Answer:**  
-Hilt is a dependency injection library for Android that reduces the boilerplate of manual DI in your project.
-
----
-
-### 2. Why use Hilt over Dagger in Android?
-**Answer:**  
-Hilt simplifies Dagger setup by providing standard components, automatic integration with Android classes, and better tooling support.
+![Hilt](https://img.shields.io/badge/Jetpack-Hilt-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Dagger](https://img.shields.io/badge/Powered_By-Dagger-orange?style=for-the-badge)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
 
 ---
 
-### 3. How do you enable Hilt in an Android project?
-**Answer:**  
-Add Hilt dependencies in `build.gradle` and annotate your Application class with `@HiltAndroidApp`.
+## 📖 Table of Contents
+- [1. Basics & Setup](#-basics)
+- [2. Annotations](#-3-what-is-the-purpose-of-inject-annotation)
+- [3. Components & Scopes](#-9-what-are-hilt-components)
+- [4. ViewModels & WorkManager](#-12-how-do-you-inject-viewmodels-with-hilt)
+- [5. Testing](#-20-how-do-you-test-hilt-based-classes)
+- [6. Migration](#-19-how-does-hilt-differ-from-manual-dagger-setup)
+
+---
+
+## ✅ Overview
+
+**Hilt** provides a standard way to incorporate Dagger dependency injection into an Android application. It defines a standard set of components for Android classes and simplified setup modules.
+
+**Hilt vs Dagger:**
+*   **Standardization:** Hilt has predefined standard components (`SingletonComponent`, `ActivityComponent`). Dagger requires manual component definition.
+*   **Boilerplate:** Hilt generates the components and wiring code, significantly reducing code.
+*   **AndroidX Support:** Built-in support for `ViewModel`, `WorkManager`, and `Compose`.
+
+---
+
+## 🧩 Interview Questions (Q&A)
+
+### 1. How do you set up Hilt?
+1.  Annotate the `Application` class with `@HiltAndroidApp`.
+2.  Annotate Android Entry Points (Activities, Fragments) with `@AndroidEntryPoint`.
 
 ```kotlin
 @HiltAndroidApp
 class MyApp : Application()
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity()
 ```
 
----
+### 2. Main Hilt Annotations
+*   **`@HiltAndroidApp`**: Triggers Hilt's code generation for the app.
+*   **`@AndroidEntryPoint`**: Marks an Activity/Fragment/Service to receive dependencies.
+*   **`@InstallIn`**: Specifies which component a module belongs to (e.g., `SingletonComponent`).
+*   **`@HiltViewModel`**: Integrates ViewModel injection.
 
-### 4. What is the purpose of `@Inject` annotation?
-**Answer:**  
-`@Inject` tells Hilt how to provide instances of a class.
+### 3. What Components are available in Hilt?
+*   `SingletonComponent` (App wide)
+*   `ActivityRetainedComponent` (Survives config changes, for ViewModels)
+*   `ActivityComponent`
+*   `FragmentComponent`
+*   `ViewComponent`
+*   `ServiceComponent`
 
----
-
-### 5. What is a Hilt module?
-**Answer:**  
-A Hilt module is a class annotated with `@Module` and `@InstallIn` that provides dependencies using `@Provides` or `@Binds`.
-
----
-
-### 6. How do you inject dependencies into an Activity?
-**Answer:**  
-Annotate the Activity with `@AndroidEntryPoint` and use `@Inject` for fields.
+### 4. How do you provide dependencies?
+Using Modules.
 
 ```kotlin
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    @Inject lateinit var repository: MyRepository
+@Module
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
+    
+    @Provides
+    @Singleton
+    fun provideRetrofit(): Retrofit { ... }
 }
 ```
 
----
+### 5. `@Provides` vs `@Binds` in Hilt?
+*   **`@Provides`**: For external classes (Retrofit, Room) or where you need custom initialization code.
+*   **`@Binds`**: For binding interfaces to implementations. Hilt optimizes this (no factory generation).
 
-### 7. What is `@AndroidEntryPoint`?
-**Answer:**  
-It marks Android classes (Activity, Fragment, etc.) as injection targets for Hilt.
+### 6. Inspecting Scopes
+*   `@Singleton`: Available everywhere, same instance.
+*   `@ActivityScoped`: One instance per Activity lifecycle.
+*   `@ViewModelScoped`: One instance per ViewModel.
 
----
+### 7. How to inject instances not supported by Hilt? (EntryPoint)
+Sometimes you need dependencies in a class not supported by Hilt (e.g., a ContentProvider or a plain Java/Kotlin class hooked into a 3rd party library). Use **`@EntryPoint`**.
 
-### 8. What is the difference between `@Provides` and `@Binds`?
-**Answer:**  
-`@Provides` returns an instance, while `@Binds` binds an implementation to an interface.
+```kotlin
+@EntryPoint
+@InstallIn(SingletonComponent::class)
+interface AnalyticsEntryPoint {
+    fun analyticsService(): AnalyticsService
+}
 
----
+// Usage
+val entryPoint = EntryPointAccessors.fromApplication(context, AnalyticsEntryPoint::class.java)
+val service = entryPoint.analyticsService()
+```
 
-### 9. What are Hilt components?
-**Answer:**  
-Hilt components are containers that manage the lifecycle and scope of dependencies (e.g., SingletonComponent, ActivityComponent).
+### 8. Testing with Hilt
+*   Use `@HiltAndroidTest`.
+*   Use `@UninstallModules` to replace production modules with test modules (mocks).
 
----
+```kotlin
+@HiltAndroidTest
+@UninstallModules(NetworkModule::class)
+class MainTest {
+    @get:Rule var hiltRule = HiltAndroidRule(this)
+    
+    @Inject lateinit var repo: Repository // MOCKED via TestModule
+}
+```
 
-### 10. How do you scope dependencies in Hilt?
-**Answer:**  
-Use scope annotations like `@Singleton`, `@ActivityScoped`, etc.
-
----
-
-### 11. What is `@Singleton` in Hilt?
-**Answer:**  
-It scopes a dependency to the lifetime of the application.
-
----
-
-### 12. How do you inject ViewModels with Hilt?
-**Answer:**  
-Annotate ViewModel with `@HiltViewModel` and use `@Inject` in its constructor.
+### 9. Constructor Injection in ViewModel
+Simplified with `@HiltViewModel`.
 
 ```kotlin
 @HiltViewModel
-class MyViewModel @Inject constructor(
-    private val repository: MyRepository
+class MainViewModel @Inject constructor(
+    private val repository: Repository
 ) : ViewModel()
 ```
 
 ---
-
-### 13. Can you inject dependencies into a Service or BroadcastReceiver?
-**Answer:**  
-Yes, annotate them with `@AndroidEntryPoint`.
-
----
-
-### 14. What is the purpose of `@InstallIn`?
-**Answer:**  
-It specifies which Hilt component the module is installed in.
-
----
-
-### 15. How do you provide different implementations for the same interface?
-**Answer:**  
-Use qualifiers like `@Named` or custom qualifiers.
-
-```kotlin
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class RemoteDataSource
-
-@Module
-@InstallIn(SingletonComponent::class)
-object DataSourceModule {
-    @RemoteDataSource
-    @Provides
-    fun provideRemoteDataSource(): DataSource = RemoteDataSourceImpl()
-}
-```
-
----
-
-## Advanced Questions
-
-### 16. How does Hilt handle dependency graph validation?
-**Answer:**  
-Hilt validates the dependency graph at compile time, ensuring all dependencies are provided.
-
----
-
-### 17. What are entry points in Hilt?
-**Answer:**  
-Entry points are interfaces annotated with `@EntryPoint` to access dependencies outside Hilt-managed classes.
-
----
-
-### 18. How do you inject dependencies into classes not supported by `@AndroidEntryPoint`?
-**Answer:**  
-Use Hilt entry points.
-
----
-
-### 19. How does Hilt differ from manual Dagger setup?
-**Answer:**  
-Hilt automates component creation, lifecycle management, and integration with Android classes.
-
----
-
-### 20. How do you test Hilt-based classes?
-**Answer:**  
-Use `@HiltAndroidTest` and `@UninstallModules` for replacing modules in tests.
-
----
-
-### 21. What is `@UninstallModules` used for?
-**Answer:**  
-It removes modules from the dependency graph during testing.
-
----
-
-### 22. How do you inject dependencies into custom classes (not Android components)?
-**Answer:**  
-Use constructor injection and pass dependencies from Hilt-injected classes.
-
----
-
-### 23. How does Hilt handle multi-binding?
-**Answer:**  
-Use Dagger's `@IntoSet` or `@IntoMap` annotations in Hilt modules.
-
----
-
-### 24. How do you handle circular dependencies in Hilt?
-**Answer:**  
-Refactor code to avoid circular dependencies or use `Provider<T>`.
-
----
-
-### 25. How do you provide runtime values with Hilt?
-**Answer:**  
-Use `@Provides` methods that accept parameters or use assisted injection.
-
----
-
-### 26. What is assisted injection in Hilt?
-**Answer:**  
-Assisted injection allows passing runtime parameters to constructors along with injected dependencies.
-
----
-
-### 27. How do you inject dependencies into a Fragment?
-**Answer:**  
-Annotate the Fragment with `@AndroidEntryPoint` and use `@Inject`.
-
----
-
-### 28. Can you use Hilt with Kotlin Multiplatform?
-**Answer:**  
-Hilt is designed for Android; for multiplatform, use Koin or manual DI.
-
----
-
-### 29. How do you share dependencies between modules in a multi-module project?
-**Answer:**  
-Install modules in `SingletonComponent` or appropriate shared component.
-
----
-
-### 30. What are custom scopes in Hilt?
-**Answer:**  
-Custom scopes are user-defined annotations for scoping dependencies, but Hilt recommends using built-in scopes.
-
----
-
-## References
-
-- [Hilt Official Documentation](https://developer.android.com/training/dependency-injection/hilt-android)
-- [Dagger Documentation](https://dagger.dev/)

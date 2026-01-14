@@ -1,70 +1,91 @@
-### What is RxAndroid, RxJava, and RxKotlin?
+# 💊 RxJava Interview Guide
+> **Targeted for Senior Android Developer / Team Lead Roles**
+> **Note:** While Flow is preferred for Kotlin projects, Legacy Codebases still heavily rely on RxJava2/3. Use this guide to master Reactive Programming.
 
-- **RxJava** is a Java library for composing asynchronous and event-based programs using observable sequences. It provides the core reactive programming API for Java.
+![RxJava](https://img.shields.io/badge/RxJava-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
+![Reactive](https://img.shields.io/badge/Pattern-Reactive-blue?style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 
-- **RxAndroid** is a lightweight wrapper around RxJava that adds Android-specific bindings. It provides Android schedulers (like `AndroidSchedulers.mainThread()`) to easily work with UI threads.
+---
 
-- **RxKotlin** is a Kotlin extension for RxJava, offering more idiomatic Kotlin APIs and utilities to make reactive programming easier and more concise in Kotlin.
+## 📖 Table of Contents
+- [1. Core Concepts](#-1-what-is-rxjava)
+- [2. Observables & Flowables](#-5-what-is-the-difference-between-observable-and-flowable)
+- [3. Operators (Map vs FlatMap)](#-11-what-is-the-difference-between-map-and-flatmap)
+- [4. Schedulers & Threading](#-16-what-is-the-difference-between-observeon-and-subscribeon)
+- [5. Subjects](#-12-what-is-a-subject-in-rxjava)
+- [6. Error Handling](#-15-how-do-you-handle-errors-in-rxjava)
 
-These libraries are often used together in Android development to handle asynchronous operations, threading, and event-based programming in a clean and maintainable way.
-1. **What is RxJava?**  
-    RxJava is a Java implementation of Reactive Extensions, a library for composing asynchronous and event-based programs using observable sequences.
+---
 
-2. **What are Observables in RxJava?**  
-    Observables are the core data type in RxJava. They emit items or events to which observers can subscribe.
+## ✅ Overview
 
-3. **What is an Observer?**  
-    An Observer subscribes to an Observable to receive emitted items or events.
+**RxJava** (Reactive Extensions for Java) is a library for composing asynchronous and event-based programs by using observable sequences. It extends the Observer pattern to support sequences of data and events.
 
-4. **What is a Subscriber?**  
-    A Subscriber is a type of Observer with additional methods for managing the subscription, such as `unsubscribe()`.
+*   **RxAndroid:** Adds Android-specific bindings (e.g., `AndroidSchedulers.mainThread()`).
+*   **RxKotlin:** Adds Kotlin extension functions for more idiomatic usage.
+*   **RxJava 3:** The current standard version.
 
-5. **What is the difference between Observable and Flowable?**  
-    Observable is used for streams with a small or manageable number of items. Flowable is used for handling large or infinite streams with backpressure support.
+---
 
-6. **What is Backpressure?**  
-    Backpressure is a mechanism to handle situations where an Observable emits items faster than an Observer can consume them.
+## 🧩 Interview Questions (Q&A)
 
-7. **What are Schedulers in RxJava?**  
-    Schedulers control the threads on which Observables emit items and Observers consume them (e.g., IO, computation, main thread).
+### 1. Fundamental Types
+*   **`Observable`**: A stream of data that emits 0 to n items and then completes or errors. No backpressure.
+*   **`Flowable`**: Same as Observable but involves **Backpressure** support (for massive amounts of data).
+*   **`Single`**: Emits exactly one item or an error (e.g., Network Call).
+*   **`Maybe`**: Emits one item, no item, or an error (e.g., Database Query usually optional).
+*   **`Completable`**: Emits no items, just success or error (e.g., Delete operation).
 
-8. **How do you create an Observable?**  
-    Using methods like `Observable.just()`, `Observable.fromIterable()`, or `Observable.create()`.
+### 2. Backpressure
+**Backpressure** occurs when the publisher emits items faster than the consumer can process them. `Flowable` handles this using strategies:
+*   `BUFFER`: Buffers items in memory (can cause OOM).
+*   `DROP`: Drops most recent items if downstream busy.
+*   `LATEST`: Keeps only the latest item.
 
-9. **What is the use of the `map()` operator?**  
-    The `map()` operator transforms each emitted item by applying a function to it.
+### 3. `map` vs `flatMap` vs `concatMap`
+*   **`map`**: Transforms item T -> U. (One-to-One).
+*   **`flatMap`**: Transforms T -> Observable<U>. Returns a merged stream. Emitted items can be interleaved (Order NOT guaranteed).
+*   **`concatMap`**: Same as `flatMap` but waits for the previous Observable to finish before starting the next. (Order IS guaranteed).
+*   **`switchMap`**: Unsubscribes from the previous Observable when a new item arrives. Great for Search bars (ignore old query if user types new one).
 
-10. **What is the use of the `flatMap()` operator?**  
-     `flatMap()` transforms each item into an Observable and then flattens the emissions into a single Observable.
+### 4. Schedulers (`subscribeOn` vs `observeOn`)
+*   **`subscribeOn()`**: Affects the thread where the upstream source works (Network request). Can only be called once.
+*   **`observeOn()`**: Affects the thread where downstream operators/subscribers work (UI updates). Can be called multiple times to switch threads mid-stream.
 
-11. **What is the difference between `map()` and `flatMap()`?**  
-     `map()` transforms items one-to-one, while `flatMap()` can transform one item into multiple items or Observables.
+```kotlin
+api.getUser()
+    .subscribeOn(Schedulers.io()) // Fetch on IO
+    .map { user -> user.copy(name = "Prefix " + user.name) } // Compute on IO
+    .observeOn(AndroidSchedulers.mainThread()) // Switch to Main
+    .subscribe { showOnUi(it) } // Run on Main
+```
 
-12. **What is a Subject in RxJava?**  
-     A Subject is both an Observable and an Observer. It can emit new items to its subscribers and subscribe to other Observables.
+### 5. Types of Subjects
+Subjects act as both Observer and Observable.
+*   **`PublishSubject`**: Emits only subsequent items to subscribers. (Hot).
+*   **`BehaviorSubject`**: Emits the most recent item (and subsequent) to new subscribers. Great for State.
+*   **`ReplaySubject`**: Replays all previous items to new subscribers.
+*   **`AsyncSubject`**: Emits only the LAST item after onComplete.
 
-13. **What are the types of Subjects?**  
-     Common types include `PublishSubject`, `BehaviorSubject`, `ReplaySubject`, and `AsyncSubject`.
+### 6. Cold vs Hot Observables?
+*   **Cold**: Starts emitting items only when subscribed to. Each subscriber gets its own stream (e.g., Database Query, Network Call).
+*   **Hot**: Emits items regardless of subscribers. Subscribers share the stream (e.g., Timer, UI Events, Subject).
 
-14. **What is a CompositeDisposable?**  
-     CompositeDisposable is a container that can hold multiple Disposables and dispose of them all at once.
+### 7. How to avoid Memory Leaks?
+Using `CompositeDisposable`.
+```kotlin
+val disposables = CompositeDisposable()
 
-15. **How do you handle errors in RxJava?**  
-     By using operators like `onErrorReturn()`, `onErrorResumeNext()`, or handling errors in the Observer’s `onError()` method.
+fun onStart() {
+    disposables.add(
+        observable.subscribe()
+    )
+}
 
-16. **What is the difference between `observeOn()` and `subscribeOn()`?**  
-     `subscribeOn()` specifies the thread for the Observable to operate on, while `observeOn()` specifies the thread for the Observer.
+fun onDestroy() {
+    disposables.clear() // Unsubscribes everything
+}
+```
 
-17. **What is the use of the `filter()` operator?**  
-     `filter()` emits only those items from an Observable that pass a predicate test.
-
-18. **How do you combine multiple Observables?**  
-     Using operators like `merge()`, `concat()`, `zip()`, and `combineLatest()`.
-
-19. **What is the use of the `debounce()` operator?**  
-     `debounce()` emits an item from an Observable only after a particular timespan has passed without another emission.
-
-20. **How do you test RxJava code?**  
-     By using `TestObserver`, `TestSubscriber`, and controlling Schedulers with `TestScheduler`.
-
-Let me know if you need answers for more questions!
+---

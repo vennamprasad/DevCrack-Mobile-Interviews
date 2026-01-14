@@ -18,6 +18,7 @@ Deep dives into modern Android development.
 - **Jetpack Compose**: State, Side Effects, Performance.
 - **Architecture**: Clean, MVI/MVVM, Modularization.
 - **Data**: Room, SQLite, Serialization.
+- **Media**: ExoPlayer Mastery (architecture, DRM, caching).
 - **Tools**: Gradle, R8, Dagger/Hilt.
 
 ### 🍎 [iOS](./iOS)
@@ -40,7 +41,10 @@ For Engineering Managers and Staff Engineers.
 
 ### 🔮 [Emerging Tech](./Emerging_Tech)
 Future-proof your career.
+- **AdTech & Media**: VAST/VPAID, ExoPlayer internals, DRM.
 - **On-Device ML**: CoreML, TFLite.
+- **Cloud Native**: Serverless, Edge, BFF.
+- **AI Engineering**: RAG, Agents, Vector Databases.
 - **VisionOS**: Spatial Computing & Spatial Design.
 - **Accessibility**: WCAG, TalkBack/VoiceOver.
 

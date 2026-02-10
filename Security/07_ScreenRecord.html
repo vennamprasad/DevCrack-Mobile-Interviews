@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android Screen Security — Prasad's Reference Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181c24;
+    --border: #1f2433;
+    --accent: #00e5a0;
+    --accent2: #ff6b6b;
+    --accent3: #ffd166;
+    --accent4: #4cc9f0;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --tag-green: rgba(0,229,160,0.12);
+    --tag-red: rgba(255,107,107,0.12);
+    --tag-blue: rgba(76,201,240,0.12);
+    --tag-yellow: rgba(255,209,102,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND GRID ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .header-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  h1 .highlight { color: var(--accent); }
+  h1 .dim { color: var(--muted); }
+
+  .header-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 600px;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .badge.green  { color: var(--accent);  border-color: var(--accent);  background: var(--tag-green); }
+  .badge.red    { color: var(--accent2); border-color: var(--accent2); background: var(--tag-red); }
+  .badge.blue   { color: var(--accent4); border-color: var(--accent4); background: var(--tag-blue); }
+  .badge.yellow { color: var(--accent3); border-color: var(--accent3); background: var(--tag-yellow); }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .card:hover {
+    border-color: rgba(0,229,160,0.3);
+    transform: translateY(-2px);
+  }
+  .card:hover::before { opacity: 1; }
+
+  .card.red-accent::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+  .card.blue-accent::before { background: linear-gradient(90deg, var(--accent4), transparent); }
+  .card.yellow-accent::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+  .card.red-accent:hover { border-color: rgba(255,107,107,0.3); }
+  .card.blue-accent:hover { border-color: rgba(76,201,240,0.3); }
+  .card.yellow-accent:hover { border-color: rgba(255,209,102,0.3); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .icon-green  { background: var(--tag-green); }
+  .icon-red    { background: var(--tag-red); }
+  .icon-blue   { background: var(--tag-blue); }
+  .icon-yellow { background: var(--tag-yellow); }
+
+  /* ── TAGS ── */
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ── CODE BLOCKS ── */
+  .code-block {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .code-header {
+    background: var(--surface2);
+    padding: 8px 16px;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .code-lang {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .copy-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .copy-btn.copied {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  pre {
+    padding: 20px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* ── SYNTAX HIGHLIGHT ── */
+  .kw   { color: #ff79c6; }
+  .fn   { color: #50fa7b; }
+  .str  { color: #f1fa8c; }
+  .cls  { color: #8be9fd; }
+  .num  { color: #bd93f9; }
+  .cmt  { color: #6272a4; font-style: italic; }
+  .ann  { color: #ffb86c; }
+
+  /* ── 2-COL GRID ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 700px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  /* ── INFO LIST ── */
+  .info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .info-list li .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .dot-green  { background: var(--accent); }
+  .dot-red    { background: var(--accent2); }
+  .dot-blue   { background: var(--accent4); }
+  .dot-yellow { background: var(--accent3); }
+
+  /* ── COMPARISON TABLE ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  th {
+    background: var(--surface2);
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .yes { color: var(--accent); }
+  .no  { color: var(--accent2); }
+  .partial { color: var(--accent3); }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-left: 3px solid;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .callout.warn  { border-color: var(--accent3); background: var(--tag-yellow); color: var(--accent3); }
+  .callout.info  { border-color: var(--accent4); background: var(--tag-blue);   color: var(--accent4); }
+  .callout.tip   { border-color: var(--accent);  background: var(--tag-green);  color: var(--accent);  }
+  .callout.error { border-color: var(--accent2); background: var(--tag-red);    color: var(--accent2); }
+  .callout strong { font-weight: 700; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .flow-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+    background: var(--surface);
+  }
+  .flow-connector {
+    width: 2px;
+    flex: 1;
+    min-height: 20px;
+    background: linear-gradient(to bottom, var(--accent), rgba(0,229,160,0.1));
+    margin: 2px 0;
+  }
+  .flow-content {
+    padding: 4px 0 20px;
+    flex: 1;
+  }
+  .flow-label {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .flow-desc {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+    user-select: none;
+  }
+  .tab.active, .tab:hover { color: var(--accent); }
+  .tab.active { border-bottom-color: var(--accent); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── INTERVIEW CARDS ── */
+  .q-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .q-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .q-text {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .a-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .a-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── SECTION SPACER ── */
+  .section { margin-bottom: 56px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: gap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  footer .accent { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card, .q-card { animation: fadeInUp 0.4s ease both; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ══════════════════════════════════════════ HEADER -->
+  <header>
+    <div class="header-label">Android Security Reference</div>
+    <h1>
+      Restrict <span class="highlight">Screenshot</span><br>
+      &amp; <span class="highlight">Screen Recording</span><br>
+      <span class="dim">— Complete Guide</span>
+    </h1>
+    <p class="header-desc">
+      Production-ready implementations, edge cases, Compose support,<br>
+      and interview talking points for banking-grade Android apps.
+    </p>
+    <div class="header-badges">
+      <span class="badge green">FLAG_SECURE</span>
+      <span class="badge blue">Jetpack Compose</span>
+      <span class="badge yellow">PCI DSS</span>
+      <span class="badge red">OWASP M2</span>
+      <span class="badge green">Banking-Grade</span>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════ HOW IT WORKS -->
+  <section class="section">
+    <div class="section-title">01 — How it works</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon icon-green">🔒</div>
+            FLAG_SECURE — The Core API
+          </div>
+        </div>
+        <ul class="info-list">
+          <li><span class="dot dot-green"></span>A <strong>WindowManager flag</strong> that marks a window as containing sensitive content</li>
+          <li><span class="dot dot-green"></span>When set, the system renders a <strong>black/blank frame</strong> instead of real content in screenshots</li>
+          <li><span class="dot dot-green"></span>Also blocks content from appearing in the <strong>Recent Apps</strong> thumbnail</li>
+          <li><span class="dot dot-green"></span>Prevents screen recording tools (built-in or third-party) from capturing the window</li>
+          <li><span class="dot dot-green"></span>Applies at the <strong>window level</strong> — works for entire Activity or specific Compose screens</li>
+        </ul>
+      </div>
+      <div class="card red-accent">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon icon-red">⚠️</div>
+            What It Does NOT Do
+          </div>
+        </div>
+        <ul class="info-list">
+          <li><span class="dot dot-red"></span><strong>Cannot prevent</strong> a second camera pointing at the screen</li>
+          <li><span class="dot dot-red"></span><strong>Cannot detect</strong> hardware HDMI capture cards</li>
+          <li><span class="dot dot-red"></span>Does not block screenshots on <strong>rooted devices</strong> (root can bypass FLAG_SECURE)</li>
+          <li><span class="dot dot-red"></span>Does not block recording if the <strong>kernel is compromised</strong></li>
+          <li><span class="dot dot-red"></span>Only covers <strong>your app's windows</strong>, not overlays from other apps</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout info">
+      <strong>Key mental model:</strong> FLAG_SECURE tells the OS compositor to treat your surface as DRM-protected content — the same mechanism used by Netflix and banking apps globally.
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ IMPLEMENTATIONS -->
+  <section class="section">
+    <div class="section-title">02 — Implementation methods</div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab(this, 'tab-activity')">Activity (Global)</div>
+      <div class="tab" onclick="switchTab(this, 'tab-compose')">Compose (Per-Screen)</div>
+      <div class="tab" onclick="switchTab(this, 'tab-viewbased')">View-Based (Selective)</div>
+      <div class="tab" onclick="switchTab(this, 'tab-recent')">Recent Apps Masking</div>
+    </div>
+
+    <!-- TAB 1: Activity -->
+    <div id="tab-activity" class="tab-content active">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-green">📱</div>
+          Method 1 — Entire Activity (Simplest)
+        </div>
+        <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">
+          Apply in <code>onCreate()</code> before <code>setContentView()</code>. Secures all screens in this Activity.
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · MainActivity.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="kw">class</span> <span class="cls">MainActivity</span> : <span class="cls">AppCompatActivity</span>() {
+
+    <span class="kw">override fun</span> <span class="fn">onCreate</span>(savedInstanceState: <span class="cls">Bundle</span>?) {
+        <span class="kw">super</span>.onCreate(savedInstanceState)
+
+        <span class="cmt">// ✅ Must be called BEFORE setContentView()</span>
+        <span class="cmt">// This secures the entire window immediately</span>
+        window.setFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+
+        setContentView(R.layout.activity_main)
+    }
+
+    <span class="cmt">// To remove it later (e.g., for non-sensitive screens)</span>
+    <span class="kw">fun</span> <span class="fn">disableScreenSecurity</span>() {
+        window.clearFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+    }
+}</pre>
+        </div>
+        <div class="callout tip">
+          <strong>Best for:</strong> Banking apps where the ENTIRE app should be protected — payment screens, account details, transaction history.
+        </div>
+      </div>
+
+      <div class="card yellow-accent">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-yellow">🎯</div>
+          Toggling Based on Destination (Navigation-Aware)
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · SecurityAwareActivity.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="cmt">// Define which screens require protection</span>
+<span class="kw">val</span> secureDestinations = setOf(
+    R.id.paymentFragment,
+    R.id.accountDetailsFragment,
+    R.id.transactionHistoryFragment,
+    R.id.cardDetailsFragment
+)
+
+<span class="cmt">// In Activity, listen to nav destination changes</span>
+navController.addOnDestinationChangedListener { _, destination, _ ->
+    <span class="kw">if</span> (destination.id <span class="kw">in</span> secureDestinations) {
+        window.setFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+    } <span class="kw">else</span> {
+        window.clearFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Compose -->
+    <div id="tab-compose" class="tab-content">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-blue">✨</div>
+          Composable with DisposableEffect — Per-Screen
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · SecureScreen.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="cmt">/**
+ * Wrap any sensitive Compose screen with this.
+ * FLAG_SECURE is set when screen appears and
+ * automatically CLEARED when it leaves composition.
+ */</span>
+<span class="ann">@Composable</span>
+<span class="kw">fun</span> <span class="fn">SecureScreen</span>(content: <span class="ann">@Composable</span> () -> <span class="cls">Unit</span>) {
+    <span class="kw">val</span> context = <span class="fn">LocalContext</span>.current
+
+    <span class="fn">DisposableEffect</span>(<span class="cls">Unit</span>) {
+        <span class="kw">val</span> activity = context.<span class="fn">findActivity</span>()
+        activity?.window?.setFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+
+        onDispose {
+            <span class="cmt">// ✅ Auto-cleared when composable leaves the tree</span>
+            activity?.window?.clearFlags(
+                <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+            )
+        }
+    }
+
+    content()
+}
+
+<span class="cmt">// Extension — find Activity from Context</span>
+<span class="kw">fun</span> <span class="cls">Context</span>.<span class="fn">findActivity</span>(): <span class="cls">Activity</span>? {
+    <span class="kw">var</span> ctx = <span class="kw">this</span>
+    <span class="kw">while</span> (ctx <span class="kw">is</span> <span class="cls">ContextWrapper</span>) {
+        <span class="kw">if</span> (ctx <span class="kw">is</span> <span class="cls">Activity</span>) <span class="kw">return</span> ctx
+        ctx = ctx.baseContext
+    }
+    <span class="kw">return null</span>
+}</pre>
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · Usage Example</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="cmt">// Usage — just wrap your screen</span>
+<span class="ann">@Composable</span>
+<span class="kw">fun</span> <span class="fn">PaymentScreen</span>() {
+    <span class="fn">SecureScreen</span> {
+        <span class="cmt">// Your payment UI here — fully protected</span>
+        <span class="fn">Column</span> {
+            <span class="fn">Text</span>(<span class="str">"Card: **** **** **** 4242"</span>)
+            <span class="fn">Text</span>(<span class="str">"Balance: ₹1,24,500"</span>)
+            <span class="fn">PaymentButton</span>()
+        }
+    }
+}
+
+<span class="cmt">// Or as a conditional modifier for specific elements</span>
+<span class="ann">@Composable</span>
+<span class="kw">fun</span> <span class="fn">SensitiveDataText</span>(value: <span class="cls">String</span>, isSecure: <span class="cls">Boolean</span>) {
+    <span class="kw">if</span> (isSecure) {
+        <span class="fn">SecureScreen</span> { <span class="fn">Text</span>(value) }
+    } <span class="kw">else</span> {
+        <span class="fn">Text</span>(value)
+    }
+}</pre>
+        </div>
+      </div>
+
+      <div class="card blue-accent">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-blue">🔑</div>
+          ViewModel-Driven Security State
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
+          Cleaner pattern — let ViewModel control security state, not the UI layer directly.
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · ScreenSecurityViewModel.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="kw">class</span> <span class="cls">ScreenSecurityViewModel</span> : <span class="cls">ViewModel</span>() {
+
+    <span class="kw">private val</span> _isSecure = <span class="fn">MutableStateFlow</span>(<span class="kw">false</span>)
+    <span class="kw">val</span> isSecure: <span class="cls">StateFlow</span>&lt;<span class="cls">Boolean</span>&gt; = _isSecure.asStateFlow()
+
+    <span class="kw">fun</span> <span class="fn">enableSecurity</span>()  { _isSecure.value = <span class="kw">true</span>  }
+    <span class="kw">fun</span> <span class="fn">disableSecurity</span>() { _isSecure.value = <span class="kw">false</span> }
+}
+
+<span class="cmt">// In your Composable screen</span>
+<span class="ann">@Composable</span>
+<span class="kw">fun</span> <span class="fn">AccountScreen</span>(viewModel: <span class="cls">AccountViewModel</span> = hiltViewModel()) {
+
+    <span class="kw">val</span> isSecure <span class="kw">by</span> viewModel.isSecure.collectAsStateWithLifecycle()
+
+    <span class="fn">LaunchedEffect</span>(<span class="cls">Unit</span>) { viewModel.enableSecurity() }
+
+    <span class="kw">if</span> (isSecure) {
+        <span class="fn">SecureScreen</span> { <span class="fn">AccountContent</span>(viewModel) }
+    } <span class="kw">else</span> {
+        <span class="fn">AccountContent</span>(viewModel)
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: View-Based -->
+    <div id="tab-viewbased" class="tab-content">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-green">📋</div>
+          Fragment-Level Security (View System)
+        </div>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · SecureFragment.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="kw">abstract class</span> <span class="cls">SecureFragment</span> : <span class="cls">Fragment</span>() {
+
+    <span class="cmt">// Subclasses override this to opt in/out</span>
+    <span class="kw">open val</span> requiresScreenSecurity: <span class="cls">Boolean</span> = <span class="kw">true</span>
+
+    <span class="kw">override fun</span> <span class="fn">onResume</span>() {
+        <span class="kw">super</span>.onResume()
+        <span class="kw">if</span> (requiresScreenSecurity) {
+            activity?.window?.setFlags(
+                <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+                <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+            )
+        }
+    }
+
+    <span class="kw">override fun</span> <span class="fn">onPause</span>() {
+        <span class="kw">super</span>.onPause()
+        <span class="cmt">// Clear when leaving — don't affect other fragments</span>
+        activity?.window?.clearFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+    }
+}
+
+<span class="cmt">// Usage</span>
+<span class="kw">class</span> <span class="cls">CardDetailsFragment</span> : <span class="cls">SecureFragment</span>() {
+    <span class="kw">override val</span> requiresScreenSecurity = <span class="kw">true</span>
+    <span class="cmt">// Your fragment code ...</span>
+}
+
+<span class="kw">class</span> <span class="cls">HomeFragment</span> : <span class="cls">SecureFragment</span>() {
+    <span class="kw">override val</span> requiresScreenSecurity = <span class="kw">false</span>
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Recent Apps -->
+    <div id="tab-recent" class="tab-content">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px;">
+          <div class="card-icon icon-yellow">🗂️</div>
+          Mask Content in Recent Apps Switcher
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:12px;">
+          When a user presses the Home/Recents button, Android takes a screenshot of the current screen. FLAG_SECURE prevents this too — but here's how to handle it with a custom splash.
+        </p>
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Kotlin · SecurityAwareActivity.kt</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="kw">class</span> <span class="cls">BankingActivity</span> : <span class="cls">AppCompatActivity</span>() {
+
+    <span class="kw">override fun</span> <span class="fn">onCreate</span>(savedInstanceState: <span class="cls">Bundle</span>?) {
+        <span class="kw">super</span>.onCreate(savedInstanceState)
+        <span class="cmt">// FLAG_SECURE also prevents Recent Apps thumbnails</span>
+        window.setFlags(
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+            <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+        )
+    }
+
+    <span class="kw">override fun</span> <span class="fn">onWindowFocusChanged</span>(hasFocus: <span class="cls">Boolean</span>) {
+        <span class="kw">super</span>.onWindowFocusChanged(hasFocus)
+        <span class="kw">if</span> (!hasFocus) {
+            <span class="cmt">// App going to background — show splash over content</span>
+            showSplashOverlay()
+        } <span class="kw">else</span> {
+            <span class="cmt">// App coming to foreground</span>
+            hideSplashOverlay()
+        }
+    }
+
+    <span class="kw">private fun</span> <span class="fn">showSplashOverlay</span>() {
+        <span class="cmt">// Inflate a branded splash view on top of content</span>
+        <span class="cmt">// This shows in recents instead of sensitive data</span>
+        binding.securityOverlay.isVisible = <span class="kw">true</span>
+    }
+
+    <span class="kw">private fun</span> <span class="fn">hideSplashOverlay</span>() {
+        binding.securityOverlay.isVisible = <span class="kw">false</span>
+    }
+}</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">XML · activity_banking.xml (overlay layout)</span>
+            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+          </div>
+          <pre><span class="cmt">&lt;!-- Overlay shown in Recent Apps --&gt;</span>
+&lt;<span class="cls">FrameLayout</span>
+    android:id=<span class="str">"@+id/securityOverlay"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"match_parent"</span>
+    android:visibility=<span class="str">"gone"</span>
+    android:background=<span class="str">"@color/brand_primary"</span>&gt;
+
+    &lt;<span class="cls">ImageView</span>
+        android:layout_gravity=<span class="str">"center"</span>
+        android:src=<span class="str">"@drawable/ic_app_logo"</span>
+        android:contentDescription=<span class="str">"@string/app_name"</span> /&gt;
+
+&lt;/<span class="cls">FrameLayout</span>&gt;</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ SCREEN RECORDING DETECTION -->
+  <section class="section">
+    <div class="section-title">03 — Screen Recording Detection (Android 14+)</div>
+
+    <div class="callout warn">
+      <strong>New in Android 14 (API 34):</strong> The system now notifies apps when screen recording starts. This is the first official API for detection.
+    </div>
+
+    <div class="card blue-accent">
+      <div class="card-title" style="margin-bottom:12px;">
+        <div class="card-icon icon-blue">📡</div>
+        WindowInfoTracker — Official Detection API
+      </div>
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Kotlin · ScreenRecordingDetector.kt</span>
+          <button class="copy-btn" onclick="copyCode(this)">copy</button>
+        </div>
+        <pre><span class="kw">class</span> <span class="cls">ScreenRecordingDetector</span> <span class="ann">@Inject</span> <span class="kw">constructor</span>(
+    <span class="kw">private val</span> activity: <span class="cls">Activity</span>
+) {
+    <span class="kw">private val</span> _isBeingRecorded = <span class="fn">MutableStateFlow</span>(<span class="kw">false</span>)
+    <span class="kw">val</span> isBeingRecorded = _isBeingRecorded.asStateFlow()
+
+    <span class="ann">@RequiresApi</span>(<span class="cls">Build</span>.VERSION_CODES.<span class="ann">UPSIDE_DOWN_CAKE</span>) <span class="cmt">// API 34</span>
+    <span class="kw">fun</span> <span class="fn">startMonitoring</span>(scope: <span class="cls">CoroutineScope</span>) {
+        scope.launch {
+            <span class="cls">WindowInfoTracker</span>
+                .getOrCreate(activity)
+                .windowLayoutInfo(activity)
+                .collect { layoutInfo ->
+                    <span class="cmt">// Check if screen content is being captured</span>
+                    <span class="kw">val</span> isCapturing = activity
+                        .windowManager
+                        .currentWindowMetrics
+                        .windowInsetsController != <span class="kw">null</span>
+
+                    <span class="cmt">// Alternative: use ActivityLifecycleCallbacks</span>
+                    _isBeingRecorded.value = isScreenBeingCaptured()
+                }
+        }
+    }
+
+    <span class="ann">@RequiresApi</span>(<span class="cls">Build</span>.VERSION_CODES.<span class="ann">UPSIDE_DOWN_CAKE</span>)
+    <span class="kw">private fun</span> <span class="fn">isScreenBeingCaptured</span>(): <span class="cls">Boolean</span> {
+        <span class="kw">return</span> activity.isScreenCaptureEnabled
+    }
+}
+
+<span class="cmt">// In ViewModel — react to recording detection</span>
+viewModelScope.launch {
+    screenRecordingDetector.isBeingRecorded
+        .filter { it == <span class="kw">true</span> }
+        .collect {
+            <span class="cmt">// Options: blur content, pause, log, alert user</span>
+            _uiState.update { it.copy(isContentBlurred = <span class="kw">true</span>) }
+            analyticsService.logSecurityEvent(<span class="str">"SCREEN_RECORDING_DETECTED"</span>)
+        }
+}</pre>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-green">✅</div>
+          When Recording is Detected — Do This
+        </div>
+        <ul class="info-list">
+          <li><span class="dot dot-green"></span>Blur or hide sensitive data on screen</li>
+          <li><span class="dot dot-green"></span>Show a security warning overlay</li>
+          <li><span class="dot dot-green"></span>Pause video or financial data display</li>
+          <li><span class="dot dot-green"></span>Log the event server-side for audit</li>
+          <li><span class="dot dot-green"></span>For high-security: terminate the session</li>
+          <li><span class="dot dot-green"></span>Ask user to stop recording to continue</li>
+        </ul>
+      </div>
+      <div class="card red-accent">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-red">❌</div>
+          What You Cannot Do
+        </div>
+        <ul class="info-list">
+          <li><span class="dot dot-red"></span>Cannot <strong>stop</strong> the recording — OS doesn't allow it</li>
+          <li><span class="dot dot-red"></span>Cannot detect recording on <strong>Android &lt; 14</strong> reliably</li>
+          <li><span class="dot dot-red"></span>Cannot prevent recording on <strong>rooted devices</strong></li>
+          <li><span class="dot dot-red"></span>Cannot block <strong>hardware capture cards</strong></li>
+          <li><span class="dot dot-red"></span>Cannot detect all recording apps on <strong>older APIs</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ COMPARISON TABLE -->
+  <section class="section">
+    <div class="section-title">04 — Protection Comparison</div>
+    <div class="card" style="padding:0; overflow:hidden;">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Threat Vector</th>
+              <th>FLAG_SECURE</th>
+              <th>Recording Detection</th>
+              <th>Rooted Device</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>System Screenshot (Home+Power)</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td>—</td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>Black image saved</td>
+            </tr>
+            <tr>
+              <td>3rd-party Screenshot App</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td>—</td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>App sees blank window</td>
+            </tr>
+            <tr>
+              <td>Built-in Screen Recorder</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td><span class="yes">✓ Detected</span></td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>Black frame recorded</td>
+            </tr>
+            <tr>
+              <td>3rd-party Screen Recorder</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td><span class="partial">~ API 34+ only</span></td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>MediaProjection blocked</td>
+            </tr>
+            <tr>
+              <td>Recent Apps Thumbnail</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td>—</td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>Black thumbnail shown</td>
+            </tr>
+            <tr>
+              <td>ADB Screenshot</td>
+              <td><span class="yes">✓ Blocked</span></td>
+              <td>—</td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>Black image via adb screencap</td>
+            </tr>
+            <tr>
+              <td>HDMI Capture Card</td>
+              <td><span class="no">✗ Cannot block</span></td>
+              <td><span class="no">✗ Undetectable</span></td>
+              <td><span class="no">✗ N/A</span></td>
+              <td>Hardware level — no defense</td>
+            </tr>
+            <tr>
+              <td>Rooted Device + Custom App</td>
+              <td><span class="no">✗ Bypassable</span></td>
+              <td><span class="no">✗ Can be hidden</span></td>
+              <td><span class="no">✗ Bypass</span></td>
+              <td>Root detection is key defense</td>
+            </tr>
+            <tr>
+              <td>Second Camera</td>
+              <td><span class="no">✗ Cannot block</span></td>
+              <td><span class="no">✗ Undetectable</span></td>
+              <td><span class="no">✗ N/A</span></td>
+              <td>Physical threat — no defense</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ EDGE CASES -->
+  <section class="section">
+    <div class="section-title">05 — Edge Cases &amp; Gotchas</div>
+    <div class="grid-2">
+      <div class="card yellow-accent">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-yellow">⚡</div>
+          Timing Issue
+        </div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.6;">
+          If you call <code>setFlags()</code> <strong>after</strong> <code>setContentView()</code> there can be a brief flash where content is visible. Always set the flag <strong>before</strong> <code>setContentView()</code>.
+        </p>
+        <div class="callout warn" style="margin-top:12px; font-size:13px;">
+          <strong>Rule:</strong> FLAG_SECURE → setContentView → UI setup
+        </div>
+      </div>
+      <div class="card red-accent">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-red">🪟</div>
+          Dialog Windows
+        </div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.6;">
+          Dialogs are separate windows. If you show a dialog with card info, you need to apply FLAG_SECURE to <strong>the dialog's window</strong> separately, not just the Activity.
+        </p>
+        <div class="code-block" style="margin-top:12px;">
+          <div class="code-header"><span class="code-lang">Kotlin</span></div>
+          <pre style="padding:12px; font-size:12px;"><span class="kw">val</span> dialog = <span class="cls">AlertDialog</span>.Builder(context).create()
+dialog.show()
+<span class="cmt">// Apply AFTER show() — dialog window now exists</span>
+dialog.window?.setFlags(
+    <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+    <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+)</pre>
+        </div>
+      </div>
+
+      <div class="card blue-accent">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-blue">🧪</div>
+          UI Testing &amp; Screenshots in CI
+        </div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.6;">
+          FLAG_SECURE blocks Espresso screenshot capture and UI testing tools. You need to <strong>disable it in debug builds</strong> for testing.
+        </p>
+        <div class="code-block" style="margin-top:12px;">
+          <div class="code-header"><span class="code-lang">Kotlin</span></div>
+          <pre style="padding:12px; font-size:12px;"><span class="kw">if</span> (!<span class="cls">BuildConfig</span>.<span class="ann">DEBUG</span>) {
+    window.setFlags(
+        <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+        <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+    )
+}</pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title" style="margin-bottom:12px; font-size:15px;">
+          <div class="card-icon icon-green">🔗</div>
+          Compose Bottom Sheet / Dialog
+        </div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.6;">
+          Compose ModalBottomSheet and Dialog create their own window. Use a custom <code>SecureDialog</code> composable that applies the flag to the dialog's window context.
+        </p>
+        <div class="code-block" style="margin-top:12px;">
+          <div class="code-header"><span class="code-lang">Kotlin</span></div>
+          <pre style="padding:12px; font-size:12px;"><span class="ann">@Composable</span>
+<span class="kw">fun</span> <span class="fn">SecureDialog</span>(
+    onDismiss: () -> <span class="cls">Unit</span>,
+    content: <span class="ann">@Composable</span> () -> <span class="cls">Unit</span>
+) {
+    <span class="cls">Dialog</span>(onDismissRequest = onDismiss) {
+        <span class="cmt">// This gives us the dialog's window</span>
+        <span class="kw">val</span> dialogWindow = <span class="fn">getDialogWindow</span>()
+        <span class="fn">SideEffect</span> {
+            dialogWindow?.setFlags(
+                <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>,
+                <span class="cls">WindowManager</span>.LayoutParams.<span class="ann">FLAG_SECURE</span>
+            )
+        }
+        content()
+    }
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ DECISION FLOW -->
+  <section class="section">
+    <div class="section-title">06 — When to Apply It</div>
+    <div class="card">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-line">
+            <div class="flow-dot">1</div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-label">Banking / Finance App?</div>
+            <div class="flow-desc">→ Apply FLAG_SECURE globally to ALL screens. No exceptions.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-line">
+            <div class="flow-dot">2</div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-label">Selective Sensitive Screens?</div>
+            <div class="flow-desc">→ Payment, Account, Card Details, Transaction History → SecureScreen wrapper in Compose or SecureFragment in View system</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-line">
+            <div class="flow-dot">3</div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-label">Custom Dialogs Showing Card Data?</div>
+            <div class="flow-desc">→ Apply FLAG_SECURE specifically to dialog.window after dialog.show()</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-line">
+            <div class="flow-dot">4</div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-label">Target API 34+?</div>
+            <div class="flow-desc">→ Also add Screen Recording Detection via WindowInfoTracker and respond with blur/overlay</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-line">
+            <div class="flow-dot">5</div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-label">Debug Build?</div>
+            <div class="flow-desc">→ Conditionally disable in BuildConfig.DEBUG for UI testing and screenshot generation in CI/CD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ INTERVIEW QA -->
+  <section class="section">
+    <div class="section-title">07 — Interview Q &amp; A</div>
+
+    <div class="q-card">
+      <div class="q-label">Q — Commonly Asked</div>
+      <div class="q-text">How do you prevent screenshots in an Android banking app?</div>
+      <div class="a-label">A — Strong Answer</div>
+      <div class="a-text">
+        "I use <code>WindowManager.LayoutParams.FLAG_SECURE</code>, set before <code>setContentView()</code> in onCreate. For a banking app I apply it globally. In Compose I wrap sensitive screens with a <code>SecureScreen</code> composable using <code>DisposableEffect</code> which auto-clears the flag when the composable leaves the tree. On Android 14+ I also use the WindowInfoTracker API to detect screen recording and blur sensitive fields when recording is detected. I handle edge cases like dialogs needing their own flag, and disable it in debug builds so Espresso tests continue working."
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label">Q — Deep Dive</div>
+      <div class="q-text">Can FLAG_SECURE be bypassed? How do you defend against that?</div>
+      <div class="a-label">A — Strong Answer</div>
+      <div class="a-text">
+        "Yes — rooted devices can bypass it by patching the system compositor or using root-level screen capture tools. My defense is <strong>layered</strong>: FLAG_SECURE is the first layer. Root detection (checking for su binary, known root apps like Magisk, SafetyNet Attestation) is the second. If root is detected, I restrict access to sensitive features or require additional verification. I also implement server-side transaction signing so even if the UI is compromised, transactions cannot be forged. The principle is defense-in-depth — no single control should be the only protection."
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label">Q — Compose-Specific</div>
+      <div class="q-text">How do you apply screen security selectively in a Compose-only app?</div>
+      <div class="a-label">A — Strong Answer</div>
+      <div class="a-text">
+        "I create a <code>SecureScreen</code> composable using <code>DisposableEffect(Unit)</code>. In the effect I get the Activity via a <code>findActivity()</code> Context extension and call <code>window.setFlags(FLAG_SECURE)</code>. In the <code>onDispose</code> lambda I clear the flag. This means the flag is set exactly while the composable is in the composition tree and automatically removed when it leaves. It's reusable, testable, and lifecycle-safe. For dialogs and ModalBottomSheet I handle their separate window context with SideEffect."
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-label">Q — Compliance</div>
+      <div class="q-text">Which compliance standards require screenshot prevention?</div>
+      <div class="a-label">A — Strong Answer</div>
+      <div class="a-text">
+        "OWASP Mobile Security Testing Guide (MSTG) under MASVS-STORAGE-9 recommends preventing sensitive data exposure in screenshots. PCI DSS requires protection of cardholder data — a screenshot of a card number or CVV on screen violates this. RBI (Reserve Bank of India) guidelines for mobile banking also recommend preventing screen capture for sensitive operations. In practice, most banking regulators globally expect this as baseline security hygiene, even if not explicitly named in the standard."
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Prasad Vennam · Android Security Reference</span>
+    <span>FLAG_SECURE · WindowInfoTracker · DisposableEffect · <span class="accent">Banking-Grade</span></span>
+  </footer>
+
+</div>
+
+<script>
+  function switchTab(el, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById(id).classList.add('active');
+  }
+
+  function copyCode(btn) {
+    const pre = btn.closest('.code-block').querySelector('pre');
+    const text = pre.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

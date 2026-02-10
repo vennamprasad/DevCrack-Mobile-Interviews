@@ -1,4 +1,5 @@
 # ☁️ Cloud Native Foundations for Mobile Engineers
+>
 > **Target Audience:** Staff Mobile Engineers & Architects.
 > **Focus:** Serverless, Edge Computing, BFF Pattern, and Advanced Identity.
 
@@ -7,10 +8,15 @@
 ---
 
 ## 📖 Table of Contents
-- [1. Serverless Architecture](#1-serverless-architecture)
-- [2. Edge Computing & Low Latency](#2-edge-computing--low-latency)
-- [3. Backend For Frontend (BFF)](#3-backend-for-frontend-bff)
-- [4. Advanced Identity (OAuth2 & OIDC)](#4-advanced-identity-oauth2--oidc)
+- [☁️ Cloud Native Foundations for Mobile Engineers](#️-cloud-native-foundations-for-mobile-engineers)
+  - [📖 Table of Contents](#-table-of-contents)
+  - [1. Serverless Architecture](#1-serverless-architecture)
+    - [Mobile Use Cases](#mobile-use-cases)
+  - [2. Edge Computing \& Low Latency](#2-edge-computing--low-latency)
+  - [3. Backend For Frontend (BFF)](#3-backend-for-frontend-bff)
+  - [4. Advanced Identity (OAuth2 \& OIDC)](#4-advanced-identity-oauth2--oidc)
+    - [The Flows Mobile Devs Must Know:](#the-flows-mobile-devs-must-know)
+    - [JWT Structure (JSON Web Token)](#jwt-structure-json-web-token)
 
 ---
 

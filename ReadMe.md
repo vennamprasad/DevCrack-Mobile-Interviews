@@ -70,6 +70,13 @@ Mobile specific data structures.
 ### 🛡 [Security](./Security)
 - **OWASP Mobile Top 10**: Vulnerabilities and Mitigations.
 - **Defense**: Root Detection, SSL Pinning, Obfuscation.
+- **[Screen Recording Prevention](./Security/07_Screen_Record_guideline.md)**: Banking-grade security guide (FLAG_SECURE, Android 14+ detection).
+
+### 🎤 [Interviews](./Interviews)
+
+- **[Job Search Guide](./Interviews/Job_Search_Guide.md)**: **"Cheat Codes"** for finding jobs (Boolean strings, templates).
+- **Product Based**: Interview templates for Amazon, Google, Flipkart, Swiggy, etc.
+- **Service Based**: Interview templates for TCS, Infosys, Accenture, etc.
 
 ---
 

@@ -23,4 +23,4 @@
 - [ ] Describe a challenging project.
 
 ## 📚 Resources
-- [Link to Careers Page]
+- [Careers Page](https://www.google.com/search?q=Juspay+Careers)

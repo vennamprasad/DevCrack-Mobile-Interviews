@@ -78,4 +78,3 @@ View renders the ViewState
 | MVC    | Bidirectional        | Mutable          | Medium      | Web/legacy Android|
 | MVVM   | Bidirectional (LiveData/Binding) | Mutable  | Good        | Modern Android    |
 | MVI    | Unidirectional       | Immutable        | Excellent   | Compose, Redux    |
-

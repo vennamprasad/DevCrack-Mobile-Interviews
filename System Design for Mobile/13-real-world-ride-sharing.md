@@ -202,5 +202,3 @@ fun RideRequestItem(request: RideRequest) {
 3. **Offline Support**: Cached ride requests
 4. **Push Notifications**: For ride updates
 5. **Payment Integration**: Secure payment processing
-
----

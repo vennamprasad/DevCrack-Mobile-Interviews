@@ -89,5 +89,3 @@ R8 is the new code shrinker (replacing ProGuard). It performs:
 1.  **Shrinking**: Removes unused code/resources.
 2.  **Obfuscation**: Renames classes/fields to short names (security).
 3.  **Optimization**: Inlines functions, removes unused interfaces.
-
----

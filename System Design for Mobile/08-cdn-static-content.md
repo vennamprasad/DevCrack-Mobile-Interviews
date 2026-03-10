@@ -136,5 +136,3 @@ fun ProgressiveImage(imageUrl: String) {
     }
 }
 ```
-
----

@@ -235,7 +235,6 @@ A `UriMatcher` helps map incoming URI patterns to integer codes, making it easie
 **Answer:**  
 Call `getContext().getContentResolver().notifyChange(uri, null)` after modifying data. Registered observers (like cursors or loaders) will be notified to update their data.
 
-
 ---
 
 ## Summary Table

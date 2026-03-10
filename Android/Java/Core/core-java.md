@@ -92,5 +92,3 @@ New -> Runnable -> Running -> Blocked/Waiting -> Terminated.
 #### `wait()` vs `sleep()`?
 *   **`wait()`:** Object class. Releases the lock.
 *   **`sleep()`:** Thread class. Keeps the lock.
-
----

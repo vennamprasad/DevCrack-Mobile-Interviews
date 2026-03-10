@@ -126,6 +126,3 @@ Clean Architecture enforces **separation of concerns** and makes your app **robu
 - **Clean Architecture** focuses on strict layering and separation of concerns with clear rules on dependencies to keep business logic isolated from UI and frameworks. It’s ideal for maintainable, scalable, and testable large apps.
 - **MVVM** is simpler, focuses on reactive UI data binding, and fits well with Jetpack Compose and Android Architecture Components.
 - **MVP** separates UI and logic but often leads to more boilerplate and can become tightly coupled without careful design.
-
----
-

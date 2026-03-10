@@ -340,5 +340,3 @@ fun PostItem(
 3. **Pull-to-Refresh**: Update feed manually
 4. **Optimistic Updates**: Instant like/unlike
 5. **Image Loading**: Coil with caching
-
----

@@ -115,5 +115,3 @@ Allows binding multiple objects into a collection (Set or Map) that can be injec
 Occurs when A needs B, and B needs A.
 *   **Solution 1:** Refactor design (usually indicates bad architecture).
 *   **Solution 2:** Use `Lazy<T>` or `Provider<T>` to break the instantiation cycle.
-
----

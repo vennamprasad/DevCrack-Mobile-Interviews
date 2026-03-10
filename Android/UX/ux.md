@@ -66,5 +66,3 @@ Subtle animations or haptics that acknowledge user action.
 *   **Ripple Effect:** Standard click feedback.
 *   **Haptic Feedback:** `view.performHapticFeedback()`.
 *   **Snackbar/Toast:** transient messages. Use Snackbar for actionable messages (e.g., "Deleted. Undo?").
-
----

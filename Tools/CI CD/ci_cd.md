@@ -51,5 +51,3 @@ CI pipelines key off the branch name or tags:
 - `feature/*` -> Runs Lint + Unit Tests.
 - `develop` -> Builds `debug` flavor + Distributes to QA.
 - `main` -> Builds `release` flavor + Uploads to Store.
-
----

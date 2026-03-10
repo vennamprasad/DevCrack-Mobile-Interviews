@@ -470,5 +470,3 @@ class TokenManager @Inject constructor(
 | **Batch requests** | Single call for multiple resources | Reduce roundtrips |
 | **Versioning** | URL or header-based | Backward compatibility |
 | **Error codes** | Standard HTTP status codes | Consistent error handling |
-
----

@@ -87,5 +87,3 @@ fun onDestroy() {
     disposables.clear() // Unsubscribes everything
 }
 ```
-
----

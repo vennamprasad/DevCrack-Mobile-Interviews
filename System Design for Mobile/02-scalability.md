@@ -217,4 +217,3 @@ Read replicas:
 - Primary handles writes; replicas handle reads.
 - Replica lag should be considered for read-after-write semantics.
 - Use replicas to reduce load on the primary for read-heavy endpoints.
-

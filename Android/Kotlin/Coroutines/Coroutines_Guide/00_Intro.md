@@ -1,0 +1,2 @@
+# Kotlin Coroutines
+Coroutines in Kotlin are lightweight, asynchronous programming constructs that simplify concurrency by allowing developers to write sequential-looking code while avoiding callback hell. They are managed by Kotlin’s runtime (not OS threads), making them efficient for tasks like network calls or database operations. Coroutines integrate with Android’s lifecycle (via viewModelScope or lifecycleScope) to ensure structured concurrency and prevent memory leaks.

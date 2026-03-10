@@ -118,5 +118,3 @@ class MyTest : KoinTest {
     }
 }
 ```
-
----

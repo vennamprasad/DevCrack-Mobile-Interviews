@@ -100,5 +100,3 @@ class CrashReportingInitializer @Inject constructor(
 | **API Success Rate** | > 99% | < 95% |
 | **Screen Load Time** | < 2s | > 5s |
 | **Memory Usage** | < 70% | > 85% |
-
----

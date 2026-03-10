@@ -25,7 +25,6 @@ Model returns data to Presenter
 ↓
 Presenter updates the View
 
-
 ---
 
 ## 🧩 Components of MVP
@@ -89,4 +88,3 @@ interface LoginView {
 interface LoginPresenter {
     fun onLoginClicked(email: String, password: String)
 }
-

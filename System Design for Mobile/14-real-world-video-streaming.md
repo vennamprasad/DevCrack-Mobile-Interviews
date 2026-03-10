@@ -564,5 +564,3 @@ class AdaptiveQualitySelector @Inject constructor(
     }
 }
 ```
-
----

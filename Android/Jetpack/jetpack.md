@@ -73,6 +73,3 @@ A component (like `LocationManager`) that automatically adjusts its behavior bas
 *   **Indexes:** Speed up queries on specific columns.
 *   **TypeConverters:** Store complex objects (Date, List) as primitives.
 *   **Pre-populated DB:** Ship app with existing data.
-
----
-

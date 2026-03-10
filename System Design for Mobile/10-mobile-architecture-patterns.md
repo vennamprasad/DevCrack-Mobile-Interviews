@@ -155,5 +155,3 @@ class OfflineFirstRepository @Inject constructor(
     }
 }
 ```
-
----

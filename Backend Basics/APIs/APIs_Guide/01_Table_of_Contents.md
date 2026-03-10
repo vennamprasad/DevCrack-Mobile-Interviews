@@ -1,0 +1,13 @@
+## **Table of Contents**
+1. [API Fundamentals](#api-fundamentals)
+2. [REST APIs](#rest-apis)
+3. [HTTP Methods & Status Codes](#http-methods--status-codes)
+4. [API Design & Best Practices](#api-design--best-practices)
+5. [Authentication & Authorization](#authentication--authorization)
+6. [GraphQL](#graphql)
+7. [Android Implementation](#android-implementation)
+8. [Error Handling](#error-handling)
+9. [Networking Libraries](#networking-libraries)
+10. [Performance & Optimization](#performance--optimization)
+11. [Security Best Practices](#security-best-practices)
+12. [Testing APIs](#testing-apis)

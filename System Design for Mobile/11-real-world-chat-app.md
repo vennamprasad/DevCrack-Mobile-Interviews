@@ -436,5 +436,3 @@ fun MessageItem(message: Message) {
 3. **Read Receipts**: Status tracking (sent, delivered, read)
 4. **Media Upload**: CDN-hosted images/videos
 5. **Sync**: Background sync for failed messages
-
----

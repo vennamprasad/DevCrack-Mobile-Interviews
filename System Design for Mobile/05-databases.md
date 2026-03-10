@@ -511,5 +511,3 @@ class DataManager @Inject constructor(
     // - Temporary state
 }
 ```
-
----

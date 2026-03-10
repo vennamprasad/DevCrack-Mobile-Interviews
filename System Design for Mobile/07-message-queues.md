@@ -227,5 +227,3 @@ suspend fun uploadVideo(video: Video): Result<Video> {
     return Result.Success(response)
 }
 ```
-
----

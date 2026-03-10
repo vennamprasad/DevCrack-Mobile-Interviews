@@ -473,5 +473,3 @@ class SecureStorage @Inject constructor(
     }
 }
 ```
-
----

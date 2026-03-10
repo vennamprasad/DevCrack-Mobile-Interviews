@@ -1,4 +1,5 @@
 # 🌲 Trie (Prefix Tree)
+
 > **Use Case:** Autocomplete, Search Bars, Spell Checker.
 > **Core Data Structure:** Tree of Characters.
 
@@ -8,6 +9,7 @@
 ---
 
 ## 📖 Table of Contents
+
 - [1. The Problem](#1-the-problem)
 - [2. Visualizing a Trie](#2-visualizing-a-trie)
 - [3. Implementation](#3-implementation)
@@ -18,6 +20,7 @@
 ## 1. The Problem
 
 User types "Ap...". We want to suggest:
+
 - "Apple"
 - "App"
 - "Apply"
@@ -41,15 +44,15 @@ graph TD
     O --> W
 
     subgraph Words
-    T2[T - End of "CAT"]
-    P2[P - End of "CAP"]
-    W2[W - End of "COW"]
+    T2["T - End of 'CAT'"]
+    P2["P - End of 'CAP'"]
+    W2["W - End of 'COW'"]
     end
-    
+
     T -.-> T2
     P -.-> P2
     W -.-> W2
-    
+
     style T fill:#90EE90
     style P fill:#90EE90
     style W fill:#90EE90
@@ -90,7 +93,7 @@ class Trie {
         }
         return current.isEndOfWord
     }
-    
+
     // O(L) - Check if any word starts with this prefix
     fun startsWith(prefix: String): Boolean {
         var current = root
@@ -129,12 +132,13 @@ sequenceDiagram
 ```
 
 **Code (Kotlin Flow):**
+
 ```kotlin
 searchQueryFlow
     .debounce(300) // Wait for user to stop typing
     .distinctUntilChanged() // Don't allow duplicates
-    .flatMapLatest { query -> 
-        repository.search(query) 
+    .flatMapLatest { query ->
+        repository.search(query)
     }
     .collect { results ->
         updateUi(results)

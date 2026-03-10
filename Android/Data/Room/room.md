@@ -1,4 +1,5 @@
 # 🗄️ Room Database Interview Guide
+
 > **Targeted for Senior Android Developer / Team Lead Roles**
 > **Note:** A robust persistence library over SQLite.
 
@@ -9,24 +10,28 @@
 ---
 
 ## 📖 Table of Contents
-- [1. Basics & Key Concepts](#-1-what-is-room-in-android)
-- [2. Components (Entity, DAO)](#-2-what-are-the-main-components-of-room)
-- [3. Advanced Operations](#-6-how-does-room-handle-database-migrations)
-- [4. Security & Optimization](#-12-how-can-you-secure-data-stored-in-room)
+
+- [1. Basics & Key Concepts](#1-what-is-room-in-android)
+- [2. Components (Entity, DAO)](#2-what-are-the-main-components-of-room)
+- [3. Advanced Operations](#6-how-does-room-handle-database-migrations)
+- [4. Security & Optimization](#12-how-can-you-secure-data-stored-in-room)
 
 ---
 
 ## 🟢 Basic Questions
 
 ### 1. What is Room in Android?
+
 Room is a persistence library that provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
 
 ### 2. What are the main components of Room?
+
 - **Entity:** Represents a table within the database.
 - **DAO (Data Access Object):** Contains methods for accessing the database.
 - **Database:** The main access point to the persisted data.
 
 ### 3. How do you define an Entity in Room?
+
 An Entity is defined using the `@Entity` annotation on a data class. Each property represents a column.
 
 ```kotlin
@@ -38,9 +43,11 @@ data class User(
 ```
 
 ### 4. What is a DAO in Room?
+
 DAO is an interface annotated with `@Dao` that defines database operations like `@Insert`, `@Delete`, `@Update`, and `@Query`.
 
 ### 5. How do you create a Room Database?
+
 Extend `RoomDatabase` and annotate with `@Database`. Include entities and DAOs.
 
 ```kotlin
@@ -55,22 +62,28 @@ abstract class AppDatabase : RoomDatabase() {
 ## 🟠 Advanced Questions
 
 ### 6. How does Room handle database migrations?
+
 Room uses the `Migration` class to define migration paths between versions. You register migrations when building the database.
 
 ### 7. What is the purpose of `@Query` annotation?
+
 `@Query` is used to define custom SQL queries for fetching, updating, or deleting data.
 
 ### 8. How does Room support LiveData and Flow?
+
 Room can return `LiveData` or `Flow` from DAO queries, enabling reactive data updates in the UI.
 
 ### 9. What is the difference between `@Embedded` and `@Relation`?
+
 - `@Embedded` is used to include fields from another object as columns in the same table.
 - `@Relation` is used to define relationships between entities, such as one-to-many or many-to-one.
 
 ### 10. How do you test Room databases?
+
 Use in-memory databases (`Room.inMemoryDatabaseBuilder`) for unit testing, and use `@Test` annotations to verify DAO operations.
 
 ### 11. How do you integrate Room with Dependency Injection (DI)?
+
 Room databases and DAOs can be provided as dependencies using DI frameworks like Dagger or Hilt. Annotate your `AppDatabase` provider with `@Singleton` and inject DAOs where needed.
 
 ```kotlin
@@ -88,12 +101,14 @@ object DatabaseModule {
 ```
 
 ### 12. How can you secure data stored in Room?
+
 - Use **SQLCipher** to encrypt the SQLite database.
 - Restrict access to the database file using proper file permissions.
 - Avoid storing sensitive data in plain text.
 - Use ProGuard or R8 to obfuscate code and prevent reverse engineering.
 
 ### 13. How do you use SQLCipher with Room for encryption?
+
 Add SQLCipher dependencies and configure the Room database builder with a passphrase:
 
 ```kotlin
@@ -105,40 +120,48 @@ Room.databaseBuilder(context, AppDatabase::class.java, "secure-db")
 ```
 
 ### 14. What are best practices for securing Room database access?
+
 - Use DI to manage database instances and avoid memory leaks.
 - Encrypt sensitive data before storing.
 - Validate user input to prevent SQL injection (even though Room uses parameterized queries).
 - Regularly update dependencies to patch security vulnerabilities.
 
 ### 15. How do you handle large data sets efficiently in Room?
+
 - Use paging libraries like Paging 3 to load data in chunks.
 - Write optimized SQL queries with proper indexing.
 - Avoid loading entire tables into memory; use limit and offset in queries.
 
 ### 16. How do you perform multi-threaded operations with Room?
+
 - Room supports suspend functions and RxJava/Flow for asynchronous operations.
 - Always perform database operations off the main thread using coroutines or executors.
 
 ### 17. How do you handle complex relationships (many-to-many) in Room?
+
 - Create a junction (cross-reference) entity to represent the relationship.
 - Use `@Relation` annotations in data classes to fetch related data.
 
 ### 18. What strategies do you use for versioning and migration in production apps?
+
 - Plan migrations ahead and test thoroughly.
 - Use fallback strategies like `fallbackToDestructiveMigration` only for non-critical data.
 - Maintain migration scripts and automate migration testing.
 
 ### 19. How do you optimize Room queries for performance?
+
 - Use projections to fetch only required columns.
 - Add indexes to frequently queried columns.
 - Profile queries using Android Studio’s Database Inspector.
 
 ### 20. How do you handle schema changes without data loss?
+
 - Write custom migration logic to transform and preserve data.
 - Backup data before applying migrations in critical applications.
 - Use temporary tables if needed during migration steps.
 
 ### 21. Can you show basic migration logic in Room with an example?
+
 To migrate a Room database from one version to another, implement a `Migration` object specifying the start and end versions and the SQL statements needed to update the schema.
 
 ```kotlin
@@ -154,3 +177,68 @@ Room.databaseBuilder(context, AppDatabase::class.java, "app_db")
     .addMigrations(MIGRATION_1_2)
     .build()
 ```
+
+### 22. What are `TypeConverters` in Room and when should you use them?
+
+Room can only store primitive data types (like `Int`, `String`, etc.). If you want to store custom objects (like `Date`, `UUID`, or a list of items), you must use `@TypeConverter`. They convert your custom object into a primitive type that SQLite can understand, and vice versa.
+
+```kotlin
+class Converters {
+    @TypeConverter
+    fun fromTimestamp(value: Long?): Date? = value?.let { Date(it) }
+
+    @TypeConverter
+    fun dateToTimestamp(date: Date?): Long? = date?.time
+}
+
+// Attach it to the database
+@Database(entities = [User::class], version = 1)
+@TypeConverters(Converters::class)
+abstract class AppDatabase : RoomDatabase() { ... }
+```
+
+### 23. How do you implement Partial Database Updates in Room?
+
+You can use the `@Update` annotation with a specific entity containing only the fields you want to update (along with the primary key). Alternatively, you can write a targeted `@Query`.
+
+Using a targeted `@Query` is usually the cleanest for single-field updates:
+
+```kotlin
+@Query("UPDATE User SET age = :newAge WHERE uid = :userId")
+suspend fun updateUserAge(userId: Int, newAge: Int)
+```
+
+### 24. Explain Full-Text Search (FTS) in Room. How do you enable it?
+
+SQLite has a powerful extension for text searches, called FTS (Full-Text Search). Room supports this via the `@Fts3` or `@Fts4` annotations. An FTS table uses a special underlying structure that drastically speeds up `MATCH` queries instead of using slow `LIKE '%query%'` queries.
+
+```kotlin
+@Fts4
+@Entity(tableName = "documents")
+data class Document(
+    @PrimaryKey @ColumnInfo(name = "rowid") val rowId: Int, // FTS requires rowid
+    val title: String,
+    val body: String
+)
+
+// In DAO
+@Query("SELECT * FROM documents WHERE documents MATCH :query")
+suspend fun searchDocuments(query: String): List<Document>
+```
+
+### 25. What is `autoMigrations` and how does it simplify schema updates?
+
+Starting in Room 2.4.0, you can use `@AutoMigration` to let Room generate the migration code automatically for simple schema changes (like adding a column, changing a column name, or adding a new table), avoiding the need to write raw SQL `Migration` classes.
+
+```kotlin
+@Database(
+    version = 2,
+    entities = [User::class],
+    autoMigrations = [
+        AutoMigration(from = 1, to = 2)
+    ]
+)
+abstract class AppDatabase : RoomDatabase() { ... }
+```
+
+You only need manual `Migration` objects for complex changes, such as modifying the core schema in a way that requires data manipulation.

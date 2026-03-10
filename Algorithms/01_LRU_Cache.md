@@ -10,10 +10,14 @@
 
 ## 📖 Table of Contents
 
-- [1. The Problem](#1-the-problem)
-- [2. Visualizing LRU Cache](#2-visualizing-lru-cache)
-- [3. Implementation (Kotlin/Swift)](#3-implementation)
-- [4. Real-World Mobile Example](#4-real-world-mobile-example)
+- [🖼 LRU Cache (Least Recently Used)](#-lru-cache-least-recently-used)
+  - [📖 Table of Contents](#-table-of-contents)
+  - [1. The Problem](#1-the-problem)
+  - [2. Visualizing LRU Cache](#2-visualizing-lru-cache)
+  - [3. Implementation](#3-implementation)
+    - [Kotlin (Using `LinkedHashMap`)](#kotlin-using-linkedhashmap)
+    - [Custom Implementation (The "Interview" Way)](#custom-implementation-the-interview-way)
+  - [4. Real-World Mobile Example](#4-real-world-mobile-example)
 
 ---
 
@@ -36,14 +40,14 @@ We use a **Doubly Linked List** to track order.
 ```mermaid
 graph LR
     subgraph HashMap
-    Key1[Key: "profile.png"] --> Node1
-    Key2[Key: "banner.jpg"] --> Node2
-    Key3[Key: "icon.svg"] --> Node3
+    Key1["Key: 'profile.png'"] --> Node1
+    Key2["Key: 'banner.jpg'"] --> Node2
+    Key3["Key: 'icon.svg'"] --> Node3
     end
 
     subgraph "Doubly Linked List (Order)"
     direction LR
-    Node1[Head: profile.png] <--> Node2[banner.jpg] <--> Node3[Tail: icon.svg]
+    Node1["Head: profile.png"] <--> Node2["banner.jpg"] <--> Node3["Tail: icon.svg"]
     end
 
     style Node1 fill:#d4f1f9,stroke:#333

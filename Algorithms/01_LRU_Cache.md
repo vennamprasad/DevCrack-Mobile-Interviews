@@ -1,4 +1,5 @@
 # 🖼 LRU Cache (Least Recently Used)
+
 > **Use Case:** Image Caching (Glide/Picasso), Network Caching.
 > **Core Data Structure:** HashMap + Doubly Linked List.
 
@@ -8,6 +9,7 @@
 ---
 
 ## 📖 Table of Contents
+
 - [1. The Problem](#1-the-problem)
 - [2. Visualizing LRU Cache](#2-visualizing-lru-cache)
 - [3. Implementation (Kotlin/Swift)](#3-implementation)
@@ -17,9 +19,9 @@
 
 ## 1. The Problem
 
-We have strict memory limits on mobile (e.g., 200MB heap).
-If we load 1000 images, the app crashes (`OutOfMemoryError`).
-We need a cache that holds the **Most Recently Used** items and evicts the **Least Recently Used** when full.
+- We have strict memory limits on mobile (e.g., 200MB heap).
+- If we load 1000 images, the app crashes (`OutOfMemoryError`).
+- We need a cache that holds the **Most Recently Used** items and evicts the **Least Recently Used** when full.
 
 ---
 
@@ -27,6 +29,7 @@ We need a cache that holds the **Most Recently Used** items and evicts the **Lea
 
 We use a **HashMap** for O(1) lookup.
 We use a **Doubly Linked List** to track order.
+
 - **Head:** Most Recently Used.
 - **Tail:** Least Recently Used (Candidate for eviction).
 
@@ -48,16 +51,18 @@ graph LR
 ```
 
 **Operations:**
-1.  **Get(Key):** If exists, move that Node to **Head**.
-2.  **Put(Key, Value):**
-    *   If new, add to **Head**.
-    *   If full, remove **Tail**, then add to **Head**.
+
+1. **Get(Key):** If exists, move that Node to **Head**.
+2. **Put(Key, Value):**
+   - If new, add to **Head**.
+   - If full, remove **Tail**, then add to **Head**.
 
 ---
 
 ## 3. Implementation
 
 ### Kotlin (Using `LinkedHashMap`)
+
 Java/Kotlin's `LinkedHashMap` has a hidden constructor `accessOrder = true` that turns it into an LRU.
 
 ```kotlin
@@ -70,7 +75,7 @@ class ImageCache(private val capacity: Int) {
     }
 
     fun get(url: String): Bitmap? = cache[url]
-    
+
     fun put(url: String, bitmap: Bitmap) {
         cache[url] = bitmap
     }
@@ -78,6 +83,7 @@ class ImageCache(private val capacity: Int) {
 ```
 
 ### Custom Implementation (The "Interview" Way)
+
 Sometimes they ask you to build it from scratch without `LinkedHashMap`.
 
 ```kotlin
@@ -95,7 +101,7 @@ class LRUCache(val capacity: Int) {
         head.next = tail
         tail.prev = head
     }
-    
+
     // O(1)
     fun get(key: Int): Int {
         if (!map.containsKey(key)) return -1
@@ -104,21 +110,21 @@ class LRUCache(val capacity: Int) {
         insert(node) // Move to front
         return node.value
     }
-    
+
     // O(1)
     fun put(key: Int, value: Int) {
         if (map.containsKey(key)) remove(map[key]!!)
         if (map.size == capacity) remove(tail.prev!!) // Evict LRU
-        
+
         insert(Node(key, value))
     }
-    
+
     private fun remove(node: Node) {
         map.remove(node.key)
         node.prev?.next = node.next
         node.next?.prev = node.prev
     }
-    
+
     private fun insert(node: Node) {
         map[node.key] = node
         val headNext = head.next
@@ -135,7 +141,8 @@ class LRUCache(val capacity: Int) {
 ## 4. Real-World Mobile Example
 
 **Scenario:** You are building an Instagram Clone feeds.
-1.  User scrolls down. Images download and go into Cache.
-2.  User scrolls back up. Images shouldn't reload.
-3.  **Low Memory Warning:** Android OS sends `onTrimMemory(TRIM_MEMORY_RUNNING_CRITICAL)`.
-    *   **Action:** You call `cache.evictAll()` or reduce size by half immediately.
+
+1. User scrolls down. Images download and go into Cache.
+2. User scrolls back up. Images shouldn't reload.
+3. **Low Memory Warning:** Android OS sends `onTrimMemory(TRIM_MEMORY_RUNNING_CRITICAL)`.
+   - **Action:** You call `cache.evictAll()` or reduce size by half immediately.

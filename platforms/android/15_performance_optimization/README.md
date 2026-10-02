@@ -14,6 +14,7 @@
 | :--- | :--- | :--- |
 | **[01. Android Performance Q&A](./01_performance_fundamentals.md)** | Core interview questions on performance essentials. | Key focus areas, memory leak detection, View hierarchy optimization, background battery drain, and network batching. |
 | **[02. Performance Mastery (50+ Questions)](./02_performance_mastery.md)** | Deep-dive staff-level performance question bank. | **Memory:** GC churn, bitmap pools, native leaks, heap dumps.<br>**UI & Rendering:** Choreographer, VSYNC, GPU overdraw, Compose recomposition skipping.<br>**Startup:** Cold/Warm/Hot start, Baseline Profiles, App Startup library.<br>**Network & Battery:** Radio state machine, Doze mode, WorkManager constraints.<br>**Tools:** Perfetto, Systrace, Android Studio Memory/CPU Profiler. |
+| **[03. Perfetto System Tracing Mastery](./03_perfetto_system_tracing_mastery.md)** | Production system tracing, frame jank, and SQL query analysis. | **Kernel:** `ftrace`, zero-copy buffers.<br>**Tracks:** Choreographer VSYNC, RenderThread, SurfaceFlinger, Big.LITTLE CPU scheduler.<br>**Compose:** Recomposition timelines and skip stats.<br>**SQL Engine:** Writing SQLite queries against `trace_processor` to find slowest frames and Binder locks. |
 
 ---
 

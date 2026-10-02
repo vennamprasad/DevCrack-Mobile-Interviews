@@ -58,7 +58,7 @@ sequenceDiagram
 ### Production Presence Manager Implementation
 
 ```kotlin
-package com.devcrack.firebase.presence
+package com.example.firebase.presence
 
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -127,7 +127,7 @@ graph TD
 ## 4. Driver Engine: High-Frequency Location Publisher
 
 ```kotlin
-package com.devcrack.tracking.driver
+package com.example.tracking.driver
 
 import android.location.Location
 import com.google.firebase.database.FirebaseDatabase
@@ -168,7 +168,7 @@ class DriverLocationPublisher @Inject constructor(
 ## 5. Rider Engine: Reactive Coordinate Consumer
 
 ```kotlin
-package com.devcrack.tracking.rider
+package com.example.tracking.rider
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.database.DataSnapshot
@@ -232,7 +232,7 @@ class RiderLiveTrackingRepository @Inject constructor(
 ## 6. Jetpack Compose UI: Animated Car on Map
 
 ```kotlin
-package com.devcrack.tracking.ui
+package com.example.tracking.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -241,8 +241,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.devcrack.maps.animation.SmoothMarkerAnimator
-import com.devcrack.tracking.rider.DriverPosition
+import com.example.maps.animation.SmoothMarkerAnimator
+import com.example.tracking.rider.DriverPosition
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.GoogleMap

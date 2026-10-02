@@ -43,7 +43,7 @@ graph TD
 Wrapping Firestore's native `EventListener<QuerySnapshot>` inside a Kotlin `callbackFlow` provides cancellation safety, lifecycle awareness, and clean integration with ViewModels and Compose.
 
 ```kotlin
-package com.devcrack.firebase.firestore
+package com.example.firebase.firestore
 
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -117,7 +117,7 @@ sealed class Resource<out T> {
 Firestore maintains an internal SQLite database on the Android device. In modern Firestore SDK releases, you can configure **Persistent Cache** vs **Memory Cache** explicitly.
 
 ```kotlin
-package com.devcrack.firebase.config
+package com.example.firebase.config
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
@@ -219,7 +219,7 @@ suspend fun bookCabSeat(driverId: String, riderId: String): Boolean {
 Never fetch entire collections into memory. Implement query cursors using `startAfter()` and `limit()`.
 
 ```kotlin
-package com.devcrack.firebase.firestore
+package com.example.firebase.firestore
 
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore

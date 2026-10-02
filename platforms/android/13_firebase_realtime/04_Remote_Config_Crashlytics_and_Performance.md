@@ -40,7 +40,7 @@ graph TD
 ## 2. Real-Time Remote Config with Jetpack Compose
 
 ```kotlin
-package com.devcrack.config
+package com.example.config
 
 import com.google.firebase.remoteconfig.ConfigUpdate
 import com.google.firebase.remoteconfig.ConfigUpdateListener
@@ -139,7 +139,7 @@ Raw stack traces alone are often insufficient to reproduce sporadic crashes repo
 - **Breadcrumbs:** Logging chronological user interactions prior to the crash.
 
 ```kotlin
-package com.devcrack.monitoring
+package com.example.monitoring
 
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import javax.inject.Inject
@@ -181,7 +181,7 @@ class AppObservability @Inject constructor(
 Unhandled exceptions inside a root `CoroutineScope` crash the process. Use `CoroutineExceptionHandler` to capture non-fatals and ship them to Crashlytics:
 
 ```kotlin
-package com.devcrack.monitoring
+package com.example.monitoring
 
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -213,7 +213,7 @@ Firebase Performance auto-instruments **App Start Time** (Cold/Warm/Hot) and scr
 ### Measuring Custom Business Operations
 
 ```kotlin
-package com.devcrack.monitoring
+package com.example.monitoring
 
 import com.google.firebase.perf.FirebasePerformance
 import com.google.firebase.perf.metrics.Trace

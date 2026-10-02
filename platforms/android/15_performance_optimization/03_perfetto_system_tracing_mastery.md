@@ -176,7 +176,7 @@ class StartupBenchmark {
 
     @Test
     fun startupCold() = benchmarkRule.measureRepeated(
-        packageName = "com.devcrack.app",
+        packageName = "com.example.app",
         metrics = listOf(StartupTimingMetric(), FrameTimingMetric()),
         compilationMode = CompilationMode.Partial(),
         iterations = 5,
@@ -216,7 +216,7 @@ FROM slice s
 JOIN thread_track tt ON s.track_id = tt.id
 JOIN thread t ON tt.utid = t.utid
 WHERE s.name LIKE 'binder transaction'
-  AND t.name = 'com.devcrack.app'
+  AND t.name = 'com.example.app'
   AND s.dur > 5000000 -- More than 5ms
 ORDER BY s.dur DESC;
 ```

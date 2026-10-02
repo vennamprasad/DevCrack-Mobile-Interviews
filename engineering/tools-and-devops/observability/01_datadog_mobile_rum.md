@@ -148,12 +148,12 @@ val okHttpClient = OkHttpClient.Builder()
     // Injects W3C & Datadog headers only to verified first-party API domains
     .addInterceptor(
         DatadogInterceptor(
-            tracedHosts = listOf("api.devcrack.com", "gateway.devcrack.com")
+            tracedHosts = listOf("api.example.com", "gateway.example.com")
         )
     )
     .addNetworkInterceptor(
         TracingInterceptor(
-            tracedHosts = listOf("api.devcrack.com", "gateway.devcrack.com")
+            tracedHosts = listOf("api.example.com", "gateway.example.com")
         )
     )
     .build()
@@ -250,7 +250,7 @@ When uploading release builds to production, stack traces are obfuscated (`com.a
 lane :upload_datadog_mappings do
   # Upload Android ProGuard/R8 mapping file
   sh("npx @datadog/datadog-ci sourcemaps upload ./app/build/outputs/mapping/release/mapping.txt \
-      --service com.devcrack.app \
+      --service com.example.app \
       --release-version #{get_version_name} \
       --minified-path ./app/build/outputs/apk/release/")
 

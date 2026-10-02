@@ -42,7 +42,7 @@ graph TD
 ## 2. Building and Registering Geofences
 
 ```kotlin
-package com.devcrack.maps.geofence
+package com.example.maps.geofence
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -122,7 +122,7 @@ class GeofenceManager @Inject constructor(
 When a geofence fires, Android wakes the app via `PendingIntent`. You have roughly **10 seconds** before the OS considers the broadcast receiver stalled (ANR). Never execute network operations or heavy disk reads directly inside `onReceive()`. Offload to **WorkManager**.
 
 ```kotlin
-package com.devcrack.maps.geofence
+package com.example.maps.geofence
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -208,7 +208,7 @@ sequenceDiagram
 ## 6. Real-Time Autocomplete Flow with Cost Optimization
 
 ```kotlin
-package com.devcrack.maps.places
+package com.example.maps.places
 
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.AutocompletePrediction

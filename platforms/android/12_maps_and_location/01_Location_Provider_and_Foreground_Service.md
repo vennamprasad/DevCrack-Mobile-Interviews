@@ -112,7 +112,7 @@ In modern Clean Architecture, avoid leaking `LocationCallback` into UI or ViewMo
 ### Implementation
 
 ```kotlin
-package com.devcrack.location.data
+package com.example.location.data
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -191,7 +191,7 @@ class DefaultLocationTracker @Inject constructor(
 When tracking a driver or runner who puts their phone in their pocket, the OS will kill background activities within minutes. A Foreground Service with an ongoing notification is required.
 
 ```kotlin
-package com.devcrack.location.service
+package com.example.location.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -205,7 +205,7 @@ import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
-import com.devcrack.location.data.LocationTracker
+import com.example.location.data.LocationTracker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -55,7 +55,7 @@ graph TD
 Starting with Android 13 (API 33), notifications require explicit runtime user consent (`Manifest.permission.POST_NOTIFICATIONS`).
 
 ```kotlin
-package com.devcrack.notification.permission
+package com.example.notification.permission
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -103,7 +103,7 @@ fun RequestNotificationPermission(
 ## 3. Implementing `FirebaseMessagingService`
 
 ```kotlin
-package com.devcrack.notification.service
+package com.example.notification.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -113,8 +113,8 @@ import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.devcrack.MainActivity
-import com.devcrack.R
+import com.example.MainActivity
+import com.example.R
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import dagger.hilt.android.AndroidEntryPoint
@@ -200,7 +200,7 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
 When the user taps the notification, the system opens `MainActivity`. We extract the arguments and route the Jetpack Compose `NavController` directly to the target screen.
 
 ```kotlin
-package com.devcrack.ui
+package com.example.ui
 
 import android.content.Intent
 import android.os.Bundle

@@ -50,7 +50,7 @@ dependencies {
 ### Jetpack Compose GoogleMap Container
 
 ```kotlin
-package com.devcrack.maps.ui
+package com.example.maps.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -143,7 +143,7 @@ sequenceDiagram
 ### Complete Smooth Marker Animator Implementation
 
 ```kotlin
-package com.devcrack.maps.animation
+package com.example.maps.animation
 
 import android.animation.ValueAnimator
 import android.view.animation.LinearInterpolator
@@ -249,7 +249,7 @@ Rendering 5,000 individual markers on a mobile screen causes severe frame drops 
 Use the **Maps Compose Utils** clustering component, which indexes points using a **QuadTree**:
 
 ```kotlin
-package com.devcrack.maps.clustering
+package com.example.maps.clustering
 
 import androidx.compose.runtime.Composable
 import com.google.android.gms.maps.model.LatLng

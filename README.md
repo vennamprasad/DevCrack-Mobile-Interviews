@@ -2,7 +2,7 @@
 > **The Curated, Production-Grade Technical Interview Guide for Senior, Staff, and Lead Mobile Engineers**
 > Mastering Native Android, Native iOS, Distributed System Design, Mobile Security, Engineering Leadership, and 190+ Real-World Company Question Banks.
 
-![Awesome Mobile Interviews Logo](./assets/devcrack2.png)
+![Awesome Mobile Interviews Logo](./assets/banner.png)
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
@@ -116,7 +116,7 @@ A battle-tested vault of real-world mobile technical interviews, scoring rubrics
 ---
 
 ## 📈 Roadmap & Upcoming
-We are constantly expanding DevCrack to cover the highest levels of mobile engineering:
+We are constantly expanding Awesome Mobile Interviews to cover the highest levels of mobile engineering:
 - **[ ] Observability & Mobile Vitals**: Production monitoring, ANR/OOM tracking, and custom telemetry.
 - **[ ] Developer Experience (DevEx)**: Build systems (Bazel/Buck), remote caching, and custom Linting.
 - **[ ] Advanced App Growth**: Server-Driven UI (SDUI), App Size reduction, and AdTech header bidding.

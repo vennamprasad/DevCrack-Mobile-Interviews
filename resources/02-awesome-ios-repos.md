@@ -1,0 +1,28 @@
+# 🍎 Awesome Open-Source iOS & Swift Repositories
+
+> **Curated production-grade iOS applications, SwiftUI architectures, Point-Free showcases, and essential developer frameworks.**
+
+---
+
+## 🏛️ 1. Production Architecture Blueprints & Full Apps
+
+| Repository | Tech Stack | Why You Should Study It |
+|:---|:---|:---|
+| [**Dimillian/IceCubesApp**](https://github.com/Dimillian/IceCubesApp) | SwiftUI, Swift Concurrency, SwiftData, SPM | Fully featured, modern Mastodon client written 100% in SwiftUI. Demonstrates advanced rich text layout, media viewer, and offline state. |
+| [**pointfreeco/isowords**](https://github.com/pointfreeco/isowords) | The Composable Architecture (TCA), SwiftUI, SceneKit, SwiftPM | An award-winning 3D word game built with Point-Free's TCA, showcasing state management, audio synthesis, and game physics. |
+| [**audiusProject/audius-client**](https://github.com/AudiusProject/audius-client) | Swift, SwiftUI, Audio Streaming, Web3 | Open-source decentralized music streaming iOS app featuring background audio playback, lock screen player controls, and caching. |
+| [**netnewswire/netnewswire**](https://github.com/brentsimmons/NetNewsWire) | Swift, AppKit, UIKit, SQLite, CoreData, Syncing | One of the most mature, high-performance RSS readers on macOS and iOS. Exemplary native architectural practices and local database sync. |
+| [**brave/brave-ios**](https://github.com/brave/brave-ios) | Swift, WebKit, CoreData, Ad-Blocking Rules | Full-scale production mobile web browser. Demonstrates custom WebKit integrations, tab management, and high-throughput content blocking. |
+
+---
+
+## 🛠️ 2. Essential iOS Architecture & Quality Libraries
+
+| Library | Author | Purpose |
+|:---|:---|:---|
+| [**pointfreeco/swift-composable-architecture**](https://github.com/pointfreeco/swift-composable-architecture) | Point-Free | The Composable Architecture (TCA) — a library for building applications in a consistent and understandable way with state management, composition, and side-effects. |
+| [**kean/Pulse**](https://github.com/kean/Pulse) | Alexander Grebenyuk | Powerful in-app network logger and inspector for iOS and macOS (built right into your test builds). |
+| [**realm/SwiftLint**](https://github.com/realm/SwiftLint) | Realm | A tool to enforce Swift style and conventions, loosely based on GitHub's Swift Style Guide. |
+| [**onevcat/Kingfisher**](https://github.com/onevcat/Kingfisher) | Wei Wang | Powerful, pure-Swift library for downloading and caching images from the web with SwiftUI modifiers. |
+| [**kean/Nuke**](https://github.com/kean/Nuke) | Alexander Grebenyuk | A fast, modern image loading and caching system for Swift & SwiftUI apps. |
+| [**airbnb/lottie-spm**](https://github.com/airbnb/lottie-spm) | Airbnb | Native Swift playback engine for Adobe After Effects vector animations. |

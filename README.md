@@ -1,17 +1,18 @@
-# 🗺️ Mobile Developer Roadmap & Engineering Handbook
-> **The Definitive Career & Technical Guide for Senior, Staff, and Lead Mobile Engineers**
-> Mastering Native Android, Native iOS, System Design, Security, Engineering Leadership, and the Global Mobile Ecosystem.
+# 📱 Awesome Mobile Interviews & Engineering Handbook
+> **The Curated, Production-Grade Technical Interview Guide for Senior, Staff, and Lead Mobile Engineers**
+> Mastering Native Android, Native iOS, Distributed System Design, Mobile Security, Engineering Leadership, and 190+ Real-World Company Question Banks.
 
-![Roadmap Logo](./assets/devcrack2.png)
+![Awesome Mobile Interviews Logo](./assets/devcrack2.png)
 
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/mobile-developer-roadmap?style=social)
-![GitHub forks](https://img.shields.io/github/forks/vennamprasad/mobile-developer-roadmap?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/awesome-mobile-interviews?style=social)
+![GitHub forks](https://img.shields.io/github/forks/vennamprasad/awesome-mobile-interviews?style=social)
 
 ---
 
 ## 📖 Table of Contents
-- [🎯 Why This Roadmap?](#-why-this-roadmap)
+- [🎯 Why Awesome Mobile Interviews?](#-why-awesome-mobile-interviews)
 - [🏛️ Four Core Pillars](#️-four-core-pillars)
   - [📱 1. Platform Engineering (Android, iOS, Cross-Platform)](#-1-platform-engineering)
   - [🛠️ 2. Core Engineering Disciplines](#️-2-core-engineering-disciplines)
@@ -23,10 +24,10 @@
 
 ---
 
-## 🎯 Why This Roadmap?
+## 🎯 Why Awesome Mobile Interviews?
 Modern mobile engineering is no longer just about writing UI screens. To succeed at **Senior, Staff, and Principal** levels, you must bridge the gap between client feature development, distributed system architecture, security hardening, and team leadership.
 
-This repository is an **Enterprise-Grade Handbook & Career Roadmap** engineered to provide:
+This repository is an **Enterprise-Grade Handbook & Curated Interview Vault** engineered to provide:
 - **Depth**: Deep dives into OS internals (Android ART/Binder/Compose compiler, iOS Mach messages/ARC/Swift 6 actors).
 - **Breadth**: Distributed System Design, Cloud-to-Mobile APIs, Security/Reverse engineering defense, and CI/CD automation.
 - **Cross-Platform Bridge**: Direct Rosetta Stone mental models for engineers crossing between Android and iOS.
@@ -37,7 +38,7 @@ This repository is an **Enterprise-Grade Handbook & Career Roadmap** engineered 
 ## 🏛️ Four Core Pillars
 
 ```
-mobile-developer-roadmap/
+awesome-mobile-interviews/
 ├── platforms/          # Native Android, Native iOS, & Cross-Platform (Flutter, KMP, React Native)
 ├── engineering/        # System Design, Security, Testing, Patterns, Algorithms, DevOps, Backend
 ├── career/             # Resumes, Negotiation, Leadership, Management & STAR Behavioral

@@ -1,4 +1,4 @@
-# 🙌 Contributing to Mobile Developer Roadmap & Engineering Handbook
+# 🙌 Contributing to Awesome Mobile Interviews & Engineering Handbook
 
 Thank you for investing your time in contributing to our project! Every contribution helps thousands of Android, iOS, and Cross-Platform engineers worldwide prepare for their next big career leap.
 
@@ -43,7 +43,7 @@ The repository is organized into four core pillars:
 
 ## 🐛 Found a Bug or Typo?
 
-If you find an error, please create a Pull Request with the fix. Alternatively, submit an [Issue](https://github.com/vennamprasad/mobile-developer-roadmap/issues) using the "Correction" template.
+If you find an error, please create a Pull Request with the fix. Alternatively, submit an [Issue](https://github.com/vennamprasad/awesome-mobile-interviews/issues) using the "Correction" template.
 
 ## 🚀 Pro Tips for Merging
 - **Keep it concise**: Interviewers want clear, punchy answers.

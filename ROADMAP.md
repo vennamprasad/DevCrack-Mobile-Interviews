@@ -1,6 +1,6 @@
-# 🗺️ Mobile Developer Roadmap
+# 🗺️ Awesome Mobile Interviews Roadmap
 
-This document outlines the planned content and modules across the Mobile Developer Roadmap & Engineering Handbook for Senior, Staff, and Lead Mobile Engineers.
+This document outlines the planned content and modules across the Awesome Mobile Interviews & Engineering Handbook for Senior, Staff, and Lead Mobile Engineers.
 
 ## 🟢 Phase 1: Platform Mastery (Completed)
 - [x] Android Core (19 Chapters: Components, Kotlin, Compose, System Design, Perfetto)

@@ -18,23 +18,23 @@
 
 ## 🛠️ 2. Essential Android Architecture & Quality Libraries
 
-| Library | Stars | Author | Purpose |
+| Library | Stars | Author / Tech | Purpose / Description |
 |:---|:---:|:---|:---|
 | [**square/leakcanary**](https://github.com/square/leakcanary) | [![Stars](https://img.shields.io/github/stars/square/leakcanary?style=social)](https://github.com/square/leakcanary) | Square | Automated memory leak detection — inspects object references and heap dumps in debug builds. |
 | [**coil-kt/coil**](https://github.com/coil-kt/coil) | [![Stars](https://img.shields.io/github/stars/coil-kt/coil?style=social)](https://github.com/coil-kt/coil) | Coil-kt | Coroutine-first, lightweight image loader supporting Kotlin Multiplatform, Compose, SVGs, and GIFs. |
 | [**slackhq/circuit**](https://github.com/slackhq/circuit) | [![Stars](https://img.shields.io/github/stars/slackhq/circuit?style=social)](https://github.com/slackhq/circuit) | Slack | Modern, testable, and declarative Kotlin Multiplatform UI framework with unified Presenter/Ui contracts. |
 | [**InsertKoinIO/koin**](https://github.com/InsertKoinIO/koin) | [![Stars](https://img.shields.io/github/stars/InsertKoinIO/koin?style=social)](https://github.com/InsertKoinIO/koin) | Koin IO | Pragmatic, lightweight dependency injection for Kotlin and Kotlin Multiplatform without code generation. |
-| [**arrow-kt/arrow**](https://github.com/arrow-kt/arrow) | [![Stars](https://img.shields.io/github/stars/arrow-kt/arrow?style=social)](https://github.com/arrow-kt/arrow) | Arrow | Functional companion to Kotlin's standard library: `Either`, `Option`, typed error handling, and optics. |
-| [**JakeWharton/timber**](https://github.com/JakeWharton/timber) | [![Stars](https://img.shields.io/github/stars/JakeWharton/timber?style=social)](https://github.com/JakeWharton/timber) | Jake Wharton | Small, extensible utility logging layer on top of Android's `Log` class. |
+| [**arrow-kt/arrow**](https://github.com/arrow-kt/arrow) | [![Stars](https://img.shields.io/github/stars/arrow-kt/arrow?style=social)](https://github.com/arrow-kt/arrow) | Arrow | Functional companion to Kotlin's standard library: Either, Option, typed error handling, and optics. |
+| [**JakeWharton/timber**](https://github.com/JakeWharton/timber) | [![Stars](https://img.shields.io/github/stars/JakeWharton/timber?style=social)](https://github.com/JakeWharton/timber) | Jake Wharton | Small, extensible utility logging layer on top of Android's Log class. |
 
 ---
 
 ## 🎨 3. UI, Animation & Design System Toolkits
 
-| Library | Stars | Description |
-|:---|:---:|:---|
-| [**airbnb/lottie-android**](https://github.com/airbnb/lottie-android) | [![Stars](https://img.shields.io/github/stars/airbnb/lottie-android?style=social)](https://github.com/airbnb/lottie-android) | Render Adobe After Effects animations natively in real-time in Jetpack Compose and Views. |
-| [**google/accompanist**](https://github.com/google/accompanist) | [![Stars](https://img.shields.io/github/stars/google/accompanist?style=social)](https://github.com/google/accompanist) | Google's collection of extension libraries for Jetpack Compose (Permissions, Web, Drawable Painter). |
-| [**raamcosta/compose-destinations**](https://github.com/raamcosta/compose-destinations) | [![Stars](https://img.shields.io/github/stars/raamcosta/compose-destinations?style=social)](https://github.com/raamcosta/compose-destinations) | Annotation processing library for type-safe Jetpack Compose navigation with zero boilerplate. |
-| [**skydoves/landscapist**](https://github.com/skydoves/landscapist) | [![Stars](https://img.shields.io/github/stars/skydoves/landscapist?style=social)](https://github.com/skydoves/landscapist) | Highly customizable image loading & animation toolkit for Jetpack Compose powered by Coil, Glide, and Fresco. |
-| [**skydoves/balloon**](https://github.com/skydoves/balloon) | [![Stars](https://img.shields.io/github/stars/skydoves/balloon?style=social)](https://github.com/skydoves/balloon) | Modern, lightweight, customizable tooltip popup dialogs for Android with Compose support. |
+| Library | Stars | Author / Tech | Purpose / Description |
+|:---|:---:|:---|:---|
+| [**airbnb/lottie-android**](https://github.com/airbnb/lottie-android) | [![Stars](https://img.shields.io/github/stars/airbnb/lottie-android?style=social)](https://github.com/airbnb/lottie-android) | Airbnb | Render Adobe After Effects animations natively in real-time in Jetpack Compose and Views. |
+| [**google/accompanist**](https://github.com/google/accompanist) | [![Stars](https://img.shields.io/github/stars/google/accompanist?style=social)](https://github.com/google/accompanist) | Google | Google's collection of extension libraries for Jetpack Compose (Permissions, Web, Drawable Painter). |
+| [**raamcosta/compose-destinations**](https://github.com/raamcosta/compose-destinations) | [![Stars](https://img.shields.io/github/stars/raamcosta/compose-destinations?style=social)](https://github.com/raamcosta/compose-destinations) | Raam Costa | Annotation processing library for type-safe Jetpack Compose navigation with zero boilerplate. |
+| [**skydoves/landscapist**](https://github.com/skydoves/landscapist) | [![Stars](https://img.shields.io/github/stars/skydoves/landscapist?style=social)](https://github.com/skydoves/landscapist) | Jaewoong Eum | Highly customizable image loading & animation toolkit for Jetpack Compose powered by Coil, Glide, and Fresco. |
+| [**skydoves/balloon**](https://github.com/skydoves/balloon) | [![Stars](https://img.shields.io/github/stars/skydoves/balloon?style=social)](https://github.com/skydoves/balloon) | Jaewoong Eum | Modern, lightweight, customizable tooltip popup dialogs for Android with Compose support. |

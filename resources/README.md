@@ -49,3 +49,31 @@ Every repository and resource listed in this directory is evaluated against 4 ma
 2. **⚡ Active Maintenance in 2025–2026:** Every codebase has recent commits, active issue triage, and compatibility with modern toolchains (Android Gradle Plugin 8+, Compose Compiler / K2, Swift 6, Flutter 3.24+).
 3. **🏛️ Production-Grade Architecture:** Zero toy apps. Only real-world production architectures demonstrating clean multi-module patterns, reactive state management, and offline resilience.
 4. **🚫 Zero Deprecated APIs:** No legacy XML-only, RxJava-only, or unmaintained libraries. All resources adhere to modern declarative paradigms.
+
+---
+
+## ⚡ How to Dynamically Add New Repositories
+
+The entire resources directory is powered by a dynamic Python management engine and a single-source-of-truth catalog ([`resources/data/curated_repos.json`](./data/curated_repos.json)).
+
+### 1. Using the CLI Tool:
+```bash
+# Add or update any repository dynamically (validates live against GitHub REST API):
+python3 scripts/sync_resources.py add "owner/repo" \
+  --category android \
+  --section blueprints \
+  --tech "Kotlin / Compose" \
+  --desc "Short description of why mobile engineers should study it"
+```
+
+### 2. Validating the Catalog:
+```bash
+# Verify that all linked repositories are active and have no 404 dead links:
+python3 scripts/sync_resources.py validate
+```
+
+### 3. Rebuilding Markdown Tables:
+```bash
+# Regenerates all markdown tables with live shields.io star badges:
+python3 scripts/sync_resources.py build
+```

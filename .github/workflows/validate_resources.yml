@@ -1,0 +1,40 @@
+name: 🔍 Validate Curated Resources
+
+on:
+  push:
+    paths:
+      - 'resources/**'
+      - 'scripts/sync_resources.py'
+  pull_request:
+    paths:
+      - 'resources/**'
+      - 'scripts/sync_resources.py'
+  schedule:
+    # Run every Monday at 00:00 UTC to catch renamed or deleted repositories
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Verify Live Repositories & Star Badges
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 🚀 Validate Repositories against GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/sync_resources.py validate
+
+      - name: 🛠️ Verify Markdown Tables are in Sync with JSON Catalog
+        run: |
+          python3 scripts/sync_resources.py build
+          git diff --exit-code || (echo "❌ Markdown tables are out of sync with resources/data/curated_repos.json. Run 'python3 scripts/sync_resources.py build' and commit." && exit 1)

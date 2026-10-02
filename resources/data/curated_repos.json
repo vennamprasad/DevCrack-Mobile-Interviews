@@ -1,0 +1,311 @@
+{
+  "android": {
+    "title": "Awesome Open-Source Android Repositories",
+    "description": "Curated, high-star production Android applications, architectural blueprints, UI showcases, and essential developer libraries — filtered strictly for active maintenance, high community rating, and modern best practices.",
+    "sections": [
+      {
+        "id": "blueprints",
+        "title": "Top-Rated Production Architecture Blueprints",
+        "repos": [
+          {
+            "name": "android/nowinandroid",
+            "tech_stack": "Jetpack Compose, Coroutines & Flow, Hilt, Room, WorkManager, Convention Plugins",
+            "description": "The official Google blueprint for multi-module Clean Architecture, offline-first sync, and design system tokens."
+          },
+          {
+            "name": "chrisbanes/tivi",
+            "tech_stack": "Compose Multiplatform (KMP), Coroutines, Circuit (Slack), Room, Coin",
+            "description": "Real-world TV show tracking app showcasing Kotlin Multiplatform (Android, iOS, Desktop) with Slack's Circuit UDF architecture."
+          },
+          {
+            "name": "ZacSweers/CatchUp",
+            "tech_stack": "Compose, Coroutines, Anvil / Dagger, Room, Moshi, Retrofit",
+            "description": "Multi-service content aggregator demonstrating advanced modularization, dynamic feature delivery, and Rx/Coroutine bridges."
+          },
+          {
+            "name": "JunkFood02/Seal",
+            "tech_stack": "Jetpack Compose, Material 3, Kotlin Coroutines, Room",
+            "description": "Modern, beautifully styled video/audio download utility adhering strictly to Material 3 guidelines and dynamic theming."
+          },
+          {
+            "name": "Thunder-App/Thunder",
+            "tech_stack": "Jetpack Compose, Room, Hilt, Coil",
+            "description": "High-performance open-source Reddit/Lemmy client with smooth gesture navigation, media caching, and local SQLite state."
+          }
+        ]
+      },
+      {
+        "id": "libraries",
+        "title": "Essential Android Architecture & Quality Libraries",
+        "repos": [
+          {
+            "name": "square/leakcanary",
+            "tech_stack": "Square",
+            "description": "Automated memory leak detection — inspects object references and heap dumps in debug builds."
+          },
+          {
+            "name": "coil-kt/coil",
+            "tech_stack": "Coil-kt",
+            "description": "Coroutine-first, lightweight image loader supporting Kotlin Multiplatform, Compose, SVGs, and GIFs."
+          },
+          {
+            "name": "slackhq/circuit",
+            "tech_stack": "Slack",
+            "description": "Modern, testable, and declarative Kotlin Multiplatform UI framework with unified Presenter/Ui contracts."
+          },
+          {
+            "name": "InsertKoinIO/koin",
+            "tech_stack": "Koin IO",
+            "description": "Pragmatic, lightweight dependency injection for Kotlin and Kotlin Multiplatform without code generation."
+          },
+          {
+            "name": "arrow-kt/arrow",
+            "tech_stack": "Arrow",
+            "description": "Functional companion to Kotlin's standard library: Either, Option, typed error handling, and optics."
+          },
+          {
+            "name": "JakeWharton/timber",
+            "tech_stack": "Jake Wharton",
+            "description": "Small, extensible utility logging layer on top of Android's Log class."
+          }
+        ]
+      },
+      {
+        "id": "ui_toolkits",
+        "title": "UI, Animation & Design System Toolkits",
+        "repos": [
+          {
+            "name": "airbnb/lottie-android",
+            "tech_stack": "Airbnb",
+            "description": "Render Adobe After Effects animations natively in real-time in Jetpack Compose and Views."
+          },
+          {
+            "name": "google/accompanist",
+            "tech_stack": "Google",
+            "description": "Google's collection of extension libraries for Jetpack Compose (Permissions, Web, Drawable Painter)."
+          },
+          {
+            "name": "raamcosta/compose-destinations",
+            "tech_stack": "Raam Costa",
+            "description": "Annotation processing library for type-safe Jetpack Compose navigation with zero boilerplate."
+          },
+          {
+            "name": "skydoves/landscapist",
+            "tech_stack": "Jaewoong Eum",
+            "description": "Highly customizable image loading & animation toolkit for Jetpack Compose powered by Coil, Glide, and Fresco."
+          },
+          {
+            "name": "skydoves/balloon",
+            "tech_stack": "Jaewoong Eum",
+            "description": "Modern, lightweight, customizable tooltip popup dialogs for Android with Compose support."
+          }
+        ]
+      }
+    ]
+  },
+  "ios": {
+    "title": "Awesome Open-Source iOS & Swift Repositories",
+    "description": "Curated, high-star production iOS applications, SwiftUI architectures, Point-Free showcases, and essential developer frameworks — selected for active maintenance, community rating, and production rigor.",
+    "sections": [
+      {
+        "id": "blueprints",
+        "title": "Top-Rated Production Architecture Blueprints & Full Apps",
+        "repos": [
+          {
+            "name": "Dimillian/IceCubesApp",
+            "tech_stack": "SwiftUI, Swift Concurrency, SwiftData, SPM",
+            "description": "Fully featured, modern Mastodon client written 100% in SwiftUI. Demonstrates advanced rich text layout, media viewer, and offline state."
+          },
+          {
+            "name": "pointfreeco/isowords",
+            "tech_stack": "The Composable Architecture (TCA), SwiftUI, SceneKit, SwiftPM",
+            "description": "An award-winning 3D word game built with Point-Free's TCA, showcasing state management, audio synthesis, and game physics."
+          },
+          {
+            "name": "AudiusProject/audius-client",
+            "tech_stack": "Swift, SwiftUI, Audio Streaming, Web3",
+            "description": "Open-source decentralized music streaming iOS app featuring background audio playback, lock screen player controls, and caching."
+          },
+          {
+            "name": "brentsimmons/NetNewsWire",
+            "tech_stack": "Swift, AppKit, UIKit, SQLite, CoreData, Syncing",
+            "description": "One of the most mature, high-performance RSS readers on macOS and iOS. Exemplary native architectural practices and local database sync."
+          },
+          {
+            "name": "brave/brave-ios",
+            "tech_stack": "Swift, WebKit, CoreData, Ad-Blocking Rules",
+            "description": "Full-scale production mobile web browser. Demonstrates custom WebKit integrations, tab management, and high-throughput content blocking."
+          }
+        ]
+      },
+      {
+        "id": "libraries",
+        "title": "Essential iOS Architecture & Quality Libraries",
+        "repos": [
+          {
+            "name": "pointfreeco/swift-composable-architecture",
+            "tech_stack": "Point-Free",
+            "description": "The Composable Architecture (TCA) — the standard library for building predictable, testable, and modular Swift applications."
+          },
+          {
+            "name": "kean/Pulse",
+            "tech_stack": "Alexander Grebenyuk",
+            "description": "Powerful in-app network logger and inspector for iOS and macOS (built right into your test builds)."
+          },
+          {
+            "name": "realm/SwiftLint",
+            "tech_stack": "Realm",
+            "description": "A tool to enforce Swift style and conventions, loosely based on GitHub's Swift Style Guide."
+          },
+          {
+            "name": "onevcat/Kingfisher",
+            "tech_stack": "Wei Wang",
+            "description": "Powerful, pure-Swift library for downloading and caching images from the web with SwiftUI modifiers."
+          },
+          {
+            "name": "kean/Nuke",
+            "tech_stack": "Alexander Grebenyuk",
+            "description": "A fast, modern image loading and caching system for Swift & SwiftUI apps."
+          },
+          {
+            "name": "airbnb/lottie-spm",
+            "tech_stack": "Airbnb",
+            "description": "Native Swift playback engine for Adobe After Effects vector animations."
+          }
+        ]
+      }
+    ]
+  },
+  "cross_platform": {
+    "title": "Awesome Open-Source Cross-Platform Repositories",
+    "description": "Curated, high-star production codebases for Flutter, React Native, and Kotlin Multiplatform — vetted for scale, modern architecture, and active maintenance.",
+    "sections": [
+      {
+        "id": "flutter",
+        "title": "Top Flutter Production Codebases",
+        "repos": [
+          {
+            "name": "AppFlowy-IO/AppFlowy",
+            "tech_stack": "Flutter + Rust FFI, SQLite",
+            "description": "Open-source Notion alternative with 77k+ stars. Masterclass in combining high-performance Rust core logic with Flutter native UI."
+          },
+          {
+            "name": "gskinnerteam/flutter-wonderous-app",
+            "tech_stack": "Flutter, Provider, Particle Shaders, Impeller",
+            "description": "Google's premier showcase app for console-grade 60/120fps animations, custom shader effects, and multi-platform responsive layouts."
+          },
+          {
+            "name": "ente-io/ente",
+            "tech_stack": "Flutter, End-to-End Encryption, Go / SQLite",
+            "description": "100% encrypted alternative to Google Photos and Apple Photos with local biometrics and streaming uploads."
+          },
+          {
+            "name": "invoiceninja/admin-portal",
+            "tech_stack": "Flutter, Redux, Multi-Platform",
+            "description": "Enterprise financial and invoicing platform deployed across Android, iOS, Web, macOS, Windows, and Linux."
+          }
+        ]
+      },
+      {
+        "id": "react_native",
+        "title": "Top React Native Production Codebases",
+        "repos": [
+          {
+            "name": "bluesky-social/social-app",
+            "tech_stack": "React Native, Expo, TypeScript, Tamagui",
+            "description": "The official Bluesky social network client (18k+ stars). Demonstrates high-volume timeline feeds, media caching, and AT Protocol sync."
+          },
+          {
+            "name": "Expensify/App",
+            "tech_stack": "React Native, Onyx State, Multi-Platform",
+            "description": "Massive open-source financial app built on a 100% shared React Native codebase across iOS, Android, and Web."
+          },
+          {
+            "name": "mattermost/mattermost-mobile",
+            "tech_stack": "React Native, WatermelonDB, WebSocket",
+            "description": "Enterprise team collaboration client demonstrating high-performance offline local database synchronization (WatermelonDB)."
+          },
+          {
+            "name": "artsy/eigen",
+            "tech_stack": "React Native + Native Swift/Obj-C, Relay / GraphQL",
+            "description": "Artsy's flagship iOS client. Industry standard for brownfield React Native embedded into native iOS architectures."
+          }
+        ]
+      },
+      {
+        "id": "kmp",
+        "title": "Top Kotlin Multiplatform (KMP) Codebases",
+        "repos": [
+          {
+            "name": "JetBrains/compose-multiplatform",
+            "tech_stack": "Compose Multiplatform (Android, iOS, Desktop, Web)",
+            "description": "Official repository with rich multi-platform showcase examples, Skiko rendering, and shared UI patterns."
+          },
+          {
+            "name": "HedvigInsurance/android",
+            "tech_stack": "Kotlin Multiplatform, Jetpack Compose, GraphQL",
+            "description": "Real-world fintech/insurance application sharing core business logic, analytics, and network models between Android and iOS."
+          }
+        ]
+      }
+    ]
+  },
+  "tooling_and_security": {
+    "title": "Mobile System Design, Telemetry & Security Repositories",
+    "description": "Curated, high-star repositories for mobile performance profiling, RUM telemetry, binary analysis, and RASP security defense.",
+    "sections": [
+      {
+        "id": "security",
+        "title": "Mobile Security & Penetration Testing",
+        "repos": [
+          {
+            "name": "MobSF/Mobile-Security-Framework-MobSF",
+            "tech_stack": "Python / Django",
+            "description": "Automated, all-in-one mobile application (Android/iOS) pen-testing, malware analysis, and security assessment framework (21k+ stars)."
+          },
+          {
+            "name": "OWASP/owasp-mastg",
+            "tech_stack": "OWASP",
+            "description": "The OWASP Mobile Application Security Testing Guide — the definitive security standard and testing handbook for mobile apps."
+          },
+          {
+            "name": "frida/frida",
+            "tech_stack": "C / JavaScript / Python",
+            "description": "Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers (17k+ stars)."
+          },
+          {
+            "name": "sensepost/objection",
+            "tech_stack": "Python / Frida",
+            "description": "Runtime mobile security assessment toolkit powered by Frida. Test mobile app resilience against hooking without jailbreaking."
+          }
+        ]
+      },
+      {
+        "id": "telemetry",
+        "title": "Mobile Telemetry, Profiling & Binary Analysis",
+        "repos": [
+          {
+            "name": "Tencent/matrix",
+            "tech_stack": "Tencent",
+            "description": "High-performance APM (Application Performance Monitoring) tool for Android & iOS: Trace, SQLite lint, Memory, and Battery analysis."
+          },
+          {
+            "name": "facebook/flipper",
+            "tech_stack": "Meta",
+            "description": "Desktop debugging platform for mobile developers. Inspect network, layout hierarchies, shared preferences, and crash dumps."
+          },
+          {
+            "name": "EmergeTools/emerge-android",
+            "tech_stack": "Emerge Tools",
+            "description": "Size analysis, startup profiling flamegraphs, and snapshot testing automation for mobile teams."
+          },
+          {
+            "name": "airbnb/Showkase",
+            "tech_stack": "Airbnb",
+            "description": "Annotation-processor that automatically searches, organizes, and renders all your Jetpack Compose preview components in a browser hub."
+          }
+        ]
+      }
+    ]
+  }
+}

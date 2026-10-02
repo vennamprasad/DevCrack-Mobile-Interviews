@@ -4,20 +4,20 @@
 
 ---
 
-## 🛡️ 1. Mobile Security & Penetration Testing
+## 🏛️ 1. Mobile Security & Penetration Testing
 
-| Repository | Stars | Description |
-|:---|:---:|:---|
-| [**MobSF/Mobile-Security-Framework-MobSF**](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | [![Stars](https://img.shields.io/github/stars/MobSF/Mobile-Security-Framework-MobSF?style=social)](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | Automated, all-in-one mobile application (Android/iOS) pen-testing, malware analysis, and security assessment framework (21k+ stars). |
-| [**OWASP/owasp-mastg**](https://github.com/OWASP/owasp-mastg) | [![Stars](https://img.shields.io/github/stars/OWASP/owasp-mastg?style=social)](https://github.com/OWASP/owasp-mastg) | The OWASP Mobile Application Security Testing Guide — the definitive security standard and testing handbook for mobile apps. |
-| [**frida/frida**](https://github.com/frida/frida) | [![Stars](https://img.shields.io/github/stars/frida/frida?style=social)](https://github.com/frida/frida) | Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers (17k+ stars). |
-| [**sensepost/objection**](https://github.com/sensepost/objection) | [![Stars](https://img.shields.io/github/stars/sensepost/objection?style=social)](https://github.com/sensepost/objection) | Runtime mobile security assessment toolkit powered by Frida. Test mobile app resilience against hooking without jailbreaking. |
+| Library | Stars | Author / Tech | Purpose / Description |
+|:---|:---:|:---|:---|
+| [**MobSF/Mobile-Security-Framework-MobSF**](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | [![Stars](https://img.shields.io/github/stars/MobSF/Mobile-Security-Framework-MobSF?style=social)](https://github.com/MobSF/Mobile-Security-Framework-MobSF) | Python / Django | Automated, all-in-one mobile application (Android/iOS) pen-testing, malware analysis, and security assessment framework (21k+ stars). |
+| [**OWASP/owasp-mastg**](https://github.com/OWASP/owasp-mastg) | [![Stars](https://img.shields.io/github/stars/OWASP/owasp-mastg?style=social)](https://github.com/OWASP/owasp-mastg) | OWASP | The OWASP Mobile Application Security Testing Guide — the definitive security standard and testing handbook for mobile apps. |
+| [**frida/frida**](https://github.com/frida/frida) | [![Stars](https://img.shields.io/github/stars/frida/frida?style=social)](https://github.com/frida/frida) | C / JavaScript / Python | Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers (17k+ stars). |
+| [**sensepost/objection**](https://github.com/sensepost/objection) | [![Stars](https://img.shields.io/github/stars/sensepost/objection?style=social)](https://github.com/sensepost/objection) | Python / Frida | Runtime mobile security assessment toolkit powered by Frida. Test mobile app resilience against hooking without jailbreaking. |
 
 ---
 
-## ⚡ 2. Mobile Telemetry, Profiling & Binary Analysis
+## 🛠️ 2. Mobile Telemetry, Profiling & Binary Analysis
 
-| Repository | Stars | Author | Description |
+| Library | Stars | Author / Tech | Purpose / Description |
 |:---|:---:|:---|:---|
 | [**Tencent/matrix**](https://github.com/Tencent/matrix) | [![Stars](https://img.shields.io/github/stars/Tencent/matrix?style=social)](https://github.com/Tencent/matrix) | Tencent | High-performance APM (Application Performance Monitoring) tool for Android & iOS: Trace, SQLite lint, Memory, and Battery analysis. |
 | [**facebook/flipper**](https://github.com/facebook/flipper) | [![Stars](https://img.shields.io/github/stars/facebook/flipper?style=social)](https://github.com/facebook/flipper) | Meta | Desktop debugging platform for mobile developers. Inspect network, layout hierarchies, shared preferences, and crash dumps. |

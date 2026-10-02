@@ -105,9 +105,11 @@ awesome-mobile-interviews/
 
 A battle-tested vault of real-world mobile technical interviews, scoring rubrics, and company question banks:
 
-- **[Master Interview Framework](./interviews/01_Interview_Master_Framework.md)**: Multi-platform technical roadmap and interview stages.
-- **[Job Search Cheat Sheet & "Cheat Codes"](./interviews/02_Job_Search_Strategy.md)**: Google X-Ray searches, bypassing HR gatekeepers, and unlocking unlisted roles.
-- **[L1 Android Developer Interview Guide](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose state, and coding problems for junior/mid screening.
+- **[Master Interview & Career Framework](./interviews/01_Interview_Master_Framework.md)**: Multi-platform technical roadmap, engineering lifecycle, and interview stages across Android, iOS, Flutter, and React Native.
+- **[Multi-Platform Job Search & Application Playbook](./interviews/02_Job_Search_Strategy.md)**: LinkedIn Boolean queries for all platforms, Google X-Ray searches, bypassing gatekeepers, and outreach scripts.
+- **[L1 Android Developer Guide (0–3 Yrs)](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose, Coroutines, MVVM, Room, and 5 live coding challenges.
+- **[L1 iOS Developer Guide (0–3 Yrs)](./interviews/04_L1_iOS_Developer_Guide.md)**: Swift 6, SwiftUI vs UIKit, ARC memory management, async/await, MVVM, SwiftData, and 5 live coding challenges.
+- **[L1 Cross-Platform Guide (0–3 Yrs)](./interviews/05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, Flutter BLoC/Riverpod, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
 - **[Ascendion Senior Android Engineer Suite](./interviews/service-based/Ascendion/Senior_Android_Interview_Suite.md)**: 60-min interviewer handbook with rubric and candidate scorecard.
 - **[45-Minute Live Code Review Challenge](./interviews/service-based/Ascendion/Coding_Challenge_and_Review.md)**: Hands-on debugging challenge with 6 intentional production bugs.
 - **[Product-Based Directory (145+ Companies)](./interviews/product-based/README.md)**: Google, Apple, Meta, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.

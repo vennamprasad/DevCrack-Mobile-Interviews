@@ -11,5 +11,5 @@
 
 | Guide | Description | Key Focus |
 | :--- | :--- | :--- |
-| **[Mobile CI/CD Pipeline Architecture](./ci_cd.md)** | Continuous integration pipelines for Android and iOS. | Runner selection (macOS vs Linux), caching Gradle/Cocoapods caches, secrets management, running unit/instrumentation tests, and artifact signing. |
-| **[Fastlane Automation Guide](./fastlane.md)** | The standard mobile automation toolkit. | `Fastfile` lanes, `match` (deterministic Git-based iOS code signing), `supply` (Google Play deployment), and `deliver` (App Store submission). |
+| **[Mobile CI/CD Pipeline Architecture](./01_ci_cd_pipelines.md)** | Continuous integration pipelines for Android and iOS. | Runner selection (macOS vs Linux), caching Gradle/Cocoapods caches, secrets management, running unit/instrumentation tests, and artifact signing. |
+| **[Fastlane Automation Guide](./02_fastlane_automation.md)** | The standard mobile automation toolkit. | `Fastfile` lanes, `match` (deterministic Git-based iOS code signing), `supply` (Google Play deployment), and `deliver` (App Store submission). |

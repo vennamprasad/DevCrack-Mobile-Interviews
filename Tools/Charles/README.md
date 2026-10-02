@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[Charles Proxy Debugging Guide](./charles.md)**
+- **[Charles Proxy Debugging Guide](./01_charles_proxy.md)**
   - **1. Setup & SSL Proxying:** Installing Root CA certificates on Android/iOS emulators and physical devices, Android `network_security_config.xml` configuration for debug builds.
   - **2. Breakpoints & Mocking:** Rewriting request/response headers and bodies on the fly, Map Local vs Map Remote.
   - **3. Network Throttling:** Simulating 3G/Edge high-latency and packet loss conditions to test app offline resiliency.

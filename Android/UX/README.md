@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[Android UX Interview Guide](./ux.md)**
+- **[Android UX Interview Guide](./01_ux_and_material_design.md)**
   - **1. Material Design Evolution:** Material 2 (M2) vs Material Design 3 (M3 / Material You), tonal color palettes, dynamic theming extracted from user wallpaper (`dynamicDarkColorScheme`, `dynamicLightColorScheme`), and typography tokens.
   - **2. Mobile Accessibility (a11y):** Minimum touch target sizes (48dp x 48dp), content descriptions for screen readers (TalkBack), traversal order, color contrast ratios (WCAG AA 4.5:1), and high-contrast text support.
   - **3. Navigation UX Patterns:** Bottom navigation bars, Navigation Rails (tablets/foldables), Navigation Drawers, predictive back gestures (Android 14+), and back-stack ergonomics.

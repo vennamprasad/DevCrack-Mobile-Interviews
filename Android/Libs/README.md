@@ -9,7 +9,7 @@
 
 ## 📖 Chapter Index
 
-- **[Android Libraries Interview Guide](./libs.md)**
+- **[Android Libraries Interview Guide](./01_android_libraries_guide.md)**
   - **Networking:**
     - **[Retrofit](https://square.github.io/retrofit/):** REST client interface mapping, OkHttp converters (Moshi/Gson/KotlinX Serialization), custom CallAdapters.
     - **[OkHttp](https://square.github.io/okhttp/):** HTTP/2 client, connection pooling, cache control headers, app vs network interceptors, certificate pinning.

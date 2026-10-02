@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[Google Play Store & Console Interview Guide](./playstore.md)**
+- **[Google Play Store & Console Interview Guide](./01_playstore_and_console.md)**
   - **1. General Play Store Questions:** Developer account setup, publishing process, APK vs AAB, Play App Signing, and version code vs version name management.
   - **2. Console-Specific Deep Dives:** Release tracks (Internal, Closed Alpha/Beta, Open Testing, Production), Staged Rollouts (incremental percentages, pausing rollouts), and In-App Updates API (Immediate vs Flexible flows).
   - **3. Advanced Scenarios & Android Vitals:** ANR rate threshold (< 0.47%), crash rate threshold (< 1.09%), frozen frames, slow rendering, target API level deprecation timelines, and Google Play Policy compliance.

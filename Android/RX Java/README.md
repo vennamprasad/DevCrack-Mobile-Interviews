@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[RxJava Interview Guide](./rx.md)**
+- **[RxJava Interview Guide](./01_rxjava_guide.md)**
   - **1. Core Concepts:** Reactive streams specification, Observer pattern, Push vs Pull streams, Cold vs Hot observables, and `CompositeDisposable` lifecycle management.
   - **2. Observables vs Flowables:** `Observable`, `Flowable` (backpressure strategies: `DROP`, `LATEST`, `BUFFER`, `ERROR`), `Single`, `Maybe`, and `Completable`.
   - **3. Operators:** Transforming (`map`, `flatMap`, `concatMap`, `switchMap`), Filtering (`filter`, `distinctUntilChanged`, `debounce`), and Combining (`zip`, `combineLatest`, `merge`).

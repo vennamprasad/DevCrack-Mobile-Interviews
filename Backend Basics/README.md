@@ -10,10 +10,10 @@
 
 | Topic | Deep Dive Guide | Core Focus |
 | :--- | :--- | :--- |
-| **Cloud Native Foundations** | **[Cloud Native Guide](./Cloud_Native_Foundations.md)** | Microservices, Docker containers, Kubernetes, Load Balancers, and CDNs for mobile backends. |
+| **Cloud Native Foundations** | **[Cloud Native Guide](./01_cloud_native_foundations.md)** | Microservices, Docker containers, Kubernetes, Load Balancers, and CDNs for mobile backends. |
 | **REST APIs** | **[REST Architecture](./REST)** | HTTP methods, idempotency, status codes, HATEOAS, and cache-control headers. |
 | **GraphQL** | **[GraphQL for Mobile](./GraphQL)** | Queries, Mutations, Subscriptions, preventing over-fetching, and Apollo client caching. |
-| **Firebase Backend** | **[Firebase Serverless](./Firebase/firebase.md)** | Cloud Functions, Authentication, and serverless edge databases. |
+| **Firebase Backend** | **[Firebase Serverless](./Firebase/01_firebase_backend.md)** | Cloud Functions, Authentication, and serverless edge databases. |
 
 ---
 

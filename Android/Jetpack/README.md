@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[Jetpack Architecture Components Guide](./jetpack.md)**
+- **[Jetpack Architecture Components Guide](./01_jetpack_architecture_components.md)**
   - **1. Core Components:** `ViewModel` internals (how `ViewModelStore` survives configuration changes), `SavedStateHandle`, `LiveData` vs Kotlin `StateFlow`, active/inactive observer states.
   - **2. Navigation Component:** NavGraph, Deep linking, SafeArgs, nested graphs, Single-Activity pattern, and Compose Navigation integration.
   - **3. Data & Paging:** Room ORM architecture, database migrations, `Paging 3` architecture (`PagingSource`, `RemoteMediator`, `Pager`, `PagingData`).

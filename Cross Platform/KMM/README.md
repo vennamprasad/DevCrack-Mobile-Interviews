@@ -9,7 +9,7 @@
 
 ## 📖 Available Guide
 
-- **[Kotlin Multiplatform (KMP/KMM) Guide](./kmm.md)**
+- **[Kotlin Multiplatform (KMP/KMM) Guide](./01_kmp_guide.md)**
   - **Section 1: Core Concepts:** `expect` / `actual` declarations, SourceSets (`commonMain`, `androidMain`, `iosMain`), Kotlin/Native compiler.
   - **Section 2: Memory & Concurrency:** The new Kotlin/Native memory manager (relaxed threading, no freeze requirement), Coroutines and Flow across Swift/Objective-C boundaries.
   - **Section 3: Ecosystem:** Ktor Client, SQLDelight / Room Multiplatform, KotlinX Serialization, Koin KMP.

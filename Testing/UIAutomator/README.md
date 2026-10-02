@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[UI Automator Guide](./ui_automator.md)**
+- **[UI Automator Guide](./01_ui_automator_guide.md)**
   - **1. Overview:** Black-box functional UI testing spanning multiple applications and system settings.
   - **2. Espresso vs UI Automator:** In-app fast synchronization (Espresso) vs cross-app system accessibility inspection (UI Automator).
   - **3. Key Classes:** `UiDevice` (simulating home button, back button, rotation, notification shade), `UiSelector`, `UiObject2`.

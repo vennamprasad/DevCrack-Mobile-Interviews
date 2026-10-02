@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[JUnit Testing Guide](./junit.md)**
+- **[JUnit Testing Guide](./01_junit_guide.md)**
   - **1. Basics & Test Lifecycle:** `@Test`, `@Before` / `@BeforeEach`, `@After` / `@AfterEach`, `@BeforeClass` / `@BeforeAll`.
   - **2. Assertions:** `assertEquals`, `assertTrue`, `assertNull`, `assertThrows`.
   - **3. Test Runners & Rules:** `@RunWith(MockitoJUnitRunner::class)`, parameterized tests, and instant task executor rule for Architecture Components.

@@ -12,8 +12,8 @@
 
 | Guide | Description | Target Level |
 | :--- | :--- | :--- |
-| **[01. Gradle Fundamentals & Q&A](./gradle.md)** | Core concepts, tasks, dependency configurations (`implementation`, `api`, `compileOnly`), build variants, product flavors, and common interview questions. | Mid / Senior |
-| **[02. Gradle Mastery (Staff / Lead)](./gradle_mastery.md)** | Deep-dive for senior/staff engineers: Groovy to KTS migration, Version Catalogs (`libs.versions.toml`), configuration cache, build scan profiling, R8 shrinking, and custom standalone Gradle plugins. | Senior / Staff |
+| **[01. Gradle Fundamentals & Q&A](./01_gradle_basics.md)** | Core concepts, tasks, dependency configurations (`implementation`, `api`, `compileOnly`), build variants, product flavors, and common interview questions. | Mid / Senior |
+| **[02. Gradle Mastery (Staff / Lead)](./02_gradle_mastery.md)** | Deep-dive for senior/staff engineers: Groovy to KTS migration, Version Catalogs (`libs.versions.toml`), configuration cache, build scan profiling, R8 shrinking, and custom standalone Gradle plugins. | Senior / Staff |
 
 ---
 

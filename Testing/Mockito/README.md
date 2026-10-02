@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[Mockito & Mocking Guide](./mockito.md)**
+- **[Mockito & Mocking Guide](./01_mockito_guide.md)**
   - **1. Core Concepts:** Stubs vs Mocks vs Spies vs Dummies.
   - **2. Mocking vs Spying:** When to mock full objects vs wrap real instances with `@Spy`.
   - **3. Annotations:** `@Mock`, `@Spy`, `@InjectMocks`, `@Captor` (ArgumentCaptor).

@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[Android UI Interview Questions & Answers](./ui.md)**
+- **[Android UI Interview Questions & Answers](./01_views_and_layouts.md)**
   - **1. Core View Hierarchy:** `View` vs `ViewGroup`, View tree hierarchy, inflation process (`LayoutInflater`), and `findViewById` vs View Binding.
   - **2. Layout Management:** `ConstraintLayout` (chains, barriers, guidelines, ratios, flow), `LinearLayout` (weights and double measurement penalty), `RelativeLayout`, `FrameLayout`, and `CoordinatorLayout`.
   - **3. Screen Densities & Responsiveness:** Density-independent pixels (`dp`), scale-independent pixels (`sp`), resource qualifiers (`layout-sw600dp`, `drawable-xxhdpi`), and vector drawables (`VectorDrawableCompat`).

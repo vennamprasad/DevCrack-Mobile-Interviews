@@ -9,7 +9,7 @@
 
 ## 📖 Available Guide
 
-- **[Flutter Senior Interview Guide](./flutter.md)**
+- **[Flutter Senior Interview Guide](./01_flutter_guide.md)**
   - **1. Core Architecture:** Skia / Impeller rendering engine, 3-tree architecture (Widget Tree, Element Tree, RenderObject Tree).
   - **2. Dart Concurrency:** Event loops, Microtask queue, Event queue, and Isolates for CPU-heavy tasks.
   - **3. State Management:** Provider, Riverpod, BLoC (Business Logic Component), and GetX trade-offs.

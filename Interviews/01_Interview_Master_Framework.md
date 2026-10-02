@@ -9,7 +9,7 @@
 ## 📖 Available Interview Guides
 
 ### 🟢 Level 1: Junior / Associate / Technical Screening (0–2 Years)
-- **[L1 Android Developer Interview Guide](./L1_Android_Developer_Interview_Guide.md)**
+- **[L1 Android Developer Interview Guide](./03_L1_Android_Developer_Guide.md)**
   - Comprehensive question bank covering:
     - **Kotlin Fundamentals:** `val`/`var`, Null Safety (`?`, `?.`, `?:`), Scope functions (`let`, `apply`, `also`), Data classes.
     - **Android Core & Lifecycle:** Activity lifecycle scenarios, screen rotation, Intents, ViewModels, ANR avoidance.
@@ -36,4 +36,4 @@
 ### 🏢 Company-Specific Interview Databases
 - **[Service-Based Companies (40+ Companies)](./Service_Based/)**: Ascendion, EPAM, Thoughtworks, Publicis Sapient, Accenture, TCS, Infosys, Capgemini, etc.
 - **[Product-Based Companies (150+ Companies)](./Product_Based/)**: Google, Amazon, Meta, Uber, Netflix, Spotify, etc.
-- **[Job Search & Offer Strategy Guide](./Job_Search_Guide.md)**: Boolean search strings, resume templates, and negotiation tactics.
+- **[Job Search & Offer Strategy Guide](./02_Job_Search_Strategy.md)**: Boolean search strings, resume templates, and negotiation tactics.

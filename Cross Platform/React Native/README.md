@@ -9,7 +9,7 @@
 
 ## 📖 Available Guide
 
-- **[React Native Senior Interview Guide](./react_native.md)**
+- **[React Native Senior Interview Guide](./01_react_native_guide.md)**
   - **Section 1: Core Fundamentals & New Architecture:** Legacy async JSON Bridge vs JSI (JavaScript Interface), Fabric renderer (C++ synchronous UI bindings), TurboModules (lazy-loaded native modules), and Hermes JS engine.
   - **Section 2: State Management:** Redux Toolkit, Zustand, Recoil, and React Context re-render trade-offs.
   - **Section 3: Performance Optimization:** FlatList windowing (`windowSize`, `maxToRenderPerBatch`), Hermes bytecode compilation, memory leaks, and profiling with Flipper.

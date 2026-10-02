@@ -15,8 +15,8 @@
 | **Comprehensive Kotlin Guide** | 15-chapter deep-dive into language fundamentals, OOP, null safety, lambdas, generics, delegation, and modern best practices. | **[Kotlin_Guide](./Kotlin_Guide/README.md)** |
 | **Coroutines Deep Dive** | 13-part master guide covering structured concurrency, scopes (`viewModelScope`, `lifecycleScope`), dispatchers, cancellation, error handling, and testing. | **[Coroutines Guide](./Coroutines/Coroutines_Guide/README.md)** |
 | **Flows & Channels** | 19-part reactive streaming guide covering Cold vs Hot flows, `StateFlow` vs `SharedFlow`, debounce search, pagination, offline-first sync, and testing. | **[Flows Guide](./Flows/Flows_Guide/README.md)** |
-| **Kotlin Interview Cheat Sheet** | Quick-reference syntax guide for collections, inline functions, reified types, and sealed classes. | **[cheatsheet.md](./cheatsheet.md)** |
-| **Hands-On Coding Challenges** | Practical interview coding questions and algorithm implementations written in idiomatic Kotlin. | **[program.md](./program.md)** |
+| **Kotlin Interview Cheat Sheet** | Quick-reference syntax guide for collections, inline functions, reified types, and sealed classes. | **[cheatsheet.md](./01_cheatsheet.md)** |
+| **Hands-On Coding Challenges** | Practical interview coding questions and algorithm implementations written in idiomatic Kotlin. | **[02_coding_challenges.md](./02_coding_challenges.md)** |
 
 ---
 

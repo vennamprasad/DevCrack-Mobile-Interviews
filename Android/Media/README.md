@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[ExoPlayer Mastery: 50+ Senior Interview Questions](./ExoPlayer_Mastery.md)**
+- **[ExoPlayer Mastery: 50+ Senior Interview Questions](./01_exoplayer_mastery.md)**
   - **Level 1: The Basics (1–10):** MediaSource types (`ProgressiveMediaSource`, `HlsMediaSource`, `DashMediaSource`), PlayerView, and Media3 unification.
   - **Level 2: Architecture & Internals (11–20):** How renderers (`MediaCodecVideoRenderer`, `MediaCodecAudioRenderer`), TrackSelector, and LoadControl collaborate on playback threads.
   - **Level 3: Buffering & Caching (21–30):** `SimpleCache`, `CacheDataSourceFactory`, prefetching next video in short-form video feeds (TikTok/Reels), and eviction policies (Least-Recently-Used).

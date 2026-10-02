@@ -12,9 +12,9 @@
 
 | Guide | Description | Key Topics |
 | :--- | :--- | :--- |
-| **[Core Java Guide](./Core/core-java.md)** | Fundamentals of Java in Android development. | OOP (Inheritance, Polymorphism, Encapsulation, Abstraction), Pass-by-value, `equals()` and `hashCode()`, String pool, Exception hierarchy, Collections framework (`ArrayList`, `HashMap`, `ConcurrentHashMap`). |
-| **[Java Cheat Sheet](./Core/cheetsheet.md)** | Quick-reference formula sheet. | Syntax patterns, access modifiers, memory areas (Stack vs Heap), garbage collection basics. |
-| **[Advanced Java](./Advanced/advanced.md)** | Concurrency, memory model, and JVM internals. | Multithreading, `synchronized`, `volatile`, Java Memory Model (JMM), ThreadPoolExecutor, Generics & Type Erasure, Reflection, ClassLoaders. |
+| **[Core Java Guide](./Core/01_core_java.md)** | Fundamentals of Java in Android development. | OOP (Inheritance, Polymorphism, Encapsulation, Abstraction), Pass-by-value, `equals()` and `hashCode()`, String pool, Exception hierarchy, Collections framework (`ArrayList`, `HashMap`, `ConcurrentHashMap`). |
+| **[Java Cheat Sheet](./Core/02_cheatsheet.md)** | Quick-reference formula sheet. | Syntax patterns, access modifiers, memory areas (Stack vs Heap), garbage collection basics. |
+| **[Advanced Java](./Advanced/01_advanced_java.md)** | Concurrency, memory model, and JVM internals. | Multithreading, `synchronized`, `volatile`, Java Memory Model (JMM), ThreadPoolExecutor, Generics & Type Erasure, Reflection, ClassLoaders. |
 
 ---
 

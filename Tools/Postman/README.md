@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[Postman API Testing Guide](./postman.md)**
+- **[Postman API Testing Guide](./01_postman_api_testing.md)**
   - **1. Basics:** Workspaces, request construction, authorization helpers (OAuth 2.0, Bearer token).
   - **2. Collections & Environments:** Environment variables vs Global variables, chaining dependent API calls (saving auth tokens from login responses).
   - **3. Scripting & Tests:** Writing test assertions in JavaScript (`pm.test()`, `pm.expect()`), validating JSON Schema.

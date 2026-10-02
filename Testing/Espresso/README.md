@@ -8,7 +8,7 @@
 
 ## 📖 Available Guide
 
-- **[Espresso UI Testing Guide](./espresso.md)**
+- **[Espresso UI Testing Guide](./01_espresso_guide.md)**
   - **1. Core Components:** `onView()`, `perform()`, `check()`.
   - **2. The Test Formula:** Finding views (`withId`, `withText`), acting (`click`, `typeText`), asserting (`matches`, `isDisplayed`).
   - **3. Idling Resources:** Synchronizing asynchronous operations (network, animations) without flaky `Thread.sleep()`.

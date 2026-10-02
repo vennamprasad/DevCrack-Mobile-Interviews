@@ -10,7 +10,7 @@
 
 ## 📖 Chapter Index
 
-- **[Android Components Deep Dive](./components.md)**
+- **[Android Components Deep Dive](./01_components_lifecycle.md)**
   - **1. Activities & Lifecycle:** State transitions (`onCreate`, `onStart`, `onResume`, `onPause`, `onStop`, `onDestroy`, `onRestart`), process death (`onSaveInstanceState`, `ViewModelProvider`), configuration changes, launch modes (`standard`, `singleTop`, `singleTask`, `singleInstance`), and back stack tasks.
   - **2. Services:** Foreground services (notification requirements, Android 14 type declaration), Background services, Bound services (`IBinder`, `ServiceConnection`), and migration to `WorkManager`.
   - **3. Broadcast Receivers:** Static (manifest) vs dynamic (context-registered) receivers, ordered broadcasts, local broadcasts, security restrictions (Android 8+ background broadcast limits, `RECEIVER_EXPORTED` / `RECEIVER_NOT_EXPORTED` in Android 13+).

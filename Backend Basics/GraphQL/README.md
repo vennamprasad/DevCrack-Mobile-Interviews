@@ -11,8 +11,8 @@
 
 | Guide | Scope | Target Audience |
 | :--- | :--- | :--- |
-| **[01. GraphQL Fundamentals](./graph.md)** | Core concepts, over-fetching / under-fetching problems, schema definition, queries, and mutations. | Mid / Senior |
-| **[02. GraphQL for Mobile Engineers (Deep Dive)](./graphql.md)** | Level 1–4 question bank: Schema federation, Apollo Client normalized cache, subscriptions over WebSockets, and performance. | Senior / Staff |
+| **[01. GraphQL Fundamentals](./01_graphql_fundamentals.md)** | Core concepts, over-fetching / under-fetching problems, schema definition, queries, and mutations. | Mid / Senior |
+| **[02. GraphQL for Mobile Engineers (Deep Dive)](./02_graphql_mastery.md)** | Level 1–4 question bank: Schema federation, Apollo Client normalized cache, subscriptions over WebSockets, and performance. | Senior / Staff |
 
 ---
 

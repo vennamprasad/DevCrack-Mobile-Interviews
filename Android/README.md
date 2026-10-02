@@ -33,15 +33,15 @@ graph TD
 - **[Kotlin Mastery](./Kotlin)**
   - [Comprehensive Kotlin Guide](./Kotlin/Kotlin_Guide/README.md): OOP, Null safety, lambdas, Generics, Delegation.
   - [Kotlin Coroutines & Flows](./Kotlin/Kotlin_Guide/08_Coroutines.md): Structured concurrency, cancellation, exception handling, Channels.
-  - [Kotlin Quick Cheatsheet](./Kotlin/cheatsheet.md): Idiomatic syntax, scope functions, collections.
+  - [Kotlin Quick Cheatsheet](./Kotlin/01_cheatsheet.md): Idiomatic syntax, scope functions, collections.
 - **[Java Core & Advanced](./Java)**
-  - [Core Java Cheatsheet](./Java/Core/cheetsheet.md): Memory model, OOP principles, collections, multithreading.
-  - [Advanced Java Internals](./Java/Advanced/advanced.md): JVM garbage collection, bytecode, reflection, classloaders.
+  - [Core Java Cheatsheet](./Java/Core/02_cheatsheet.md): Memory model, OOP principles, collections, multithreading.
+  - [Advanced Java Internals](./Java/Advanced/01_advanced_java.md): JVM garbage collection, bytecode, reflection, classloaders.
 
 ---
 
 ### 🧩 2. Android Core Components & OS Internals
-- **[Android Components](./Components/components.md)**
+- **[Android Components](./Components/01_components_lifecycle.md)**
   - Activity & Fragment lifecycle scenarios, backstack management.
   - Services: Foreground, Background, Bound, and Android 14+ `foregroundServiceType`.
   - Broadcast Receivers: Dynamic vs Static, LocalBroadcastManager vs SharedFlow.
@@ -54,29 +54,29 @@ graph TD
   - [Compose State Management](./Jetpack%20Compose/04_State_Management.md): `remember`, `rememberSaveable`, UDF patterns.
   - [Side Effects & Lifecycle Handlers](./Jetpack%20Compose/05_Side_Effects.md): `LaunchedEffect`, `rememberUpdatedState`, `DisposableEffect`, `snapshotFlow`.
   - [Layout & Performance Optimization](./Jetpack%20Compose/11_Performance__Optimization.md): Skipping recomposition, stability (`@Stable`), `derivedStateOf`.
-- **[Android View System (XML)](./Ui/ui.md)**: Custom Views, Measure/Layout/Draw passes, ViewBinding, ConstraintLayout.
-- **[User Experience & Motion](./UX/ux.md)**: Material Design 3, accessibility, predictive back gestures.
+- **[Android View System (XML)](./Ui/01_views_and_layouts.md)**: Custom Views, Measure/Layout/Draw passes, ViewBinding, ConstraintLayout.
+- **[User Experience & Motion](./UX/01_ux_and_material_design.md)**: Material Design 3, accessibility, predictive back gestures.
 
 ---
 
 ### 🏛️ 4. Architecture & Dependency Injection
 - **[Architecture Patterns](./Architecture)**
-  - [Clean Architecture Android](./Architecture/Clean/clean_architecture_android.md): Domain Use Cases, Repositories, Inversion of Control.
-  - [MVI (Model-View-Intent)](./Architecture/MVI/mvi.md): Unidirectional data flow, immutable state, single-event channels.
-  - [MVVM](./Architecture/MVVM/mvvm.md): ViewModel lifecycle, StateFlow vs LiveData.
-  - [MVP & MVC](./Architecture/MVP/mvp.md): Legacy patterns and migration strategies.
+  - [Clean Architecture Android](./Architecture/Clean/01_clean_architecture.md): Domain Use Cases, Repositories, Inversion of Control.
+  - [MVI (Model-View-Intent)](./Architecture/MVI/01_mvi.md): Unidirectional data flow, immutable state, single-event channels.
+  - [MVVM](./Architecture/MVVM/01_mvvm.md): ViewModel lifecycle, StateFlow vs LiveData.
+  - [MVP & MVC](./Architecture/MVP/01_mvp.md): Legacy patterns and migration strategies.
 - **[Dependency Injection](./Dependency%20Injection)**
-  - [Hilt](./Dependency%20Injection/Hilt/hilt.md): Standard Android DI, scoping rules (`@Singleton`, `@ViewModelScoped`).
-  - [Dagger 2](./Dependency%20Injection/Dagger/dagger.md): Component dependencies, subcomponents, graph generation.
-  - [Koin](./Dependency%20Injection/Koin/koin.md): Service locator DSL for Kotlin Multiplatform.
+  - [Hilt](./Dependency%20Injection/Hilt/01_hilt.md): Standard Android DI, scoping rules (`@Singleton`, `@ViewModelScoped`).
+  - [Dagger 2](./Dependency%20Injection/Dagger/01_dagger.md): Component dependencies, subcomponents, graph generation.
+  - [Koin](./Dependency%20Injection/Koin/01_koin.md): Service locator DSL for Kotlin Multiplatform.
 
 ---
 
 ### 🗄️ 5. Data Persistence & Caching
 - **[Data Layer](./Data)**
-  - [Room Database](./Data/Room/room.md): Entities, DAOs, migrations, reactive Flow queries, TypeConverters.
-  - [SQLite Internals](./Data/SQLite/sqlite.md): Raw queries, indexing strategies, transactions, database corruption recovery.
-  - [Realm Mobile Database](./Data/Realm/realm.md): Zero-copy architecture, live objects.
+  - [Room Database](./Data/Room/01_room.md): Entities, DAOs, migrations, reactive Flow queries, TypeConverters.
+  - [SQLite Internals](./Data/SQLite/01_sqlite.md): Raw queries, indexing strategies, transactions, database corruption recovery.
+  - [Realm Mobile Database](./Data/Realm/01_realm.md): Zero-copy architecture, live objects.
 
 ---
 
@@ -94,15 +94,15 @@ graph TD
 ---
 
 ### ⚡ 7. Performance Optimization & Media
-- **[Performance Mastery](./Performance%20Optimization/performance_mastery.md)**
+- **[Performance Mastery](./Performance%20Optimization/02_performance_mastery.md)**
   - Memory Profiler, LeakCanary, analyzing HPROF heap dumps.
   - App Startup Optimization: Cold/Warm/Hot launches, AndroidX App Startup, Baseline Profiles.
   - Battery optimization: Doze Mode, App Standby Buckets, wake lock audits.
-- **[Media & Video Streaming](./Media/ExoPlayer_Mastery.md)**: Media3 / ExoPlayer, adaptive bitrate streaming (HLS/DASH), background playback.
+- **[Media & Video Streaming](./Media/01_exoplayer_mastery.md)**: Media3 / ExoPlayer, adaptive bitrate streaming (HLS/DASH), background playback.
 
 ---
 
 ### 🛠️ 8. Tooling, Gradle & Play Store
-- **[Gradle Mastery](./Gradle/gradle_mastery.md)**: Kotlin DSL (`build.gradle.kts`), version catalogs (`libs.versions.toml`), build cache optimization, custom Gradle plugins.
-- **[Google Play Store](./Playstore/playstore.md)**: Android App Bundles (.aab), dynamic feature modules, In-App Updates, In-App Reviews.
-- **[Asynchronous Reactive Extensions (RxJava)](./RX%20Java/rx.md)**: Observables, Schedulers, operators, migrating RxJava to Coroutines Flow.
+- **[Gradle Mastery](./Gradle/02_gradle_mastery.md)**: Kotlin DSL (`build.gradle.kts`), version catalogs (`libs.versions.toml`), build cache optimization, custom Gradle plugins.
+- **[Google Play Store](./Playstore/01_playstore_and_console.md)**: Android App Bundles (.aab), dynamic feature modules, In-App Updates, In-App Reviews.
+- **[Asynchronous Reactive Extensions (RxJava)](./RX%20Java/01_rxjava_guide.md)**: Observables, Schedulers, operators, migrating RxJava to Coroutines Flow.

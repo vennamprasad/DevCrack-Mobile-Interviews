@@ -80,7 +80,7 @@ High-level architecture for large-scale mobile applications.
 - **Mobile Specific**: [Android-specific patterns](./Design%20Patterns/Design_Patterns_Guide/06_Android-Specific_Patterns.md).
 
 ### ☁️ [Backend & Cloud Basics](./Backend%20Basics)
-- **Concepts**: [Cloud Native Foundations](./Backend%20Basics/Cloud_Native_Foundations.md).
+- **Concepts**: [Cloud Native Foundations](./Backend%20Basics/01_cloud_native_foundations.md).
 - **Integrations**: [REST, GraphQL, Firebase](./Backend%20Basics).
 
 ### 🛠 [Tools & DevOps](./Tools)
@@ -134,9 +134,9 @@ Check out our [Detailed Roadmap](./ROADMAP.md) to see how you can contribute!
 ## 🎤 The Interview Vault
 A massive database of real interview experiences and technical questions.
 
-- **[L1 Android Developer Interview Guide](./Interviews/L1_Android_Developer_Interview_Guide.md)**: Curated Q&A, lifecycle scenarios, Compose fundamentals, and coding problems for junior/screening rounds.
+- **[L1 Android Developer Interview Guide](./Interviews/03_L1_Android_Developer_Guide.md)**: Curated Q&A, lifecycle scenarios, Compose fundamentals, and coding problems for junior/screening rounds.
 - **[Senior Android Engineer Interview Suite](./Interviews/Service_Based/Ascendion/Senior_Android_Interview_Suite.md)**: 60-min interviewer handbook with deep-dive questions and candidate scorecards.
-- **[Job Search Guide](./Interviews/Job_Search_Guide.md)**: Boolean search strings and "cheat codes" for finding opportunities.
+- **[Job Search Guide](./Interviews/02_Job_Search_Strategy.md)**: Boolean search strings and "cheat codes" for finding opportunities.
 - **[Product Based (150+ Templates)](./Interviews/Product_Based)**: Google, Amazon, Meta, Netflix, Uber, Spotify, etc.
 - **[Service Based (40+ Templates)](./Interviews/Service_Based)**: Ascendion, TCS, Accenture, Infosys, Deloitte, IBM, etc.
 

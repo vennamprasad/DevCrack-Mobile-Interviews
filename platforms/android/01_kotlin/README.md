@@ -12,11 +12,11 @@
 
 | Submodule | Description | Link |
 | :--- | :--- | :--- |
-| **Comprehensive Kotlin Guide** | 15-chapter deep-dive into language fundamentals, OOP, null safety, lambdas, generics, delegation, and modern best practices. | **[Kotlin_Guide](./Kotlin_Guide/README.md)** |
-| **Coroutines Deep Dive** | 13-part master guide covering structured concurrency, scopes (`viewModelScope`, `lifecycleScope`), dispatchers, cancellation, error handling, and testing. | **[Coroutines Guide](./Coroutines/Coroutines_Guide/README.md)** |
-| **Flows & Channels** | 19-part reactive streaming guide covering Cold vs Hot flows, `StateFlow` vs `SharedFlow`, debounce search, pagination, offline-first sync, and testing. | **[Flows Guide](./Flows/Flows_Guide/README.md)** |
-| **Kotlin Interview Cheat Sheet** | Quick-reference syntax guide for collections, inline functions, reified types, and sealed classes. | **[cheatsheet.md](./01_cheatsheet.md)** |
-| **Hands-On Coding Challenges** | Practical interview coding questions and algorithm implementations written in idiomatic Kotlin. | **[02_coding_challenges.md](./02_coding_challenges.md)** |
+| **01. Language Fundamentals** | 10-chapter deep-dive into language fundamentals, OOP, null safety, lambdas, collections, generics, delegation, and modern best practices. | **[01. Language Fundamentals](./01_language_fundamentals/README.md)** |
+| **02. Coroutines Concurrency** | 10-part master guide covering structured concurrency, scopes (`viewModelScope`, `lifecycleScope`), dispatchers, cancellation, error handling, mutex, and testing. | **[02. Coroutines](./02_coroutines/README.md)** |
+| **03. Flows & Channels** | 11-part reactive streaming guide covering Cold vs Hot flows, `StateFlow` vs `SharedFlow`, debounce search, pagination, offline-first sync, and testing with Turbine. | **[03. Flows & Channels](./03_flows_and_channels/README.md)** |
+| **04. Kotlin Cheat Sheet** | Quick-reference syntax guide for collections, scope functions, inline functions, reified types, and sealed classes. | **[04_cheatsheet.md](./04_cheatsheet.md)** |
+| **05. Coding Challenges** | Practical interview coding questions and algorithm implementations written in idiomatic Kotlin. | **[05_coding_challenges.md](./05_coding_challenges.md)** |
 
 ---
 

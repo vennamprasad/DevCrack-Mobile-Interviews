@@ -32,7 +32,7 @@ graph TD
 
 | # | Chapter Hub | Scope & Key Topics |
 | :---: | :--- | :--- |
-| **01** | **[01. Kotlin Mastery](./01_kotlin/README.md)** | Language fundamentals, [Kotlin Guide](./01_kotlin/Kotlin_Guide/README.md), [Coroutines Guide](./01_kotlin/Coroutines/Coroutines_Guide/README.md), [Flows & Channels Guide](./01_kotlin/Flows/Flows_Guide/README.md), [Cheatsheet](./01_kotlin/01_cheatsheet.md), and [Coding Challenges](./01_kotlin/02_coding_challenges.md). |
+| **01** | **[01. Kotlin Mastery](./01_kotlin/README.md)** | [Language Fundamentals](./01_kotlin/01_language_fundamentals/README.md), [Coroutines Guide](./01_kotlin/02_coroutines/README.md), [Flows & Channels Guide](./01_kotlin/03_flows_and_channels/README.md), [Cheat Sheet](./01_kotlin/04_cheatsheet.md), and [Coding Challenges](./01_kotlin/05_coding_challenges.md). |
 | **02** | **[02. Java Core & Internals](./02_java/README.md)** | [Core Java](./02_java/Core/01_core_java.md), [Java Cheatsheet](./02_java/Core/02_cheatsheet.md), and [Advanced Java & JVM Internals](./02_java/Advanced/01_advanced_java.md). |
 | **03** | **[03. Core Components & Lifecycle](./03_components_and_lifecycle/README.md)** | [Android Components Guide](./03_components_and_lifecycle/01_components_lifecycle.md): Activity/Fragment lifecycle, Foreground Services, Broadcast Receivers, Content Providers, and Binder IPC. |
 | **04** | **[04. Views & Classic Layouts](./04_views_and_layouts/README.md)** | [Android UI Guide](./04_views_and_layouts/01_views_and_layouts.md): View vs ViewGroup, ConstraintLayout, Measure/Layout/Draw passes, and Touch Event Dispatch. |

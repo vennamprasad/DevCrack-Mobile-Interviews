@@ -110,8 +110,8 @@ A battle-tested vault of real-world mobile technical interviews, scoring rubrics
 - **[L1 Android Developer Guide (0–3 Yrs)](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose, Coroutines, MVVM, Room, and 5 live coding challenges.
 - **[L1 iOS Developer Guide (0–3 Yrs)](./interviews/04_L1_iOS_Developer_Guide.md)**: Swift 6, SwiftUI vs UIKit, ARC memory management, async/await, MVVM, SwiftData, and 5 live coding challenges.
 - **[L1 Cross-Platform Guide (0–3 Yrs)](./interviews/05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, Flutter BLoC/Riverpod, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
-- **[Product-Based Directory (145+ Companies)](./interviews/product-based/README.md)**: Google, Apple, Meta, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
-- **[Service-Based Directory (40+ Companies)](./interviews/service-based/README.md)**: EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic, etc.
+- **[Product-Based Directory (155+ Companies)](./interviews/product-based/README.md)**: OpenAI, Google, Meta, Apple, Discord, Duolingo, Revolut, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
+- **[Service-Based Directory (48+ Companies)](./interviews/service-based/README.md)**: Tata Elxsi, Nagarro, UST Global, Endava, Apexon, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, etc.
 
 ---
 

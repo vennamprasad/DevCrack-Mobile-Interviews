@@ -1,6 +1,6 @@
 # 💼 Service-Based & Consulting Mobile Interview Directory
 
-> **Interview experiences, role expectations, and technical question sets for 45+ top global IT services and consulting companies.**
+> **Interview experiences, role expectations, and technical question sets for 48+ top global IT services and consulting companies.**
 
 ---
 
@@ -26,3 +26,6 @@
 | **Tech Mahindra** | [TechM.md](./TechM/TechM.md) | **Thoughtworks** | [Thoughtworks.md](./Thoughtworks/Thoughtworks.md) |
 | **Virtusa** | [Virtusa.md](./Virtusa/Virtusa.md) | **Wipro** | [Wipro.md](./Wipro/Wipro.md) |
 | **Xoriant** | [Xoriant.md](./Xoriant/Xoriant.md) | **Zensar** | [Zensar.md](./Zensar/Zensar.md) |
+| **Tata Elxsi** | [Tata_Elxsi.md](./Tata_Elxsi/Tata_Elxsi.md) | **Nagarro** | [Nagarro.md](./Nagarro/Nagarro.md) |
+| **UST Global** | [UST_Global.md](./UST_Global/UST_Global.md) | **Endava** | [Endava.md](./Endava/Endava.md) |
+| **Apexon** | [Apexon.md](./Apexon/Apexon.md) | **CitiusTech** | [CitiusTech.md](./CitiusTech/CitiusTech.md) |

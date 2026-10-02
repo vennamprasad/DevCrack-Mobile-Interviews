@@ -3,7 +3,7 @@
 > **A curated repository of mobile engineering interview guides, real-world live coding challenges, system design templates, multi-platform career roadmaps, and 190+ company question banks.**
 
 ![Interviews](https://img.shields.io/badge/Interviews-Vault-4285F4?style=for-the-badge&logo=google)
-![Companies](https://img.shields.io/badge/Companies-190+-green?style=for-the-badge)
+![Companies](https://img.shields.io/badge/Companies-200+-green?style=for-the-badge)
 ![Levels](https://img.shields.io/badge/Level-L1_to_Staff_Lead-orange?style=for-the-badge)
 ![Platforms](https://img.shields.io/badge/Platforms-Android_•_iOS_•_Flutter_•_React_Native-3DDC84?style=for-the-badge)
 
@@ -26,5 +26,5 @@
 
 | Category | Count | Link | Notable Companies |
 | :--- | :--- | :--- | :--- |
-| **Product-Based Companies** | 145+ | **[product-based Directory](./product-based/README.md)** | Google, Meta, Apple, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato |
-| **Service-Based & Consulting** | 40+ | **[service-based Directory](./service-based/README.md)** | EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic |
+| **Product-Based Companies** | 155+ | **[product-based Directory](./product-based/README.md)** | OpenAI, Google, Meta, Apple, Discord, Duolingo, Revolut, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato |
+| **Service-Based & Consulting** | 48+ | **[service-based Directory](./service-based/README.md)** | Tata Elxsi, Nagarro, UST Global, Endava, Apexon, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro |

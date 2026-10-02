@@ -257,7 +257,7 @@ lane :upload_datadog_mappings do
   # Upload iOS dSYM symbols
   datadog_upload_dsym(
     api_key: ENV["DATADOG_API_KEY"],
-    dsym_path: "./build/DevCrack.app.dSYM.zip"
+    dsym_path: "./build/MobileApp.app.dSYM.zip"
   )
 end
 ```

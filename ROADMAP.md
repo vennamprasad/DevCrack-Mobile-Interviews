@@ -1,18 +1,23 @@
-# 🗺 DevCrack Roadmap
+# 🗺️ Mobile Developer Roadmap
 
-This document outlines the planned content and modules to elevate DevCrack into the most comprehensive resource for Senior, Staff, and Lead Mobile Engineers.
+This document outlines the planned content and modules across the Mobile Developer Roadmap & Engineering Handbook for Senior, Staff, and Lead Mobile Engineers.
 
-## 🟢 Phase 1: Platform Mastery (In Progress)
-- [x] Android Core (Components, Kotlin, UI)
-- [x] iOS Core (Swift, SwiftUI, UIKit)
-- [x] System Design Fundamentals
-- [x] The Interview Vault (200+ Templates)
+## 🟢 Phase 1: Platform Mastery (Completed)
+- [x] Android Core (19 Chapters: Components, Kotlin, Compose, System Design, Perfetto)
+- [x] iOS Core (12 Chapters: Swift 6, SwiftUI, System Design, Persistence, Testing)
+- [x] Distributed Mobile System Design (15 Chapters)
+- [x] The Interview Vault (190+ Companies)
 
-## 🟡 Phase 2: Advanced Architecture & Infrastructure (Next Up)
-- **Observability & Vitals**
-  - Designing production health dashboards.
-  - Tracking App Vitals (Memory, Battery, Start-up).
-  - Remote Debugging & Logging at scale.
+## 🟢 Phase 2: Advanced Architecture & Infrastructure (Completed)
+- [x] **Observability & Reliability**: Datadog RUM, Sentry, Embrace.io (100% session capture), Firebase Crashlytics & Perf.
+- [x] **Feature Management & Experimentation**: LaunchDarkly (SSE streaming), Statsig (Pulse metrics), Split.io, Eppo.
+- [x] **Build Systems & Compilation**: Bazel, Buck2, Develocity, and Tuist.
+- [x] **UI Automation & Device Testing**: Maestro declarative YAML and Cloud Device Farms (Firebase Test Lab / BrowserStack).
+- [x] **Memory & Heap Forensics**: LeakCanary Shark analysis and Xcode Instruments.
+- [x] **Headless Snapshot Testing**: Paparazzi, Roborazzi, and Point-Free.
+- [x] **Binary Optimization & App Size**: Emerge Tools, DEX/Mach-O breakdown, and Reaper dead code elimination.
+- [x] **Growth & Linking**: Branch.io Deferred Deep Linking and AppsFlyer MMP attribution.
+- [x] **Release Orchestration**: Runway mobile release trains and automated health gating.
 - **Developer Experience (DevEx)**
   - Gradle/Xcode build speed optimization.
   - Setting up Remote Build Caching.

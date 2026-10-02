@@ -1,26 +1,19 @@
-# 🙌 Contributing to DevCrack
+# 🙌 Contributing to Mobile Developer Roadmap & Engineering Handbook
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [devcrack.com](https://github.com/vennamprasad/DevCrack-Mobile-Interviews) and will help thousands of mobile engineers prepare for their next big role.
+Thank you for investing your time in contributing to our project! Every contribution helps thousands of Android, iOS, and Cross-Platform engineers worldwide prepare for their next big career leap.
 
-Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
+Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and welcoming.
 
 ---
 
 ## 📂 Repository Structure
 
-We have recently restructured the repository to be "Senior/Staff" focused. Please place your questions in the correct directory:
+The repository is organized into four core pillars:
 
-- **`Android/`**:
-    - `Kotlin` (Coroutines, Flow, Internals)
-    - `Jetpack Compose` (State, Rendering, Performance)
-    - `Architecture` (Clean, MVI, MVVM)
-- **`iOS/`**:
-    - `02_Swift` (ARC, Memory, Generics)
-    - `04_SwiftUI` (Identity, Layouts)
-    - `12_System_Design` (Mobile Scalability)
-- **`System Design for Mobile/`**: Large scale architecture (Chat, Feed, Video).
-- **`Leadership/`**: Management, Culture, and Behavioral questions.
-- **`Algorithms/`**: Mobile-specific data structures (LRU, QuadTree, Trie).
+- **`platforms/`**: Native Android (`01_kotlin` to `19_system_design`), Native iOS (`01_basics` to `12_system_design`), and Cross-Platform (`flutter`, `kmp`, `react-native`).
+- **`engineering/`**: Distributed System Design, Security & Pentesting, Design Patterns, Algorithms, Testing, Tools/DevOps, and Backend & Cloud.
+- **`career/`**: Career Growth, Resume Writing, Tech Lead RFCs, Engineering Management, and STAR Behavioral Frameworks.
+- **`interviews/`**: 190+ Company Question Banks across product-based (Google, Apple, Meta, Uber, Netflix) and service-based companies.
 
 ---
 
@@ -50,7 +43,7 @@ We have recently restructured the repository to be "Senior/Staff" focused. Pleas
 
 ## 🐛 Found a Bug or Typo?
 
-If you find an error, please create a Pull Request with the fix. Alternatively, submit an [Issue](https://github.com/vennamprasad/DevCrack-Mobile-Interviews/issues) using the "Correction" template.
+If you find an error, please create a Pull Request with the fix. Alternatively, submit an [Issue](https://github.com/vennamprasad/mobile-developer-roadmap/issues) using the "Correction" template.
 
 ## 🚀 Pro Tips for Merging
 - **Keep it concise**: Interviewers want clear, punchy answers.

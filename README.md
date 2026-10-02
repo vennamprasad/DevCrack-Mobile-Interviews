@@ -1,17 +1,17 @@
-# 📱 DevCrack: Mobile Interview Preparation & Engineering Handbook
-> **The Definitive Guide for Senior, Staff, and Lead Mobile Engineers**
+# 🗺️ Mobile Developer Roadmap & Engineering Handbook
+> **The Definitive Career & Technical Guide for Senior, Staff, and Lead Mobile Engineers**
 > Mastering Native Android, Native iOS, System Design, Security, Engineering Leadership, and the Global Mobile Ecosystem.
 
-![DevCrack Logo](./assets/devcrack2.png)
+![Roadmap Logo](./assets/devcrack2.png)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/DevCrack-Mobile-Interviews?style=social)
-![GitHub forks](https://img.shields.io/github/forks/vennamprasad/DevCrack-Mobile-Interviews?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/mobile-developer-roadmap?style=social)
+![GitHub forks](https://img.shields.io/github/forks/vennamprasad/mobile-developer-roadmap?style=social)
 
 ---
 
 ## 📖 Table of Contents
-- [🎯 Why DevCrack?](#-why-devcrack)
+- [🎯 Why This Roadmap?](#-why-this-roadmap)
 - [🏛️ Four Core Pillars](#️-four-core-pillars)
   - [📱 1. Platform Engineering (Android, iOS, Cross-Platform)](#-1-platform-engineering)
   - [🛠️ 2. Core Engineering Disciplines](#️-2-core-engineering-disciplines)
@@ -23,10 +23,10 @@
 
 ---
 
-## 🎯 Why DevCrack?
+## 🎯 Why This Roadmap?
 Modern mobile engineering is no longer just about writing UI screens. To succeed at **Senior, Staff, and Principal** levels, you must bridge the gap between client feature development, distributed system architecture, security hardening, and team leadership.
 
-This repository is an **Enterprise-Grade Handbook** engineered to provide:
+This repository is an **Enterprise-Grade Handbook & Career Roadmap** engineered to provide:
 - **Depth**: Deep dives into OS internals (Android ART/Binder/Compose compiler, iOS Mach messages/ARC/Swift 6 actors).
 - **Breadth**: Distributed System Design, Cloud-to-Mobile APIs, Security/Reverse engineering defense, and CI/CD automation.
 - **Cross-Platform Bridge**: Direct Rosetta Stone mental models for engineers crossing between Android and iOS.
@@ -37,7 +37,7 @@ This repository is an **Enterprise-Grade Handbook** engineered to provide:
 ## 🏛️ Four Core Pillars
 
 ```
-DevCrack/
+mobile-developer-roadmap/
 ├── platforms/          # Native Android, Native iOS, & Cross-Platform (Flutter, KMP, React Native)
 ├── engineering/        # System Design, Security, Testing, Patterns, Algorithms, DevOps, Backend
 ├── career/             # Resumes, Negotiation, Leadership, Management & STAR Behavioral

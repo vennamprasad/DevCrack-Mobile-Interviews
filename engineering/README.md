@@ -17,7 +17,7 @@
 | **Design Patterns** | **[Design Patterns Hub](./design-patterns/README.md)** | Classic GoF patterns (Creational, Structural, Behavioral) + Mobile-specific patterns (Repository, UDF, Coordinator, ViewModel). |
 | **Algorithms & Data Structures** | **[Algorithms for Mobile](./algorithms/README.md)** | LRU Cache implementation, Trie for autocomplete, QuadTree for geospatial maps, and Big-O mobile memory profiling. |
 | **Testing Strategies** | **[Testing Architecture](./testing/README.md)** | Unit Testing (JUnit), Mocking (Mockito/MockK), In-App UI Automation (Espresso), and System-Wide Automation (UIAutomator). |
-| **Tools & DevOps** | **[Tools & DevOps](./tools-and-devops/README.md)** | Advanced Git internals, CI/CD automation pipelines, Fastlane code signing (`match`), Charles Proxy debugging, and Postman API mocking. |
+| **Tools, Observability & DevOps** | **[Tools, Observability & Experimentation](./tools-and-devops/README.md)** | **Observability:** Datadog Mobile RUM, distributed APM tracing, Sentry error/ANR tracking.<br>**Experimentation:** Split.io feature flags, instant kill switches, Eppo warehouse-native A/B testing, CUPED.<br>**DevOps:** CI/CD pipelines, Fastlane (`match`), Git internals, Charles Proxy, Postman. |
 | **Backend & Cloud Foundations** | **[Backend & Cloud](./backend-and-cloud/README.md)** | Cloud-native microservices, Docker/K8s, REST API design, GraphQL & Apollo client caching, and serverless Firebase backends. |
 | **Emerging Tech** | **[Emerging Tech](./emerging-tech/README.md)** | On-Device ML (CoreML, TFLite), VisionOS spatial computing, WCAG Accessibility (a11y), AI Engineering (RAG, on-device SLMs), and AdTech/Media playback. |
 

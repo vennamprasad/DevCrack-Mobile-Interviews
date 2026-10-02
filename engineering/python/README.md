@@ -53,6 +53,13 @@ graph TD
 
 ---
 
+## 🌟 Dedicated Mobile Developer Track
+
+> 👉 **[📱 6-Week Python Master Learning Path for Mobile Developers](./python-for-mobile-developers-path.md)**  
+> *A tailored, zero-fluff roadmap bridging Kotlin/Swift mental models to Python for building Mobile BFFs (FastAPI), On-Device AI/Edge ML (CoreML/TFLite), Automation Bots, and System Design.*
+
+---
+
 ## 📚 Curriculum Navigation
 
 ### 🟢 [01. Language Mechanics & Deep Dives](./01-language-mechanics/README.md)

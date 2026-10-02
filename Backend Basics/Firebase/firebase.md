@@ -89,3 +89,13 @@ Since Firestore charges by **Reads/Writes**:
 **Answer:**
 - **Notification Message**: Handled by system tray automatically when app is in background. High level.
 - **Data Message**: Handled by client app (`onMessageReceived`) always. Gives full control to the app even in background (though constrained by battery optimizations).
+
+---
+
+## 🚀 Dedicated Mobile Deep Dives
+For complete, production-grade Android implementations with Kotlin Coroutines, Flow, and Jetpack Compose:
+- **[Firestore Real-Time Architecture & Offline Engine](../../Android/Firebase%20Realtime/01_Firestore_Realtime_Architecture.md)**
+- **[Realtime Database Live Presence & Ride Tracking](../../Android/Firebase%20Realtime/02_Realtime_Database_and_Live_Location_Tracking.md)**
+- **[FCM Push Notifications & Modern Android 13+ Permissions](../../Android/Firebase%20Realtime/03_FCM_Push_Notifications_Modern_Android.md)**
+- **[Remote Config, Crashlytics & Performance Monitoring](../../Android/Firebase%20Realtime/04_Remote_Config_Crashlytics_and_Performance.md)**
+

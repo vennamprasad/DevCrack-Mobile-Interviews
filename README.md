@@ -115,12 +115,15 @@ A battle-tested vault of real-world mobile technical interviews, scoring rubrics
 
 ---
 
-## 📈 Roadmap & Upcoming
-We are constantly expanding Awesome Mobile Interviews to cover the highest levels of mobile engineering:
-- **[ ] Observability & Mobile Vitals**: Production monitoring, ANR/OOM tracking, and custom telemetry.
-- **[ ] Developer Experience (DevEx)**: Build systems (Bazel/Buck), remote caching, and custom Linting.
-- **[ ] Advanced App Growth**: Server-Driven UI (SDUI), App Size reduction, and AdTech header bidding.
-- **[ ] Data Sync & Offline-First**: Conflict-free Replicated Data Types (CRDTs) and BackgroundTasks internals.
+## 📈 Roadmap & Completed Modules
+We are constantly expanding **Awesome Mobile Interviews** to cover the highest levels of modern mobile engineering:
+- **[x] Observability & Mobile Vitals**: Datadog RUM, Sentry, Embrace.io (100% session capture), and Firebase Crashlytics & Perf.
+- **[x] Developer Experience (DevEx) & Build Systems**: Bazel, Buck2, remote build caching, Tuist, and Develocity.
+- **[x] Feature Delivery & Experimentation**: LaunchDarkly (SSE streaming), Statsig (Pulse metrics), Split.io, and Eppo.
+- **[x] UI Automation & Testing**: Maestro declarative YAML flows and cloud physical device farms (Firebase Test Lab / BrowserStack).
+- **[x] Memory & Binary Optimization**: LeakCanary Shark analysis, Xcode Instruments, and Emerge Tools (DEX/Mach-O analysis).
+- **[x] Data Sync & Offline-First**: Outbox pattern, CRDTs, Room + WorkManager sync, and SwiftData + BackgroundTasks.
+- **[ ] Advanced App Growth**: Server-Driven UI (SDUI) Frameworks and AdTech header bidding.
 - **[ ] Platform Internals**: Deep dives into Android ART runtime/Binder IPC and iOS Mach messages/Objective-C runtime.
 - **[ ] Local AI/ML**: Running SLMs (Small Language Models: Gemma 2B, LLaMA 3.2) on-device.
 

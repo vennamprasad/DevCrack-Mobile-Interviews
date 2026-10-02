@@ -39,3 +39,13 @@ graph TD
 * **Study Real Architectures:** Don't just read tutorials — clone production codebases (like *Now in Android*, *IceCubesApp*, or *Bluesky Social*) to see how multi-module dependency graphs, offline sync, and caching are wired in the real world.
 * **Inspect Test Suites:** Examine how top teams write headless Compose/SwiftUI tests, mock network responses, and perform screenshot regression testing.
 * **Stay Ahead of Trends:** Subscribe to the curated weekly newsletters to keep track of Android 15/16, Swift 6 concurrency, Kotlin 2.0+, and on-device AI advancements.
+
+---
+
+## 🏆 Strict Curation & Ranking Criteria
+
+Every repository and resource listed in this directory is evaluated against 4 mandatory gates:
+1. **🌟 High Community Rating & Star Velocity:** Repositories must have significant adoption (ranging from 1,000 to 75,000+ GitHub Stars).
+2. **⚡ Active Maintenance in 2025–2026:** Every codebase has recent commits, active issue triage, and compatibility with modern toolchains (Android Gradle Plugin 8+, Compose Compiler / K2, Swift 6, Flutter 3.24+).
+3. **🏛️ Production-Grade Architecture:** Zero toy apps. Only real-world production architectures demonstrating clean multi-module patterns, reactive state management, and offline resilience.
+4. **🚫 Zero Deprecated APIs:** No legacy XML-only, RxJava-only, or unmaintained libraries. All resources adhere to modern declarative paradigms.

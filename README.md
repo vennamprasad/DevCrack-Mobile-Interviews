@@ -1,8 +1,8 @@
-# 📱 DevCrack: Mobile Interview Preparation
-> **The Ultimate Handbook for Senior, Staff, and Lead Mobile Engineers**
-> Mastering Android, iOS, System Design, Leadership, and the Mobile Ecosystem.
+# 📱 DevCrack: Mobile Interview Preparation & Engineering Handbook
+> **The Definitive Guide for Senior, Staff, and Lead Mobile Engineers**
+> Mastering Native Android, Native iOS, System Design, Security, Engineering Leadership, and the Global Mobile Ecosystem.
 
-![DevCrack Logo](https://github.com/vennamprasad/DevCrack-Mobile-Interviews/blob/main/Assets/devcrack2.png)
+![DevCrack Logo](./assets/devcrack2.png)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/DevCrack-Mobile-Interviews?style=social)
@@ -12,141 +12,126 @@
 
 ## 📖 Table of Contents
 - [🎯 Why DevCrack?](#-why-devcrack)
-- [🤖 Android Mastery](#-android-mastery)
-- [🍎 iOS Mastery](#-ios-mastery)
-- [🏗 System Design for Mobile](#-system-design-for-mobile)
-- [🧪 Testing Strategy](#-testing-strategy)
-- [📐 Design Patterns](#-design-patterns)
-- [☁️ Backend & Cloud Basics](#-backend--cloud-basics)
-- [🛠 Tools & DevOps](#-tools--devops)
-- [👨‍💼 Leadership & Management](#-leadership--management)
-- [⚔️ Cross Platform](#-cross-platform)
-- [🛡 Security & Reverse Engineering](#-security--reverse-engineering)
-- [🧠 Algorithms & Data Structures](#-algorithms--data-structures)
-- [🔮 Emerging Tech](#-emerging-tech)
+- [🏛️ Four Core Pillars](#️-four-core-pillars)
+  - [📱 1. Platform Engineering (Android, iOS, Cross-Platform)](#-1-platform-engineering)
+  - [🛠️ 2. Core Engineering Disciplines](#️-2-core-engineering-disciplines)
+  - [💼 3. Career & Engineering Leadership](#-3-career--engineering-leadership)
+  - [🎤 4. The Interview Vault (190+ Companies)](#-4-the-interview-vault)
 - [📈 Roadmap & Upcoming](#-roadmap--upcoming)
-- [💼 Career Strategy](#-career-strategy)
-- [🎤 The Interview Vault](#-the-interview-vault)
+- [✍️ Contributing](#️-contributing)
+- [📝 License](#-license)
 
 ---
 
 ## 🎯 Why DevCrack?
-Modern mobile engineering is no longer just about writing code. To reach **Senior/Staff+** levels, you must bridge the gap between feature development and system architecture. 
+Modern mobile engineering is no longer just about writing UI screens. To succeed at **Senior, Staff, and Principal** levels, you must bridge the gap between client feature development, distributed system architecture, security hardening, and team leadership.
 
-This repository is a **Premium Handbook** designed to provide:
-- **Depth**: Deep dives into OS internals (Android/iOS).
-- **Breadth**: Covering Backend basics, Security, and DevOps.
-- **Strategy**: Leadership frameworks and career negotiation.
-- **Real-world Practice**: 200+ curated interview templates from top-tier companies.
+This repository is an **Enterprise-Grade Handbook** engineered to provide:
+- **Depth**: Deep dives into OS internals (Android ART/Binder/Compose compiler, iOS Mach messages/ARC/Swift 6 actors).
+- **Breadth**: Distributed System Design, Cloud-to-Mobile APIs, Security/Reverse engineering defense, and CI/CD automation.
+- **Cross-Platform Bridge**: Direct Rosetta Stone mental models for engineers crossing between Android and iOS.
+- **Real-World Practice**: 190+ curated interview templates from top-tier product and consulting companies.
 
 ---
 
-## 🚀 Repository Contents
+## 🏛️ Four Core Pillars
 
-### 🤖 [Android Mastery](./Android)
-Comprehensive guide to the Android ecosystem.
-- **Languages**: [Kotlin](./Android/Kotlin) (Coroutines, Flow, Internals) & [Java](./Android/Java).
-- **UI**: [Jetpack Compose](./Android/Jetpack%20Compose) (State, Performance) & [View System](./Android/Ui).
-- **Maps & Location**: [Location Provider & Foreground Service](./Android/Maps%20and%20Location/01_Location_Provider_and_Foreground_Service.md), [Maps Compose & Marker Animation](./Android/Maps%20and%20Location/02_Google_Maps_Compose_and_Animation.md), [Geofencing & Places](./Android/Maps%20and%20Location/03_Geofencing_and_Places_SDK.md).
-- **Firebase & Real-Time**: [Firestore Architecture](./Android/Firebase%20Realtime/01_Firestore_Realtime_Architecture.md), [Realtime DB & Live Tracking](./Android/Firebase%20Realtime/02_Realtime_Database_and_Live_Location_Tracking.md), [FCM Push](./Android/Firebase%20Realtime/03_FCM_Push_Notifications_Modern_Android.md), [Remote Config & Crashlytics](./Android/Firebase%20Realtime/04_Remote_Config_Crashlytics_and_Performance.md).
-- **Core**: [Android Components](./Android/Components), [Media/ExoPlayer](./Android/Media).
-- **Architecture**: [Clean, MVI, MVVM](./Android/Architecture), [Mobile System Design](./Android/System%20Design).
-- **Performance**: [Memory, Startup, Battery](./Android/Performance%20Optimization).
-- **DI & Libraries**: [Dagger, Hilt, Koin](./Android/Dependency%20Injection), [Third-Party Libs](./Android/Libs).
-- **Build & Distribution**: [Gradle Build System](./Android/Gradle), [Play Store & Console](./Android/Playstore).
-- **Reactive Programming**: [RxJava & Flow Migration](./Android/RX%20Java).
+```
+DevCrack/
+├── platforms/          # Native Android, Native iOS, & Cross-Platform (Flutter, KMP, React Native)
+├── engineering/        # System Design, Security, Testing, Patterns, Algorithms, DevOps, Backend
+├── career/             # Resumes, Negotiation, Leadership, Management & STAR Behavioral
+└── interviews/         # Interview Frameworks, L1–Staff Suites, 190+ Company Question Banks
+```
 
-### 🍎 [iOS Mastery](./iOS)
-A 12-chapter structured journey to Swift excellence.
-- **Android to iOS Bridge**: **[The Rosetta Stone Guide](./iOS/iOS_for_Android_Developers_Rosetta_Stone.md)** (Compose vs SwiftUI, Coroutines vs Actors, Room vs SwiftData, JVM GC vs ARC).
-- **Core**: [Swift](./iOS/02_Swift), [Basics](./iOS/01_Basics), [Memory Management (ARC)](./iOS/02_Swift).
-- **Concurrency**: [GCD, Actors, Async/Await](./iOS/08_Concurrency).
-- **UI**: [SwiftUI](./iOS/04_SwiftUI) and [UIKit](./iOS/03_UI_Frameworks).
-- **Patterns**: [MVVM-C, VIPER](./iOS/05_MVVM_and_Architecture).
-- **Persistence**: [CoreData, Realm, SwiftData](./iOS/07_Data_Persistence).
+---
 
-### 🏗 [System Design for Mobile](./System%20Design%20for%20Mobile)
-High-level architecture for large-scale mobile applications.
-- **Fundamentals**: [Scalability](./System%20Design%20for%20Mobile/02-scalability.md), [Load Balancing](./System%20Design%20for%20Mobile/03-load-balancing.md), [Caching](./System%20Design%20for%20Mobile/04-caching-strategies.md).
-- **Infrastructure**: [Message Queues](./System%20Design%20for%20Mobile/07-message-queues.md), [CDNs](./System%20Design%20for%20Mobile/08-cdn-static-content.md), [Monitoring](./System%20Design%20for%20Mobile/09-monitoring-observability.md).
-- **Real-world Design**: [Chat App](./System%20Design%20for%20Mobile/11-real-world-chat-app.md), [Social Feed](./System%20Design%20for%20Mobile/12-real-world-social-feed.md), [Ride Sharing](./System%20Design%20for%20Mobile/13-real-world-ride-sharing.md), [Video Streaming](./System%20Design%20for%20Mobile/14-real-world-video-streaming.md).
+### 📱 1. [Platform Engineering](./platforms/README.md)
 
-### 🧪 [Testing Strategy](./Testing)
-- **Android**: [JUnit](./Testing/JUnit), [Mockito](./Testing/Mockito), [Espresso](./Testing/Espresso), [UIAutomator](./Testing/UIAutomator).
-- **iOS**: [XCTest, Quick & Nimble](./iOS/09_Testing).
+#### 🤖 [Android Mastery](./platforms/android/README.md)
+19-chapter sequentially structured curriculum:
+- **Languages**: [Kotlin Internals & Coroutines](./platforms/android/01_kotlin), [Core & Advanced Java](./platforms/android/02_java).
+- **Core OS & UI**: [Components & Lifecycle](./platforms/android/03_components_and_lifecycle), [Views & Layouts](./platforms/android/04_views_and_layouts), [Jetpack Compose](./platforms/android/05_jetpack_compose), [UX & Material Design 3](./platforms/android/07_ux_and_material_design).
+- **Architecture & Data**: [Clean, MVI, MVVM](./platforms/android/08_architecture), [Room, SQLite, DataStore](./platforms/android/09_data_and_persistence), [Dagger, Hilt, Koin](./platforms/android/10_dependency_injection).
+- **Real-Time & Media**: [Maps & Location Services](./platforms/android/12_maps_and_location), [Firebase Realtime & FCM](./platforms/android/13_firebase_realtime), [ExoPlayer Media3](./platforms/android/14_media_and_streaming).
+- **Build & Performance**: [Performance Optimization](./platforms/android/15_performance_optimization), [Gradle Build System](./platforms/android/16_gradle_build_system), [Play Store & Vitals](./platforms/android/17_playstore_distribution), [RxJava to Flow Migration](./platforms/android/18_rxjava), [Android System Design](./platforms/android/19_system_design).
 
-### 📐 [Design Patterns](./Design%20Patterns)
-- **Foundations**: [Creational, Structural, Behavioral](./Design%20Patterns/Design_Patterns_Guide).
-- **Mobile Specific**: [Android-specific patterns](./Design%20Patterns/Design_Patterns_Guide/06_Android-Specific_Patterns.md).
+#### 🍎 [iOS Mastery](./platforms/ios/README.md)
+12-chapter structured journey to modern Swift excellence:
+- **Android to iOS Bridge**: **[The Rosetta Stone Guide](./platforms/ios/iOS_for_Android_Developers_Rosetta_Stone.md)** (Compose vs SwiftUI, Coroutines vs Actors, Room vs SwiftData, JVM GC vs ARC).
+- **Foundations**: [iOS Architecture & Scene Lifecycle](./platforms/ios/01_basics), [Swift Language & Memory ARC](./platforms/ios/02_swift).
+- **UI Frameworks**: [UIKit Core Concepts](./platforms/ios/03_ui_frameworks), [SwiftUI State & Navigation](./platforms/ios/04_swiftui).
+- **Architecture & Networking**: [MVVM-C & Coordinators](./platforms/ios/05_mvvm_and_architecture), [URLSession, Async/Await & SSL Pinning](./platforms/ios/06_networking).
+- **Persistence & Concurrency**: [UserDefaults, Keychain, CoreData & SwiftData](./platforms/ios/07_data_persistence), [GCD, Actors & Swift 6 Data Isolation](./platforms/ios/08_concurrency).
+- **Quality & Release**: [XCTest & XCUITest](./platforms/ios/09_testing), [Instruments & Memory Leak Profiling](./platforms/ios/10_debugging_and_performance), [Fastlane & App Store Distribution](./platforms/ios/11_app_distribution), [Scalable iOS System Design](./platforms/ios/12_system_design).
 
-### ☁️ [Backend & Cloud Basics](./Backend%20Basics)
-- **Concepts**: [Cloud Native Foundations](./Backend%20Basics/01_cloud_native_foundations.md).
-- **Integrations**: [REST, GraphQL, Firebase](./Backend%20Basics).
+#### ⚔️ [Cross-Platform Engineering](./platforms/cross-platform/README.md)
+- **[Flutter](./platforms/cross-platform/flutter)**: Impeller/Skia direct canvas rendering, Dart Isolates, BLoC/Riverpod, MethodChannels.
+- **[Kotlin Multiplatform (KMP)](./platforms/cross-platform/kmp)**: Shared business logic, Ktor, Room KMP, Compose Multiplatform for iOS.
+- **[React Native](./platforms/cross-platform/react-native)**: New Architecture (JSI, Fabric renderer, TurboModules), Hermes engine.
 
-### 🛠 [Tools & DevOps](./Tools)
-- **Workflow**: [Git Advanced](./Tools/Git), [CI/CD (Fastlane, Actions)](./Tools/CI%20CD).
-- **Debugging**: [Charles Proxy](./Tools/Charles), [Postman](./Tools/Postman).
+---
 
-### 👨‍💼 [Leadership & Management](./Leadership)
-- **Management**: [Engineering Management](./Leadership/01_Engineering_Management.md), [Hiring & Culture](./Leadership/05_Hiring_and_Culture.md).
-- **Growth**: [Technical Leadership](./Leadership/02_Technical_Leadership.md), [Project Management](./Leadership/03_Project_Management.md).
-- **Soft Skills**: [Behavioral Interviewing (STAR)](./Leadership/04_Behavioral_Questions.md).
+### 🛠️ 2. [Core Engineering Disciplines](./engineering/README.md)
 
-### ⚔️ [Cross Platform](./Cross%20Platform)
-- **Frameworks**: [Flutter](./Cross%20Platform/Flutter), [React Native](./Cross%20Platform/React%20Native), [Kotlin Multiplatform (KMM)](./Cross%20Platform/KMM).
+- **[System Design for Mobile](./engineering/system-design/README.md)**: 15-part end-to-end distributed system design covering scalability, caching, load balancing, API design, CDNs, and real-world architectures (Ride-Sharing, Chat, Video Streaming, Food Delivery).
+- **[Security & Reverse Engineering](./engineering/security/README.md)**: OWASP Mobile Top 10, Frida/Xposed dynamic hook defense, root detection, Keystore/Keychain, screen recording defense (`FLAG_SECURE`), and Banking-Grade hardening.
+- **[Design Patterns](./engineering/design-patterns/README.md)**: GoF Creational, Structural, Behavioral patterns + Mobile-specific Repository, UDF, and Coordinator patterns.
+- **[Algorithms & Data Structures](./engineering/algorithms/README.md)**: Mobile-focused algorithmic implementations: LRU Cache, Trie for autocomplete, QuadTree for geospatial maps, and Big-O memory profiling.
+- **[Testing Strategy](./engineering/testing/README.md)**: Comprehensive pyramid testing with JUnit, Mockito/MockK, Espresso, and UIAutomator.
+- **[Tools & DevOps](./engineering/tools-and-devops/README.md)**: Advanced Git internals (bisect, reflog, rebase), CI/CD pipelines, Fastlane automation, Charles Proxy, and Postman API mocking.
+- **[Backend & Cloud Foundations](./engineering/backend-and-cloud/README.md)**: Cloud-native microservices, Docker/K8s, REST API design, GraphQL & Apollo caching, and Firebase serverless.
+- **[Emerging Tech](./engineering/emerging-tech/README.md)**: On-Device ML (CoreML, TFLite), VisionOS spatial computing, WCAG Accessibility (a11y), AI Engineering (RAG, on-device SLMs), and AdTech/Media playback.
 
-### 🛡 [Security & Reverse Engineering](./Security)
-- **Standards**: [OWASP Mobile Top 10](./Security/01_OWASP_Mobile_Top_10.md), [Implementation Checklist](./Security/03_OWASP_Implementation_Checklist.md).
-- **Defense**: [Reverse Engineering Defense](./Security/02_Reverse_Engineering_Defense.md), [Screen Recording Prevention](./Security/05_Screen_Record_and_Screenshot_Defense.md).
-- **Audit**: [Penetration Testing Checklist](./Security/04_Penetration_Testing_Checklist.md).
+---
 
-### 🧠 [Algorithms & Data Structures](./Algorithms)
-- **Mobile Patterns**: [LRU Cache](./Algorithms/01_LRU_Cache.md), [Trie for Autocomplete](./Algorithms/02_Trie_Autocomplete.md), [QuadTree for Maps](./Algorithms/03_QuadTree_Location.md).
-- **Performance**: [BigO for Mobile Engineers](./Algorithms/04_BigO_Mobile.md).
+### 💼 3. [Career & Engineering Leadership](./career/README.md)
 
-### 🔮 [Emerging Tech](./Emerging_Tech)
-- **AI/ML**: [On-Device ML](./Emerging_Tech/01_On_Device_ML.md), [AI Engineering](./Emerging_Tech/04_AI_Engineering_Skills.md).
-- **Future UI**: [VisionOS & Spatial Computing](./Emerging_Tech/02_VisionOS_and_Spatial.md).
-- **Accessibility**: [WCAG & Inclusive Design](./Emerging_Tech/03_Accessibility.md).
-- **AdTech & Media**: [Video Playback & Ad Standards](./Emerging_Tech/05_AdTech_and_Playback.md).
+- **[Career Strategy](./career/career-growth/README.md)**:
+  - **[Resume Guide](./career/career-growth/01_Resume_Guide.md)**: Metric-driven bullet points that pass automated ATS screens.
+  - **[Take-Home Challenges](./career/career-growth/02_Take_Home_Challenges.md)**: Architecture, test coverage, and documentation rubrics.
+  - **[Salary Negotiation](./career/career-growth/03_Salary_Negotiation.md)**: Scripts and strategy for equity, bonuses, and counter-offers.
+- **[Engineering Leadership](./career/leadership/README.md)**:
+  - **[Engineering Management](./career/leadership/01_Engineering_Management.md)**: 1:1 frameworks, performance management, coaching.
+  - **[Technical Leadership](./career/leadership/02_Technical_Leadership.md)**: Driving RFCs, ADRs, and cross-team tech roadmap execution.
+  - **[Project Management](./career/leadership/03_Project_Management.md)**: Agile sprint planning, risk mitigation, and delivery.
+  - **[Behavioral Interviewing (STAR)](./career/leadership/04_Behavioral_Questions.md)**: High-scoring leadership answers.
+  - **[Hiring & Culture](./career/leadership/05_Hiring_and_Culture.md)**: Candidate calibration, hiring rubrics, and onboarding.
 
-### 💼 [Career Strategy](./Career)
-- **Resume**: [Impact-driven Resume Guide](./Career/01_Resume_Guide.md).
-- **Negotiation**: [Salary Negotiation Scripts](./Career/03_Salary_Negotiation.md).
-- **Technical**: [Mastering Take-Home Challenges](./Career/02_Take_Home_Challenges.md).
+---
+
+### 🎤 4. [The Interview Vault](./interviews/README.md)
+
+A battle-tested vault of real-world mobile technical interviews, scoring rubrics, and company question banks:
+
+- **[Master Interview Framework](./interviews/01_Interview_Master_Framework.md)**: Multi-platform technical roadmap and interview stages.
+- **[Job Search Cheat Sheet & "Cheat Codes"](./interviews/02_Job_Search_Strategy.md)**: Google X-Ray searches, bypassing HR gatekeepers, and unlocking unlisted roles.
+- **[L1 Android Developer Interview Guide](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose state, and coding problems for junior/mid screening.
+- **[Ascendion Senior Android Engineer Suite](./interviews/service-based/Ascendion/Senior_Android_Interview_Suite.md)**: 60-min interviewer handbook with rubric and candidate scorecard.
+- **[45-Minute Live Code Review Challenge](./interviews/service-based/Ascendion/Coding_Challenge_and_Review.md)**: Hands-on debugging challenge with 6 intentional production bugs.
+- **[Product-Based Directory (145+ Companies)](./interviews/product-based/README.md)**: Google, Apple, Meta, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
+- **[Service-Based Directory (45+ Companies)](./interviews/service-based/README.md)**: Ascendion, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic, etc.
 
 ---
 
 ## 📈 Roadmap & Upcoming
-We are constantly expanding DevCrack to cover the highest levels of mobile engineering. The following modules are currently in development:
-
+We are constantly expanding DevCrack to cover the highest levels of mobile engineering:
 - **[ ] Observability & Mobile Vitals**: Production monitoring, ANR/OOM tracking, and custom telemetry.
 - **[ ] Developer Experience (DevEx)**: Build systems (Bazel/Buck), remote caching, and custom Linting.
-- **[ ] Advanced App Growth**: SDUI (Server-Driven UI), App Size optimization, and AdTech.
-- **[ ] Data Sync & Offline-First**: Conflict resolution (CRDTs), WorkManager/BackgroundTasks internals.
-- **[ ] Platform Internals**: Deep dives into Android Binder/ART and iOS Runtime/Mach Messages.
-- **[ ] Local AI/ML**: Running SLMs (Small Language Models) on-device.
+- **[ ] Advanced App Growth**: Server-Driven UI (SDUI), App Size reduction, and AdTech header bidding.
+- **[ ] Data Sync & Offline-First**: Conflict-free Replicated Data Types (CRDTs) and BackgroundTasks internals.
+- **[ ] Platform Internals**: Deep dives into Android ART runtime/Binder IPC and iOS Mach messages/Objective-C runtime.
+- **[ ] Local AI/ML**: Running SLMs (Small Language Models: Gemma 2B, LLaMA 3.2) on-device.
 
 Check out our [Detailed Roadmap](./ROADMAP.md) to see how you can contribute!
 
 ---
 
-## 🎤 The Interview Vault
-A massive database of real interview experiences and technical questions.
-
-- **[L1 Android Developer Interview Guide](./Interviews/03_L1_Android_Developer_Guide.md)**: Curated Q&A, lifecycle scenarios, Compose fundamentals, and coding problems for junior/screening rounds.
-- **[Senior Android Engineer Interview Suite](./Interviews/Service_Based/Ascendion/Senior_Android_Interview_Suite.md)**: 60-min interviewer handbook with deep-dive questions and candidate scorecards.
-- **[Job Search Guide](./Interviews/02_Job_Search_Strategy.md)**: Boolean search strings and "cheat codes" for finding opportunities.
-- **[Product Based (150+ Templates)](./Interviews/Product_Based)**: Google, Amazon, Meta, Netflix, Uber, Spotify, etc.
-- **[Service Based (40+ Templates)](./Interviews/Service_Based)**: Ascendion, TCS, Accenture, Infosys, Deloitte, IBM, etc.
-
----
-
 ## ✍️ Contributing
-We value your expertise! Check out [CONTRIBUTING.md](./CONTRIBUTING.md) and our [Code of Conduct](./CODE_OF_CONDUCT.md).
+We value community contributions! Please review our [Contribution Guidelines](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## 📝 License
 Distributed under the [MIT License](./LICENSE).
 
 ---
-*Created with ❤️ for the Mobile Engineering Community.*
+*Created with ❤️ for the Global Mobile Engineering Community.*

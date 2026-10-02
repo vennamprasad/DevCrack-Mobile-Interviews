@@ -23,4 +23,4 @@
 ---
 
 > [!NOTE]
-> For modern declarative UI development with Jetpack Compose, see our dedicated 25-part **[Jetpack Compose Guide](../Jetpack%20Compose/README.md)**.
+> For modern declarative UI development with Jetpack Compose, see our dedicated 25-part **[Jetpack Compose Guide](../05_jetpack_compose/README.md)**.

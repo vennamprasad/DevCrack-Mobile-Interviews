@@ -94,8 +94,8 @@ Since Firestore charges by **Reads/Writes**:
 
 ## 🚀 Dedicated Mobile Deep Dives
 For complete, production-grade Android implementations with Kotlin Coroutines, Flow, and Jetpack Compose:
-- **[Firestore Real-Time Architecture & Offline Engine](../../Android/Firebase%20Realtime/01_Firestore_Realtime_Architecture.md)**
-- **[Realtime Database Live Presence & Ride Tracking](../../Android/Firebase%20Realtime/02_Realtime_Database_and_Live_Location_Tracking.md)**
-- **[FCM Push Notifications & Modern Android 13+ Permissions](../../Android/Firebase%20Realtime/03_FCM_Push_Notifications_Modern_Android.md)**
-- **[Remote Config, Crashlytics & Performance Monitoring](../../Android/Firebase%20Realtime/04_Remote_Config_Crashlytics_and_Performance.md)**
+- **[Firestore Real-Time Architecture & Offline Engine](../../../platforms/android/13_firebase_realtime/01_Firestore_Realtime_Architecture.md)**
+- **[Realtime Database Live Presence & Ride Tracking](../../../platforms/android/13_firebase_realtime/02_Realtime_Database_and_Live_Location_Tracking.md)**
+- **[FCM Push Notifications & Modern Android 13+ Permissions](../../../platforms/android/13_firebase_realtime/03_FCM_Push_Notifications_Modern_Android.md)**
+- **[Remote Config, Crashlytics & Performance Monitoring](../../../platforms/android/13_firebase_realtime/04_Remote_Config_Crashlytics_and_Performance.md)**
 

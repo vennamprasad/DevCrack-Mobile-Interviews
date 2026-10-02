@@ -23,4 +23,4 @@ Explore our multi-level architectural blueprint located in **[System Design Guid
 ---
 
 > [!TIP]
-> For broader cross-platform and backend-to-mobile system design (load balancing, CDN, microservices, databases), see the repository-wide **[System Design for Mobile](../../System%20Design%20for%20Mobile/README.md)** guide.
+> For broader cross-platform and backend-to-mobile system design (load balancing, CDN, microservices, databases), see the repository-wide **[System Design for Mobile](../../../engineering/system-design/README.md)** guide.

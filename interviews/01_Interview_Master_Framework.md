@@ -21,12 +21,12 @@
 ---
 
 ### 🟠 Level 4 / Staff / Lead: Senior Enterprise & Consulting
-- **[Senior Android Engineer Interview Suite (Ascendion)](./Service_Based/Ascendion/Senior_Android_Interview_Suite.md)**
+- **[Senior Android Engineer Interview Suite (Ascendion)](./service-based/Ascendion/Senior_Android_Interview_Suite.md)**
   - 60-Minute structured interviewer handbook with deep-dive questions, follow-ups, and candidate scorecard.
   - Concurrency internals (`SupervisorJob`, `StateFlow` vs `Channel`, Dispatchers).
   - Compose compiler stability (`@Immutable`, Compose phases, skipping recomposition).
   - Memory profiling, heap dumps, Android 14/15 background execution restrictions.
-- **[45-Minute Live Code Review & Debugging Challenge](./Service_Based/Ascendion/Coding_Challenge_and_Review.md)**
+- **[45-Minute Live Code Review & Debugging Challenge](./service-based/Ascendion/Coding_Challenge_and_Review.md)**
   - PR Review Challenge with 6 embedded defects (Infinite recomposition loops, Coroutine scope leaks, stale closures).
   - Live Coding Challenge: Debounced search with `flatMapLatest`, Room cache, and `StateFlow`.
   - Concurrency & Multi-module architecture stress testing.
@@ -34,6 +34,6 @@
 ---
 
 ### 🏢 Company-Specific Interview Databases
-- **[Service-Based Companies (40+ Companies)](./Service_Based/)**: Ascendion, EPAM, Thoughtworks, Publicis Sapient, Accenture, TCS, Infosys, Capgemini, etc.
-- **[Product-Based Companies (150+ Companies)](./Product_Based/)**: Google, Amazon, Meta, Uber, Netflix, Spotify, etc.
+- **[Service-Based Companies (40+ Companies)](./service-based/)**: Ascendion, EPAM, Thoughtworks, Publicis Sapient, Accenture, TCS, Infosys, Capgemini, etc.
+- **[Product-Based Companies (150+ Companies)](./product-based/)**: Google, Amazon, Meta, Uber, Netflix, Spotify, etc.
 - **[Job Search & Offer Strategy Guide](./02_Job_Search_Strategy.md)**: Boolean search strings, resume templates, and negotiation tactics.

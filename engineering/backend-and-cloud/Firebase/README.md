@@ -12,4 +12,4 @@
 - **[Firebase Backend Foundations](./01_firebase_backend.md)**: Realtime Database vs Cloud Firestore comparisons, Firebase Authentication, Cloud Functions, and Remote Config/Crashlytics.
 
 > [!TIP]
-> For advanced Android client implementation with real-time listeners, location tracking, and push notifications, see the comprehensive **[Android Firebase Realtime Suite](../../Android/Firebase%20Realtime/README.md)**.
+> For advanced Android client implementation with real-time listeners, location tracking, and push notifications, see the comprehensive **[Android Firebase Realtime Suite](../../../platforms/android/13_firebase_realtime/README.md)**.

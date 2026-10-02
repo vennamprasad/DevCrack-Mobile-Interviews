@@ -1,48 +1,128 @@
 # 📱 Awesome Mobile Interviews & Engineering Handbook
-> **The Curated, Production-Grade Technical Interview Guide for Senior, Staff, and Lead Mobile Engineers**
-> Mastering Native Android, Native iOS, Distributed System Design, Mobile Security, Engineering Leadership, and 190+ Real-World Company Question Banks.
+> **The definitive open-source engineering handbook, distributed system design vault, and interview playbook for Android, iOS, Flutter, and React Native developers worldwide.**
 
-![Awesome Mobile Interviews Logo](./assets/banner.png)
+![Awesome Mobile Interviews Banner](./assets/banner.png)
+
+<div align="center">
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![GitHub Repo stars](https://img.shields.io/github/stars/vennamprasad/awesome-mobile-interviews?style=social)
-![GitHub forks](https://img.shields.io/github/forks/vennamprasad/awesome-mobile-interviews?style=social)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/vennamprasad/awesome-mobile-interviews?style=social)](https://github.com/vennamprasad/awesome-mobile-interviews/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/vennamprasad/awesome-mobile-interviews?style=social)](https://github.com/vennamprasad/awesome-mobile-interviews/network/members)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+
+**[🎯 Choose Your Goal](#-where-to-start-choose-your-immediate-goal)** • 
+**[🚦 Experience Paths](#-navigation-by-experience-level--difficulty)** • 
+**[📐 System Design](./engineering/system-design/README.md)** • 
+**[🏢 200+ Company Banks](./interviews/README.md)** • 
+**[🤝 Contribute](./CONTRIBUTING.md)**
+
+</div>
 
 ---
 
-## 📖 Table of Contents
-- [🎯 Why Awesome Mobile Interviews?](#-why-awesome-mobile-interviews)
-- [🏛️ Four Core Pillars](#️-four-core-pillars)
-  - [📱 1. Platform Engineering (Android, iOS, Cross-Platform)](#-1-platform-engineering)
-  - [🛠️ 2. Core Engineering Disciplines](#️-2-core-engineering-disciplines)
-  - [💼 3. Career & Engineering Leadership](#-3-career--engineering-leadership)
-  - [🎤 4. The Interview Vault (190+ Companies)](#-4-the-interview-vault)
-- [📈 Roadmap & Upcoming](#-roadmap--upcoming)
-- [✍️ Contributing](#️-contributing)
-- [📝 License](#-license)
+### 💡 Why Mobile Engineers Star & Bookmark This Handbook
+* **⏱️ Understand the Value in 10 Seconds:** No 1,000-page bloated PDFs or paywalls. Every topic is distilled into crisp architectural answers, real code snippets, and production war-stories.
+* **🎯 Calibrated by Experience Level:** Clear distinction between what is expected from a **Junior (0–3 yrs)**, **Mid-Level (3–6 yrs)**, and **Senior/Staff (6+ yrs)** engineer.
+* **📐 Distributed Mobile System Design:** Master real-world client-server architectures with interactive Mermaid diagrams (Offline-First Sync, Live Telemetry, Feed Pagination, Video Streaming).
+* **🏢 200+ Verified Company Question Banks:** Real interview questions asked at FAANG, global unicorns (Uber, Spotify, Stripe, OpenAI), and 60+ Indian product powerhouses.
 
 ---
 
-## 🎯 Why Awesome Mobile Interviews?
-Modern mobile engineering is no longer just about writing UI screens. To succeed at **Senior, Staff, and Principal** levels, you must bridge the gap between client feature development, distributed system architecture, security hardening, and team leadership.
+### ⚡ Quick Glance: The Repository in Numbers
 
-This repository is an **Enterprise-Grade Handbook & Curated Interview Vault** engineered to provide:
-- **Depth**: Deep dives into OS internals (Android ART/Binder/Compose compiler, iOS Mach messages/ARC/Swift 6 actors).
-- **Breadth**: Distributed System Design, Cloud-to-Mobile APIs, Security/Reverse engineering defense, and CI/CD automation.
-- **Cross-Platform Bridge**: Direct Rosetta Stone mental models for engineers crossing between Android and iOS.
-- **Real-World Practice**: 190+ curated interview templates from top-tier product and consulting companies.
+| 📱 4 Stacks | 🏢 200+ Companies | 📐 15+ System Designs | 🚦 L1 to Staff | 💯 100% Free |
+| :---: | :---: | :---: | :---: | :---: |
+| **Android • iOS • Flutter • React Native** | **FAANG, Unicorns & Consultancies** | **WhatsApp, Uber, Instagram, E-Commerce** | **Structured by Experience Level** | **Open Source & Community Driven** |
 
 ---
 
-## 🏛️ Four Core Pillars
+## 🎯 Where to Start? (Choose Your Immediate Goal)
+
+Select the path that matches what you need today:
+
+```mermaid
+graph TD
+    Start[🎯 What is your immediate goal?] --> A[🚀 Interview in < 2 Weeks]
+    Start --> B[📐 Master Mobile System Design]
+    Start --> C[🔍 Job Hunting & Need Recruiter Inbound]
+    Start --> D[📚 Comprehensive Platform Mastery]
+    Start --> E[🌉 Switching from Android to iOS]
+
+    A --> Vault[👉 Jump to The Interview Vault & Company Banks]
+    B --> SysDesign[👉 Jump to 15-Part Mobile System Design Hub]
+    C --> JobSearch[👉 Jump to Multi-Platform Job Search & Boolean Playbook]
+    D --> Curriculum[👉 Jump to Android, iOS, or Cross-Platform Curriculum]
+    E --> Rosetta[👉 Jump to iOS for Android Developers Rosetta Stone]
+```
+
+1. **🚀 "I have an upcoming technical interview in less than 2 weeks"**  
+   $\rightarrow$ Jump straight to the **[Interview Vault](./interviews/README.md)**, review the **[Company Question Banks](./interviews/product-based/README.md)** (Google, Apple, Meta, Uber, Swiggy, Flipkart), and read the **[Indian Product Companies Playbook](./interviews/product-based/Indian_Product_Companies_Guide.md)**.
+2. **📐 "I need to master Mobile System Design & Architecture"**  
+   $\rightarrow$ Deep dive into the **[15-Part Distributed Mobile System Design Hub](./engineering/system-design/README.md)** covering WhatsApp offline messaging, Uber live location, Instagram feeds, and Server-Driven UI (SDUI).
+3. **🔍 "I am actively job hunting and want more recruiter callbacks"**  
+   $\rightarrow$ Use the **[Multi-Platform Job Search & Application Playbook](./interviews/02_Job_Search_Strategy.md)** to copy high-yield LinkedIn Boolean queries, Google X-Ray strings, and ATS-optimized resume templates.
+4. **📚 "I want a structured, end-to-end curriculum from scratch"**  
+   $\rightarrow$ Follow the sequentially numbered tracks: **[Android Mastery (19 Chapters)](./platforms/android/README.md)**, **[iOS Mastery (12 Chapters)](./platforms/ios/README.md)**, or **[Cross-Platform Track](./platforms/cross-platform/README.md)**.
+5. **🌉 "I know Android and need to learn iOS fast (or vice-versa)"**  
+   $\rightarrow$ Read **[The Rosetta Stone Mental Model Bridge](./platforms/ios/iOS_for_Android_Developers_Rosetta_Stone.md)** (Compose vs SwiftUI, Coroutines vs Actors, Room vs SwiftData, JVM GC vs ARC).
+
+---
+
+## 🚦 Navigation by Experience Level & Difficulty
+
+Find exactly what interviewers test at your career stage:
+
+```text
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🟢 ENTRY-LEVEL / FRESHER (0–3 Years)                                      │
+│ Kotlin & Swift fundamentals, Activity/Scene lifecycles, Compose & SwiftUI │
+│ state, basic Coroutines & async/await, Room/CoreData, and Unit Testing.   │
+│ ➜ Android L1 Guide  |  ➜ iOS L1 Guide  |  ➜ Cross-Platform L1 Guide       │
+└─────────────────────────────────────┬─────────────────────────────────────┘
+                                      ▼
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🟡 MID-LEVEL DEVELOPER (3–6 Years)                                        │
+│ Multi-module Clean Architecture, reactive Flow/Combine, memory leaks &    │
+│ retain cycles, offline-first synchronization, and CI/CD pipelines.       │
+│ ➜ Android Architecture  |  ➜ iOS Memory Profiling  |  ➜ Design Patterns   │
+└─────────────────────────────────────┬─────────────────────────────────────┘
+                                      ▼
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🔴 SENIOR / STAFF / LEAD ARCHITECT (6+ Years)                             │
+│ Distributed Mobile System Design, Vitals (ANRs, Cold Start, Jetsam OOM),  │
+│ Compiler optimization, Security hardening, RFCs, and Leadership.          │
+│ ➜ Mobile System Design  |  ➜ Mobile Security  |  ➜ Engineering Leadership │
+└───────────────────────────────────────────────────────────────────────────┘
+```
+
+### 🟢 Level 1: Junior / Fresher / Entry-Level (0–3 Years)
+- **[L1 Android Developer Interview Guide](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose state, Coroutines, MVVM, Room, and 5 live coding challenges.
+- **[L1 iOS Developer Interview Guide](./interviews/04_L1_iOS_Developer_Guide.md)**: Swift 6 core, SwiftUI vs UIKit, ARC memory management, async/await, MVVM, SwiftData, and 5 live coding challenges.
+- **[L1 Cross-Platform Guide (Flutter & React Native)](./interviews/05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, BLoC/Riverpod, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
+
+### 🟡 Level 2: Mid-Level Mobile Engineer (3–6 Years)
+- **Modular Clean Architecture**: [Android Architecture & MVI](./platforms/android/08_architecture) | [iOS MVVM-C & Coordinators](./platforms/ios/05_mvvm_and_architecture)
+- **Asynchronous Concurrency**: [Kotlin Coroutines & Flow](./platforms/android/01_kotlin) | [Swift Actors & Concurrency](./platforms/ios/08_concurrency)
+- **Memory & Vitals**: [Xcode Instruments & Retain Cycles](./platforms/ios/10_debugging_and_performance) | [Android Profiler & Memory Leaks](./platforms/android/15_performance_optimization)
+- **Testing & Quality**: [Mobile Testing Pyramid Strategy](./engineering/testing/README.md) | [Design Patterns for Mobile](./engineering/design-patterns/README.md)
+
+### 🔴 Level 3 & 4: Senior, Staff & Mobile Architect (6+ Years)
+- **Distributed Mobile System Design**: [15-Part Mobile System Design Hub](./engineering/system-design/README.md) (Offline sync, WebSockets, Rate limiting, Video streaming).
+- **Mobile Security & Penetration Defense**: [OWASP Mobile Top 10 & Frida Hook Defense](./engineering/security/README.md) (Keystore, Certificate Pinning, Root/Jailbreak detection).
+- **Production Observability & Telemetry**: [Datadog RUM & Sentry ANR Tracking](./engineering/tools-and-devops/observability/01_datadog_mobile_rum.md)
+- **Career & Engineering Leadership**: [Engineering Management](./career/leadership/01_Engineering_Management.md), [Technical RFCs & ADRs](./career/leadership/02_Technical_Leadership.md), and [STAR Behavioral Frameworks](./career/leadership/04_Behavioral_Questions.md).
+
+---
+
+## 🏛️ Four Core Pillars of the Repository
 
 ```
 awesome-mobile-interviews/
 ├── platforms/          # Native Android, Native iOS, & Cross-Platform (Flutter, KMP, React Native)
 ├── engineering/        # System Design, Security, Testing, Patterns, Algorithms, DevOps, Backend
 ├── career/             # Resumes, Negotiation, Leadership, Management & STAR Behavioral
-└── interviews/         # Interview Frameworks, L1–Staff Suites, 190+ Company Question Banks
+└── interviews/         # Interview Frameworks, L1–Staff Suites, 200+ Company Question Banks
 ```
 
 ---
@@ -101,16 +181,17 @@ awesome-mobile-interviews/
 
 ---
 
-### 🎤 4. [The Interview Vault](./interviews/README.md)
+### 🎤 4. [The Interview Vault (200+ Companies)](./interviews/README.md)
 
 A battle-tested vault of real-world mobile technical interviews, scoring rubrics, and company question banks:
 
 - **[Master Interview & Career Framework](./interviews/01_Interview_Master_Framework.md)**: Multi-platform technical roadmap, engineering lifecycle, and interview stages across Android, iOS, Flutter, and React Native.
 - **[Multi-Platform Job Search & Application Playbook](./interviews/02_Job_Search_Strategy.md)**: LinkedIn Boolean queries for all platforms, Google X-Ray searches, bypassing gatekeepers, and outreach scripts.
+- **[Indian Product-Based Companies Playbook](./interviews/product-based/Indian_Product_Companies_Guide.md)**: Machine coding blueprints, UPI architecture, and salary benchmarks for 60+ Indian unicorns.
 - **[L1 Android Developer Guide (0–3 Yrs)](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose, Coroutines, MVVM, Room, and 5 live coding challenges.
 - **[L1 iOS Developer Guide (0–3 Yrs)](./interviews/04_L1_iOS_Developer_Guide.md)**: Swift 6, SwiftUI vs UIKit, ARC memory management, async/await, MVVM, SwiftData, and 5 live coding challenges.
 - **[L1 Cross-Platform Guide (0–3 Yrs)](./interviews/05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, Flutter BLoC/Riverpod, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
-- **[Product-Based Directory (155+ Companies)](./interviews/product-based/README.md)**: OpenAI, Google, Meta, Apple, Discord, Duolingo, Revolut, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
+- **[Product-Based Directory (160+ Companies)](./interviews/product-based/README.md)**: OpenAI, Google, Meta, Apple, Discord, Duolingo, Revolut, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
 - **[Service-Based Directory (48+ Companies)](./interviews/service-based/README.md)**: Tata Elxsi, Nagarro, UST Global, Endava, Apexon, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, etc.
 
 ---

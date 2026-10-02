@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/vennamprasad/awesome-mobile-interviews/discussions
+    about: Ask questions, discuss mobile architecture patterns, and connect with the community.
+  - name: 🚀 Detailed Learning Roadmap
+    url: https://github.com/vennamprasad/awesome-mobile-interviews/blob/main/ROADMAP.md
+    about: Explore upcoming modules and milestones for the repository.

@@ -14,6 +14,7 @@
 **[🎯 Choose Your Goal](#-where-to-start-choose-your-immediate-goal)** • 
 **[🚦 Experience Paths](#-navigation-by-experience-level--difficulty)** • 
 **[📐 System Design](./engineering/system-design/README.md)** • 
+**[🐍 Python Track](./engineering/python/README.md)** • 
 **[🏢 200+ Company Banks](./interviews/README.md)** • 
 **[🤝 Contribute](./CONTRIBUTING.md)**
 
@@ -25,15 +26,16 @@
 * **⏱️ Understand the Value in 10 Seconds:** No 1,000-page bloated PDFs or paywalls. Every topic is distilled into crisp architectural answers, real code snippets, and production war-stories.
 * **🎯 Calibrated by Experience Level:** Clear distinction between what is expected from a **Junior (0–3 yrs)**, **Mid-Level (3–6 yrs)**, and **Senior/Staff (6+ yrs)** engineer.
 * **📐 Distributed Mobile System Design:** Master real-world client-server architectures with interactive Mermaid diagrams (Offline-First Sync, Live Telemetry, Feed Pagination, Video Streaming).
+* **🐍 Full Python Engineering Track:** 5-phase learning curve from language mechanics & GIL to FastAPI microservices, on-device AI model export (CoreML/TFLite), and mobile automation.
 * **🏢 200+ Verified Company Question Banks:** Real interview questions asked at FAANG, global unicorns (Uber, Spotify, Stripe, OpenAI), and 60+ Indian product powerhouses.
 
 ---
 
 ### ⚡ Quick Glance: The Repository in Numbers
 
-| 📱 4 Stacks | 🏢 200+ Companies | 📐 15+ System Designs | 🚦 L1 to Staff | 💯 100% Free |
-| :---: | :---: | :---: | :---: | :---: |
-| **Android • iOS • Flutter • React Native** | **FAANG, Unicorns & Consultancies** | **WhatsApp, Uber, Instagram, E-Commerce** | **Structured by Experience Level** | **Open Source & Community Driven** |
+| 📱 4 Stacks | 🐍 Python Track | 🏢 200+ Companies | 📐 15+ System Designs | 🚦 L1 to Staff | 💯 100% Free |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **Android • iOS • Flutter • React Native** | **FastAPI • On-Device ML • Automation** | **FAANG, Unicorns & Consultancies** | **WhatsApp, Uber, Instagram, E-Commerce** | **Structured by Experience Level** | **Open Source & Community Driven** |
 
 ---
 
@@ -48,12 +50,14 @@ graph TD
     Start --> C[🔍 Job Hunting & Need Recruiter Inbound]
     Start --> D[📚 Comprehensive Platform Mastery]
     Start --> E[🌉 Switching from Android to iOS]
+    Start --> F[🐍 Learn Python for AI, Backend & Automation]
 
     A --> Vault[👉 Jump to The Interview Vault & Company Banks]
     B --> SysDesign[👉 Jump to 15-Part Mobile System Design Hub]
     C --> JobSearch[👉 Jump to Multi-Platform Job Search & Boolean Playbook]
     D --> Curriculum[👉 Jump to Android, iOS, or Cross-Platform Curriculum]
     E --> Rosetta[👉 Jump to iOS for Android Developers Rosetta Stone]
+    F --> PyTrack[👉 Jump to 5-Phase Python Engineering Track]
 ```
 
 1. **🚀 "I have an upcoming technical interview in less than 2 weeks"**  
@@ -66,6 +70,8 @@ graph TD
    $\rightarrow$ Follow the sequentially numbered tracks: **[Android Mastery (19 Chapters)](./platforms/android/README.md)**, **[iOS Mastery (12 Chapters)](./platforms/ios/README.md)**, or **[Cross-Platform Track](./platforms/cross-platform/README.md)**.
 5. **🌉 "I know Android and need to learn iOS fast (or vice-versa)"**  
    $\rightarrow$ Read **[The Rosetta Stone Mental Model Bridge](./platforms/ios/iOS_for_Android_Developers_Rosetta_Stone.md)** (Compose vs SwiftUI, Coroutines vs Actors, Room vs SwiftData, JVM GC vs ARC).
+6. **🐍 "I want to master Python for AI, Backend APIs, or Automation"**  
+   $\rightarrow$ Follow the **[5-Phase Python Engineering Track](./engineering/python/README.md)** (GIL & memory mechanics, FastAPI backends, PyTorch to CoreML/TFLite on-device export, ADB scripting, and DSA).
 
 ---
 

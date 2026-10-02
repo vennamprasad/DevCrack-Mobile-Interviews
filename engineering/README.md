@@ -20,6 +20,7 @@
 | **Tools, Observability & DevOps** | **[Tools, Observability & Experimentation](./tools-and-devops/README.md)** | **Observability:** Datadog RUM, Sentry, Embrace.io (100% session capture), Firebase Crashlytics & Perf.<br>**Experimentation:** LaunchDarkly (SSE streaming), Statsig (Pulse metrics), Split.io, Eppo.<br>**Performance & Binary:** Emerge Tools (DEX/Mach-O analysis, startup flamegraphs).<br>**Growth & Linking:** Branch.io (Deferred Deep Linking), AppsFlyer (MMP attribution).<br>**Release & Dev:** Runway release trains, Fastlane, Proxyman, Chucker, Git internals. |
 | **Backend & Cloud Foundations** | **[Backend & Cloud](./backend-and-cloud/README.md)** | Cloud-native microservices, Docker/K8s, REST API design, GraphQL & Apollo client caching, and serverless Firebase backends. |
 | **Emerging Tech** | **[Emerging Tech](./emerging-tech/README.md)** | On-Device ML (CoreML, TFLite), VisionOS spatial computing, WCAG Accessibility (a11y), AI Engineering (RAG, on-device SLMs), and AdTech/Media playback. |
+| **Python Engineering Track** | **[Python Track](./python/README.md)** | Full 5-phase learning curve: Runtime mechanics (GIL, memory, asyncio), FastAPI mobile backends, on-device ML export (CoreML/TFLite/ExecuTorch), ADB automation, and interview DSA. |
 
 ---
 

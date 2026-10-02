@@ -4,20 +4,12 @@
 
 ---
 
-## 🌟 Featured Deep-Dive Guides
-
-- **[Ascendion - Senior Android Engineer Interview Suite](./Ascendion/Senior_Android_Interview_Suite.md)**: Staff-level 60-minute interview handbook with rubric and scoring guide.
-- **[Ascendion - 45-Minute Live Code Review & Debugging](./Ascendion/Coding_Challenge_and_Review.md)**: Real-time code challenge with intentional coroutine leaks and recomposition bugs.
-
----
-
 ## 🏢 Company Question Banks
 
 | Company | Guide | Company | Guide |
 | :--- | :--- | :--- | :--- |
-| **Accenture** | [Accenture.md](./Accenture/Accenture.md) | **Ascendion** | [Ascendion](./Ascendion) |
-| **Atos** | [Atos.md](./Atos/Atos.md) | **Birlasoft** | [Birlasoft.md](./Birlasoft/Birlasoft.md) |
-| **Brillio** | [Brillio.md](./Brillio/Brillio.md) | **Capgemini** | [Capgemini.md](./Capgemini/Capgemini.md) |
+| **Accenture** | [Accenture.md](./Accenture/Accenture.md) | **Atos** | [Atos.md](./Atos/Atos.md) |
+| **Birlasoft** | [Birlasoft.md](./Birlasoft/Birlasoft.md) | **Brillio** | [Brillio.md](./Brillio/Brillio.md) |
 | **CGI** | [CGI.md](./CGI/CGI.md) | **Coforge** | [Coforge.md](./Coforge/Coforge.md) |
 | **Cognizant** | [Cognizant.md](./Cognizant/Cognizant.md) | **Cyient** | [Cyient.md](./Cyient/Cyient.md) |
 | **Deloitte** | [Delloite.md](./Delloite/Delloite.md) | **DXC Technology** | [DXC_Technology.md](./DXC_Technology/DXC_Technology.md) |

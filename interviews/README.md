@@ -16,19 +16,15 @@
 - **[L1 iOS Developer Interview Guide](./04_L1_iOS_Developer_Guide.md)**: Swift 6 core, SwiftUI vs UIKit, ARC memory management, async/await concurrency, MVVM, SwiftData, XCTest, and 5 live coding challenges.
 - **[L1 Cross-Platform (Flutter & React Native) Guide](./05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, BLoC/Riverpod, Redux/Zustand, Impeller engine, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
 
-### 🟠 Senior to Staff / Lead (4–10+ Years)
-- **[Senior Android Engineer Interview Suite (Ascendion)](./service-based/Ascendion/Senior_Android_Interview_Suite.md)**: Production-grade interview handbook covering concurrency internals, Compose compiler stability, memory leaks, ANR resolution, and architectural trade-offs.
-- **[45-Minute Live Code Review Challenge](./service-based/Ascendion/Coding_Challenge_and_Review.md)**: Hands-on debugging challenge with 6 intentional anti-patterns and performance bugs for evaluating senior candidates.
-
 ### 🕵️‍♂️ Career Navigation & Job Search Playbook
 - **[Multi-Platform Job Search & Application Playbook](./02_Job_Search_Strategy.md)**: LinkedIn Boolean queries for Android, iOS, Flutter, and React Native, Google X-Ray searches, bypassing HR gatekeepers, cold outreach scripts, and the Rule of 100 tracker.
 - **[Comprehensive Interview Master Framework](./01_Interview_Master_Framework.md)**: Multi-platform career ladder (Junior $\to$ Principal), corporate dual-track structures, competency matrices, and unified engineering lifecycles.
 
 ---
 
-## 🏢 Company-Specific Question Banks
+## 🏢 Company Question Banks
 
 | Category | Count | Link | Notable Companies |
 | :--- | :--- | :--- | :--- |
 | **Product-Based Companies** | 145+ | **[product-based Directory](./product-based/README.md)** | Google, Meta, Apple, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato |
-| **Service-Based & Consulting** | 45+ | **[service-based Directory](./service-based/README.md)** | Ascendion, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic |
+| **Service-Based & Consulting** | 40+ | **[service-based Directory](./service-based/README.md)** | EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic |

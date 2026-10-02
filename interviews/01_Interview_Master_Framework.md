@@ -77,9 +77,6 @@ graph TD
 - **Code Quality & Mentorship:** Review code for architectural adherence, enforce lint rules and best practices, and mentor junior developers.
 - **End-to-End Ownership:** Own features from technical design through staging, A/B testing, and production deployment.
 
-👉 **Senior Suite:** [Senior Android Engineer Interview Suite (Ascendion)](./service-based/Ascendion/Senior_Android_Interview_Suite.md)  
-👉 **Live PR Review:** [45-Minute Live Code Review & Debugging Challenge](./service-based/Ascendion/Coding_Challenge_and_Review.md)
-
 ---
 
 ### 3. Lead Mobile Developer / Tech Lead (6–9+ Years)
@@ -202,7 +199,5 @@ In high-performing software organizations, engineering leadership operates along
 | **L1 iOS Developer Guide** | iOS (Swift) | Swift, SwiftUI vs UIKit, Concurrency, ARC, MVVM, SwiftData, XCTest, Live Coding | **[View iOS L1 Guide](./04_L1_iOS_Developer_Guide.md)** |
 | **L1 Cross-Platform Guide** | Flutter & React Native | Dart & TS, BLoC & Riverpod, Redux & Zustand, Bridges, Hermès, Impeller, Live Coding | **[View Cross-Platform Guide](./05_L1_Cross_Platform_Guide.md)** |
 | **Multi-Platform Job Search** | All Platforms | Boolean Queries, LinkedIn Hacks, Google X-Ray strings, Cold Outreach, ATS | **[View Job Search Strategy](./02_Job_Search_Strategy.md)** |
-| **Senior Engineer Interview Suite** | Senior / Lead | Architecture, Memory Profiling, Concurrency, Compose internals, Scorecard | **[View Senior Suite](./service-based/Ascendion/Senior_Android_Interview_Suite.md)** |
-| **Live PR Review & Code Challenge** | Senior / Lead | Debugging 6 anti-patterns, Debounced search, Coroutine leaks | **[View PR Challenge](./service-based/Ascendion/Coding_Challenge_and_Review.md)** |
 | **Product-Based Question Bank** | All Platforms | 145+ Product companies (Google, Meta, Apple, Uber, Amazon, Netflix, etc.) | **[Browse Product Bank](./product-based/README.md)** |
-| **Service-Based Question Bank** | All Platforms | 45+ Consulting firms (Ascendion, EPAM, Thoughtworks, TCS, etc.) | **[Browse Service Bank](./service-based/README.md)** |
+| **Service-Based Question Bank** | All Platforms | 40+ Consulting firms (EPAM, Thoughtworks, TCS, Accenture, etc.) | **[Browse Service Bank](./service-based/README.md)** |

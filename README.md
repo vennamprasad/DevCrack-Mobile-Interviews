@@ -110,10 +110,8 @@ A battle-tested vault of real-world mobile technical interviews, scoring rubrics
 - **[L1 Android Developer Guide (0–3 Yrs)](./interviews/03_L1_Android_Developer_Guide.md)**: 50+ Q&A, lifecycles, Compose, Coroutines, MVVM, Room, and 5 live coding challenges.
 - **[L1 iOS Developer Guide (0–3 Yrs)](./interviews/04_L1_iOS_Developer_Guide.md)**: Swift 6, SwiftUI vs UIKit, ARC memory management, async/await, MVVM, SwiftData, and 5 live coding challenges.
 - **[L1 Cross-Platform Guide (0–3 Yrs)](./interviews/05_L1_Cross_Platform_Guide.md)**: Dart & TypeScript, Flutter BLoC/Riverpod, React Native New Architecture (JSI/Fabric/TurboModules), and 5 live coding challenges.
-- **[Ascendion Senior Android Engineer Suite](./interviews/service-based/Ascendion/Senior_Android_Interview_Suite.md)**: 60-min interviewer handbook with rubric and candidate scorecard.
-- **[45-Minute Live Code Review Challenge](./interviews/service-based/Ascendion/Coding_Challenge_and_Review.md)**: Hands-on debugging challenge with 6 intentional production bugs.
 - **[Product-Based Directory (145+ Companies)](./interviews/product-based/README.md)**: Google, Apple, Meta, Amazon, Netflix, Uber, Spotify, Stripe, Airbnb, Flipkart, Swiggy, Zomato, etc.
-- **[Service-Based Directory (45+ Companies)](./interviews/service-based/README.md)**: Ascendion, EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic, etc.
+- **[Service-Based Directory (40+ Companies)](./interviews/service-based/README.md)**: EPAM, Thoughtworks, Accenture, Cognizant, Infosys, TCS, Wipro, GlobalLogic, etc.
 
 ---
 
